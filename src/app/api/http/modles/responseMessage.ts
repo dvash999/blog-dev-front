@@ -1,4 +1,4 @@
-export interface Response {
+export interface ResponseMessage {
   message: string;
   status: number;
 }

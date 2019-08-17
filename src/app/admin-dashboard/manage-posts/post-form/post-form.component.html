@@ -1,0 +1,18 @@
+<form [formGroup]="post" #formPost='ngForm' (ngSubmit)="onSubmit()">
+  <div class="form-group">
+   <mat-form-field>
+     <input matInput formControlName="title" placeholder="title">
+   </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input matInput formControlName="author" placeholder="author"/>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <textarea matInput formControlName="content" placeholder="content"></textarea>
+    </mat-form-field>
+  </div>
+<button type="submit">Submit</button>
+</form>
