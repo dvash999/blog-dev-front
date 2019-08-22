@@ -37,10 +37,10 @@ export class ManagePostsService {
   }
 
   updatePost(post): Observable<ResponseMessage> {
-    const headers = new httpHeaders()
-      .set('X-Auth', 'user-id');
+    // const headers = new httpHeaders()
+    //   .set('X-Auth', 'user-id');
 
     console.log(`${ROOT_URL}/posts/${post.id}`)
-    return this.http.put<ResponseMessage>(`${ROOT_URL}/posts/${post.id}`, post, {headers});
+    return this.http.put<ResponseMessage>(`${ROOT_URL}/posts/${post.id}`, post);
   }
 }

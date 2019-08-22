@@ -6,23 +6,12 @@ import {ManagePostsService} from '../../../api/http/admin/manage-posts.service';
 import {ResponseMessage} from '../../../api/http/modles/responseMessage';
 import {createInjectionToken} from '@angular/compiler/src/core';
 
-function postServices(http: HttpClient): ManagePostsService {
-  return new ManagePostsService(http);
-}
-
 export const postServiceToken = new InjectionToken<ManagePostsService>('postServiceToken');
 
 @Component({
   selector: 'app-edit-post',
   templateUrl: './edit-post.component.html',
   styleUrls: ['./edit-post.component.css'],
-  providers: [
-    { provide: postServiceToken,
-      useFactory: postServices,
-      deps: [HttpClient]
-
-
-  ]
 })
 export class EditPostComponent implements OnInit, OnDestroy {
 
@@ -33,8 +22,7 @@ export class EditPostComponent implements OnInit, OnDestroy {
 
   postToEdit: Subscription;
 
-  constructor(private route: ActivatedRoute, private managePostsService: ManagePostsService,
-  @Inject(postServiceToken)) { }
+  constructor(private route: ActivatedRoute, private managePostsService: ManagePostsService) { }
 
   ngOnInit() {
     this.postToEdit = this.route.params.subscribe(postToEdit => {
