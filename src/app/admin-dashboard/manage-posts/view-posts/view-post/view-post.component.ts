@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Post} from '../../post.model';
-import {ActivatedRoute, Params, Route} from '@angular/router';
 
 @Component({
   selector: 'app-view-post',
@@ -8,13 +7,16 @@ import {ActivatedRoute, Params, Route} from '@angular/router';
   styleUrls: ['./view-post.component.css']
 })
 export class ViewPostComponent implements OnInit {
-  post: Post;
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
+
+  @Output() postDeleted: EventEmitter<any>;
+  @Input()  postID: number;
 
   ngOnInit() {
-    this.route.params.subscribe((params: Post)  => {
-      this.post = params;
-    });
+  }
+
+  deletePost() {
+    this.postDeleted.emit(this.postID);
   }
 
 }

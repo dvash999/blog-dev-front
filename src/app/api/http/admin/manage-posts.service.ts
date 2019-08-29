@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { ROOT_URL } from '../modles/api-helper';
 import { Observable } from 'rxjs';
 import { Post } from '../../../admin-dashboard/manage-posts/post.model';
@@ -11,6 +11,19 @@ import { ResponseMessage } from '../modles/responseMessage';
 export class ManagePostsService {
 
   constructor(private http: HttpClient) { }
+
+
+  static getHttpHeaders(): any {
+   return {
+     headers: new HttpHeaders({
+       'Content-Type': 'application/json',
+       'Access-Control-Allow-Origin':  '*',
+       'Access-Control-Allow-Headers':  'Content-Type, X-Auth-Token, Authorization, Origin',
+       'Access-Control-Allow-Methods':  'GET, PUT, POST, DELETE'
+     })
+   };
+  }
+
 
   private handleError(errorResponse: HttpErrorResponse) {
     if (errorResponse.error instanceof ErrorEvent) {
@@ -32,15 +45,19 @@ export class ManagePostsService {
     return this.http.get<Post[]>(`${ROOT_URL}/posts`);
   }
 
+
   uploadPost(post): Observable<ResponseMessage> {
     return this.http.post<ResponseMessage>(`${ROOT_URL}/posts`, post);
   }
 
   updatePost(post): Observable<ResponseMessage> {
-    // const headers = new httpHeaders()
-    //   .set('X-Auth', 'user-id');
-
-    console.log(`${ROOT_URL}/posts/${post.id}`)
     return this.http.put<ResponseMessage>(`${ROOT_URL}/posts/${post.id}`, post);
+  }
+
+  deletePost(postID): Promise<ResponseMessage> {
+    return this.http.delete(`${ROOT_URL}/posts/${postID}`, ManagePostsService.getHttpHeaders())
+      .toPromise()
+      .then(response => response)
+      .catch(err => err);
   }
 }
