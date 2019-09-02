@@ -1,4 +1,3 @@
-<app-side-menu></app-side-menu>
 <div *ngIf="canShowPostList">
   <button class="btn btn-primary" routerLink="new-post">Upload Post</button>
   <div class="d-flex container flex-column mt-5">
@@ -18,5 +17,3 @@
   (toPostList)="showPostList()"
   [post]="chosenPost">
 </app-view-post>
-
-<router-outlet></router-outlet>
