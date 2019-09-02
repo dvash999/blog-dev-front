@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
+import { AdminModule } from './admin/admin.module';
 import {BlogModule} from './blog/blog.module';
+import {AppComponent} from './app.component';
 
 const appRoutes: Routes = [
-  {path: '', loadChildren: () => BlogModule },
-  {path: 'admin', loadChildren: () =>  AdminDashboardModule},
+  // {path: '', loadChildren: () => BlogModule },
+  {path: '', component: AppComponent, children: [
+      {path: 'admin', loadChildren: () =>  AdminModule},
+    ] },
+
 ];
 
 @NgModule({
