@@ -6,19 +6,11 @@ import {Post} from '../../../models/post.model';
   templateUrl: './post-card.component.html',
   styleUrls: ['./post-card.component.css']
 })
-export class PostCardComponent implements OnInit {
+export class PostCardComponent {
 
   @Input() post: Post;
-  @Output() showPost = new EventEmitter<Post>();
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
-
-  openPost() {
-    this.showPost.emit(this.post);
-  }
 
 }

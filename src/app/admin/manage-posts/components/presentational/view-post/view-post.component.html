@@ -1,5 +1,6 @@
 <div class="p-4 post">
   <div><button class="btn btn-danger float-right" (click)="deletePost()">DELETE</button></div>
+  <button class="btn btn-primary" [routerLink]="['edit-post/', post.id, post]">Edit Post</button>
   <div><button class="btn btn-primary float-left" (click)="backToPostList()">Back</button></div>
   <div class="mt-5 p-5">
     <h1>{{post.title}}</h1>
