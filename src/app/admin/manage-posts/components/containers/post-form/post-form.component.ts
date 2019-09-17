@@ -28,6 +28,9 @@ export class PostFormComponent implements OnInit {
 
   onSubmit() {
     this.submitForm.emit(this.post.value);
+  }
+
+  resetForm() {
     this.post.reset();
   }
 

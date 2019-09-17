@@ -1,5 +1,5 @@
 <div *ngIf="canShowPostList">
-  <button class="btn btn-primary" routerLink="new-post">Upload Post</button>
+  <button class="btn btn-primary" routerLink="new-post">New Post</button>
   <div class="d-flex container flex-column mt-2">
     <h4>Posts</h4>
     <ul class="d-flex row mt-6" *ngIf="postList$ | async as postList">

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
-import {PostModule} from './post/post.module';
+import {PostModule} from './post/module/post.module';
 import {PostslistComponent} from './postslist.component';
 
 const blogRoutes: Routes = [

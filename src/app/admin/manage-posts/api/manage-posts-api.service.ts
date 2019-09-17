@@ -9,7 +9,7 @@ import { ResponseMessage } from '../../../api/http/modles/responseMessage';
   providedIn: 'root'
 })
 export class ManagePostsApiService {
-
+  MANAGE_POSTS_URL = `${ROOT_URL}/admin/manage-posts`;
   constructor(private http: HttpClient) { }
 
 
@@ -24,7 +24,6 @@ export class ManagePostsApiService {
    };
   }
 
-
   private handleError(errorResponse: HttpErrorResponse) {
     if (errorResponse.error instanceof ErrorEvent) {
       console.error('Client Side Error', errorResponse.error.message);
@@ -34,28 +33,21 @@ export class ManagePostsApiService {
     return new ErrorEvent('there was an error');
   }
 
-  // getAllPosts(): Promise<Post[]> {
-  //   return this.http.get(`${ROOT_URL}/posts`)
-  //     .toPromise()
-  //     .then( posts => posts as Post[])
-  //     .catch(err => err);
-  // }
-
   getAllPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${ROOT_URL}/posts`);
+    return this.http.get<Post[]>(this.MANAGE_POSTS_URL);
   }
 
 
   uploadPost(post): Observable<ResponseMessage> {
-    return this.http.post<ResponseMessage>(`${ROOT_URL}/posts`, post);
+    return this.http.post<ResponseMessage>(this.MANAGE_POSTS_URL, post);
   }
 
   updatePost(post): Observable<ResponseMessage> {
-    return this.http.put<ResponseMessage>(`${ROOT_URL}/posts/${post.id}`, post);
+    return this.http.put<ResponseMessage>(`${this.MANAGE_POSTS_URL}/${post.id}`, post);
   }
 
   deletePost(postID): Promise<ResponseMessage> {
-    return this.http.delete(`${ROOT_URL}/posts/${postID}`, ManagePostsApiService.getHttpHeaders())
+    return this.http.delete(`${this.MANAGE_POSTS_URL}/${postID}`, ManagePostsApiService.getHttpHeaders())
       .toPromise()
       .then(response => response)
       .catch(err => err);

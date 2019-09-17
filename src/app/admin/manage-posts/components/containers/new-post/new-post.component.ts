@@ -8,6 +8,7 @@ import { ResponseMessage } from '../../../../../api/http/modles/responseMessage'
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
+  // submittedSuccess: boolean;
   constructor(private managePostsService: ManagePostsApiService) { }
 
   ngOnInit() {
@@ -15,7 +16,9 @@ export class NewPostComponent implements OnInit {
 
   uploadPost(post) {
     this.managePostsService.uploadPost(post).subscribe((response: ResponseMessage) => {
-      console.log(response.message);
+      // if (response.message === 'success') {
+      //   this.submittedSuccess = true;
+      // }
     });
   }
 }

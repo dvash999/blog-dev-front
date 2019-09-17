@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ContentChild, ElementRef, OnInit, ViewChild} from '@angular/core';
-// import { Post } from 'src/app/blog/postslist/post/post';
+// import { Post } from 'src/app/public/postslist/post/post';
 import {PostComponent} from './post/post.component';
 
 @Component({
