@@ -5,12 +5,13 @@ import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManagePostsModule } from './manage-posts/modules/manage-posts.module';
 import { AdminSharedModule } from './admin-shared/admin-shared.module';
+import {ManageUsersModule} from './users/module/manage-users.module';
 
 const adminRoutes: Routes = [
   { path: '', component: AdminComponent, children: [
       { path: 'dashboard', component: DashboardComponent},
       { path: 'manage-posts', loadChildren: () => ManagePostsModule },
-      { path: 'users', loadChildren: () => ManagePostsModule }
+      { path: 'manage-users', loadChildren: () => ManageUsersModule }
     ]},
 
 ];
