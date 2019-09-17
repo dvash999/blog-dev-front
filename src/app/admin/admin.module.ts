@@ -9,7 +9,8 @@ import { AdminSharedModule } from './admin-shared/admin-shared.module';
 const adminRoutes: Routes = [
   { path: '', component: AdminComponent, children: [
       { path: 'dashboard', component: DashboardComponent},
-      { path: 'manage-posts', loadChildren: () => ManagePostsModule }
+      { path: 'manage-posts', loadChildren: () => ManagePostsModule },
+      { path: 'users', loadChildren: () => ManagePostsModule }
     ]},
 
 ];
