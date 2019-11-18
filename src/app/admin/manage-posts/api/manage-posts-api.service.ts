@@ -9,7 +9,7 @@ import { ResponseMessage } from '../../../api/http/modles/responseMessage';
   providedIn: 'root'
 })
 export class ManagePostsApiService {
-  MANAGE_POSTS_URL = `${ROOT_URL}/admin/manage-posts`;
+  MANAGE_POSTS_URL = `${ROOT_URL}/admin/posts`;
   constructor(private http: HttpClient) { }
 
 
@@ -37,9 +37,8 @@ export class ManagePostsApiService {
     return this.http.get<Post[]>(this.MANAGE_POSTS_URL);
   }
 
-
-  uploadPost(post): Observable<ResponseMessage> {
-    return this.http.post<ResponseMessage>(this.MANAGE_POSTS_URL, post);
+  addPost(post): Observable<ResponseMessage> {
+    return this.http.post<ResponseMessage>(`${this.MANAGE_POSTS_URL}`, post);
   }
 
   updatePost(post): Observable<ResponseMessage> {

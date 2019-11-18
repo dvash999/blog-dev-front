@@ -17,31 +17,24 @@ export class ViewPostsComponent implements OnInit {
   canShowPostList = true;
   chosenPost: Post;
 
-  constructor(private router: Router, private managePostsService: ManagePostsApiService, private managePostService: ManagePostsApiService) { }
+  constructor(private router: Router, private managePostsService: ManagePostsApiService,
+              private managePostService: ManagePostsApiService) { }
 
   ngOnInit() {
     this.postList$ = this.managePostsService.getAllPosts();
-    const vals$ = this.postList$
-    .pipe(
-      map(res => Object.values(res))
-    );
-    console.log(vals$);
-
-    // vals$.subscribe(val => console.log(val.filter(
-  //   post => post.author === 'Dror')));
   }
 
-  deletePost(postID) {
+  deletePost(postID): void {
     this.managePostService.deletePost(postID).then(message => console.log(message));
   }
 
-  showPost(post) {
+  showPost(post): void {
     this.canShowPost = true;
     this.canShowPostList = false;
     this.chosenPost = post;
   }
 
-  showPostList() {
+  showPostList(): void {
     this.canShowPostList = true;
     this.canShowPost = false;
   }

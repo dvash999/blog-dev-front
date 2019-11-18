@@ -14,8 +14,8 @@ export class NewPostComponent implements OnInit {
   ngOnInit() {
   }
 
-  uploadPost(post) {
-    this.managePostsService.uploadPost(post).subscribe((response: ResponseMessage) => {
+  uploadNewPost(post) {
+    this.managePostsService.addPost(post).subscribe((response: ResponseMessage) => {
       // if (response.message === 'success') {
       //   this.submittedSuccess = true;
       // }
