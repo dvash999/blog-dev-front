@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ManagePostsApiService } from '../../../api/manage-posts-api.service';
-import { Post } from '../../../models/post.model';
+import { ManagePostsService } from '../../../api/manage-posts.service';
+import { Post } from '../../../models/Post.model';
 import {map} from 'rxjs/operators';
 
 
@@ -17,8 +17,8 @@ export class ViewPostsComponent implements OnInit {
   canShowPostList = true;
   chosenPost: Post;
 
-  constructor(private router: Router, private managePostsService: ManagePostsApiService,
-              private managePostService: ManagePostsApiService) { }
+  constructor(private router: Router, private managePostsService: ManagePostsService,
+              private managePostService: ManagePostsService) { }
 
   ngOnInit() {
     this.postList$ = this.managePostsService.getAllPosts();

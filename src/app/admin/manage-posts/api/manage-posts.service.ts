@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { ROOT_URL } from '../../../api/http/modles/api-helper';
 import { Observable } from 'rxjs';
-import { Post } from '../models/post.model';
+import { Post } from '../models/Post.model';
 import { ResponseMessage } from '../../../api/http/modles/responseMessage';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ManagePostsApiService {
+export class ManagePostsService {
   MANAGE_POSTS_URL = `${ROOT_URL}/admin/posts`;
-  constructor(private http: HttpClient) { }
 
+  constructor(private http: HttpClient) { }
 
   static getHttpHeaders(): any {
    return {
@@ -46,7 +46,7 @@ export class ManagePostsApiService {
   }
 
   deletePost(postID): Promise<ResponseMessage> {
-    return this.http.delete(`${this.MANAGE_POSTS_URL}/${postID}`, ManagePostsApiService.getHttpHeaders())
+    return this.http.delete(`${this.MANAGE_POSTS_URL}/${postID}`, ManagePostsService.getHttpHeaders())
       .toPromise()
       .then(response => response)
       .catch(err => err);

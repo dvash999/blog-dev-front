@@ -21,8 +21,8 @@ const adminRoutes: Routes = [
   imports: [
     RouterModule.forChild(adminRoutes),
     AdminSharedModule,
-    CommonModule,
+    CommonModule
   ],
-  exports: [RouterModule, AdminComponent, DashboardComponent]
+  exports: [RouterModule, AdminComponent, DashboardComponent, AdminSharedModule]
 })
 export class AdminModule {}

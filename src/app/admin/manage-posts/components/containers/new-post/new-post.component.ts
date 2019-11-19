@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ManagePostsApiService } from '../../../api/manage-posts-api.service';
+import { ManagePostsService } from '../../../api/manage-posts.service';
 import { ResponseMessage } from '../../../../../api/http/modles/responseMessage';
 
 @Component({
@@ -9,7 +9,7 @@ import { ResponseMessage } from '../../../../../api/http/modles/responseMessage'
 })
 export class NewPostComponent implements OnInit {
   // submittedSuccess: boolean;
-  constructor(private managePostsService: ManagePostsApiService) { }
+  constructor(private managePostsService: ManagePostsService) { }
 
   ngOnInit() {
   }

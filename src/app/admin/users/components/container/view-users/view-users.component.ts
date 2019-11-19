@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ManageUsersModule} from '../../../module/manage-users.module';
+import {ManageUsersService} from '../../../api/manage-users.service';
+import {Observable} from 'rxjs';
+import {User} from '../../../models/User.model';
 
 @Component({
   selector: 'app-view-users',
@@ -6,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-users.component.css']
 })
 export class ViewUsersComponent implements OnInit {
+  users$: Observable<User[]>;
 
-  constructor() { }
+  constructor(private manageUsersService: ManageUsersService) { }
 
   ngOnInit() {
+    this.users$ = this.manageUsersService.getAllusers();
   }
 
 }
