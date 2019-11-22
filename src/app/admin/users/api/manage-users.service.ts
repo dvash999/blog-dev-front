@@ -8,7 +8,7 @@ import {User} from '../models/User.model';
   providedIn: 'root'
 })
 export class ManageUsersService {
-  MANAGE_USERS_URL = `${ROOT_URL}/admin/users`;
+  MANAGE_USERS_URL = `${ROOT_URL}/admin/manage-users`;
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +24,8 @@ export class ManageUsersService {
   }
 
   getAllusers(): Observable<User[]> {
-    return this.http.get<User[]>(this.MANAGE_USERS_URL, ManageUsersService.getHttpHeaders());
+    return this.http.get<User[]>(this.MANAGE_USERS_URL);
   }
+
+
 }

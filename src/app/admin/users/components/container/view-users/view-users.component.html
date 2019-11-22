@@ -1,24 +1,30 @@
-<mat-table class="lessons-table mat-elevation-z8" [dataSource]="users$ | async">
 
-<!--  <ng-container matColumnDef="seqNo">-->
-<!--    <div *matHeaderCellDef>#</div>-->
-<!--    <div *matCellDef="let lesson">{{lesson.seqNo}}</div>-->
-<!--  </ng-container>-->
+<div>
+  <div>
+    <div></div>
+    <div></div>
+  </div>
 
-<!--  <ng-container matColumnDef="description">-->
-<!--    <div *matHeaderCellDef>Description</div>-->
-<!--    <div class="description-cell"-->
-<!--         *matCellDef="let lesson">{{lesson.description}}</div>-->
-<!--  </ng-container>-->
+<table class="table mt-5">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users$ | async" >
+<!--    <th scope="row">1</th>-->
+    <td>{{user.id}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <td class="row">
+      <i class="far fa-trash-alt"></i>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
 
-<!--  <ng-container matColumnDef="duration">-->
-<!--    <div *matHeaderCellDef>Duration</div>-->
-<!--    <div class="duration-cell"-->
-<!--         *matCellDef="let lesson">{{lesson.duration}}</div>-->
-<!--  </ng-container>-->
-
-<!--  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
-
-<!--  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>-->
-
-</mat-table>

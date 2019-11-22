@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ManagePostsService } from '../../../api/manage-posts.service';
 import { Post } from '../../../models/Post.model';
-import {map} from 'rxjs/operators';
 
 
 @Component({
@@ -12,7 +11,9 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./view-posts.component.css']
 })
 export class ViewPostsComponent implements OnInit {
+  // postList$: Observable<Post[]>;
   postList$: Observable<Post[]>;
+
   canShowPost = false;
   canShowPostList = true;
   chosenPost: Post;

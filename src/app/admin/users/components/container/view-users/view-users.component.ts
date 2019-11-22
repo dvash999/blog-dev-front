@@ -10,7 +10,9 @@ import {User} from '../../../models/User.model';
   styleUrls: ['./view-users.component.css']
 })
 export class ViewUsersComponent implements OnInit {
+  // users$: Observable<User[]>;
   users$: Observable<User[]>;
+
 
   constructor(private manageUsersService: ManageUsersService) { }
 
