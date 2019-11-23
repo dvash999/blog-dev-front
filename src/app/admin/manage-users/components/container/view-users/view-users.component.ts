@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ManageUsersService} from '../../../api/manage-users.service';
 import {Observable} from 'rxjs';
 import {User} from '../../../models/User.model';
+import {NotificationsService} from '../../../../../shared/notifications/notifications.service';
 
 @Component({
   selector: 'app-view-users',
@@ -12,7 +13,7 @@ export class ViewUsersComponent implements OnInit {
   users$: User[];
   columnTitles = ['ID', 'Name', 'Email', 'Action'];
 
-  constructor(private manageUsersService: ManageUsersService) { }
+  constructor(private manageUsersService: ManageUsersService, private notificationsService: NotificationsService) { }
 
   ngOnInit() {
     this.getAllUsers();
@@ -23,9 +24,18 @@ export class ViewUsersComponent implements OnInit {
   }
 
   deleteUser(id) {
-    this.manageUsersService.deleteUser(id).then(() => {
-      this.users$ = this.users$.filter(user => user.id !== id);
-    });
+    NotificationsService.warning().then(response => {
+      console.log(response);
+      if (response.dismiss) return;
+
+      this.manageUsersService.deleteUser(id).then(() => {
+        this.users$ = this.users$.filter(user => user.id !== id);
+      });
+    }
+
+  );
+
+
   }
 
 }

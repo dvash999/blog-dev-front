@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { PostFormComponent } from '../components/containers/post-form/post-form.component';
 import { AdminSharedModule } from '../../admin-shared/admin-shared.module';
+import {TableModule} from '../../../shared/table/table.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AdminSharedModule } from '../../admin-shared/admin-shared.module';
     MatSelectModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatChipsModule
+    MatChipsModule,
+    TableModule
   ],
   providers: []
 })
