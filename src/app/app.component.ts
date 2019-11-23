@@ -13,10 +13,10 @@ export class AppComponent implements OnInit {
   }
 
   onToggle(toggle) {
-    console.log(toggle)
+    // console.log(toggle)
   }
 
   headerToggle(message) {
-    console.log(message);
+    // console.log(message);
   }
 }

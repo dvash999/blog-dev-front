@@ -9,7 +9,7 @@ import { ResponseMessage } from '../../../api/http/modles/responseMessage';
   providedIn: 'root'
 })
 export class ManagePostsService {
-  MANAGE_POSTS_URL = `${ROOT_URL}/admin/posts`;
+  MANAGE_POSTS_URL = `${ROOT_URL}/admin/manage-posts`;
 
   constructor(private http: HttpClient) { }
 

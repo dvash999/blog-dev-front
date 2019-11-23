@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ManageUsersModule} from '../../../module/manage-users.module';
 import {ManageUsersService} from '../../../api/manage-users.service';
 import {Observable} from 'rxjs';
 import {User} from '../../../models/User.model';
@@ -10,14 +9,23 @@ import {User} from '../../../models/User.model';
   styleUrls: ['./view-users.component.css']
 })
 export class ViewUsersComponent implements OnInit {
-  // users$: Observable<User[]>;
-  users$: Observable<User[]>;
-
+  users$: User[];
+  columnTitles = ['ID', 'Name', 'Email', 'Action'];
 
   constructor(private manageUsersService: ManageUsersService) { }
 
   ngOnInit() {
-    this.users$ = this.manageUsersService.getAllusers();
+    this.getAllUsers();
+  }
+
+  getAllUsers() {
+    this.manageUsersService.getAllusers().subscribe(users => this.users$ = users);
+  }
+
+  deleteUser(id) {
+    this.manageUsersService.deleteUser(id).then(() => {
+      this.users$ = this.users$.filter(user => user.id !== id);
+    });
   }
 
 }

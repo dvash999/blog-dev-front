@@ -27,5 +27,12 @@ export class ManageUsersService {
     return this.http.get<User[]>(this.MANAGE_USERS_URL);
   }
 
+  deleteUser(id): Promise<User> {
+    return this.http.delete<User>(`${this.MANAGE_USERS_URL}/${id}}`)
+      .toPromise()
+      .then(users => users)
+      .catch(err => err);
+  }
+
 
 }

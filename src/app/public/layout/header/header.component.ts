@@ -14,7 +14,7 @@ toggleHeader = new EventEmitter();
   }
 
   toggleDown() {
-    console.log('header');
+    // console.log('header');
     this.toggleHeader.emit('header');
   }
 
