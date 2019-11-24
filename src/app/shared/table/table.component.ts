@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
   @Input() public items;
   @Output() deleteUser = new EventEmitter<any>();
 
-
+// TODO - refactor the html ASAP
   ngOnInit() {
   }
 

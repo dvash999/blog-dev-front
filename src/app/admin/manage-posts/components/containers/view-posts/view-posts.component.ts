@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ManagePostsService } from '../../../api/manage-posts.service';
 import { Post } from '../../../models/Post.model';
-import {NotificationsService} from '../../../../../shared/notifications/notifications.service';
-
+import { NotificationsService } from '../../../../../shared/notifications/notifications.service';
 
 @Component({
   selector: 'app-view-posts',
@@ -19,35 +18,34 @@ export class ViewPostsComponent implements OnInit {
   canShowPostList = true;
   chosenPost: Post;
 
-  columnTitles = ['ID',  'Subject', 'Title', 'Dates', 'Likes', 'Comments'];
+  columnTitles = ['ID', 'Subject', 'Title', 'Dates', 'Likes', 'Comments'];
 
-  constructor(private router: Router, private managePostsService: ManagePostsService,
-              private managePostService: ManagePostsService) { }
+  constructor(
+    private router: Router,
+    private managePostsService: ManagePostsService,
+    private managePostService: ManagePostsService
+  ) {}
 
   ngOnInit() {
     this.getAllPosts();
   }
 
   getAllPosts() {
-    this.managePostsService.getAllPosts().subscribe(posts => this.posts = posts);
+    this.managePostsService
+      .getAllPosts()
+      .subscribe(posts => (this.posts = posts));
   }
-
-  approveAction() {
-    NotificationsService.warning().then(response => {
-      if (response.dismiss) return;
-    });
-  }
-
 
   deletePost(id) {
-    this.approveAction();
+    NotificationsService.warning().then(response => {
+      if (response.dismiss) return;
 
-    this.managePostService.deletePost(id).then(response => {
-      if (!response) return;
-      this.posts = this.posts.filter(post => post.id !== id);
+      this.managePostService.deletePost(id).then(res => {
+        if (!res) return;
+        this.posts = this.posts.filter(post => post.id !== id);
+      });
     });
-    }
-
+  }
 
   showPost(post): void {
     this.canShowPost = true;
@@ -60,9 +58,5 @@ export class ViewPostsComponent implements OnInit {
     this.canShowPost = false;
   }
 
-  editPost() {
-
-  }
-
-
+  editPost() {}
 }
