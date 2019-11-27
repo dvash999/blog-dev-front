@@ -14,8 +14,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const adminRoutes: Routes = [
   { path: '', component: AdminComponent, children: [
       { path: 'dashboard', component: DashboardComponent},
-      { path: 'manage-posts', loadChildren: () => ManagePostsModule },
-      { path: 'manage-users', loadChildren: () => ManageUsersModule }
+      { path: 'posts', loadChildren: () => ManagePostsModule },
+      { path: 'users', loadChildren: () => ManageUsersModule }
     ]},
 
 ];

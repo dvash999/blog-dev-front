@@ -9,9 +9,12 @@
   <tbody>
   <ng-container>
     <tr *ngFor="let item of items">
-      <td>{{item.id}}</td>
-      <td>{{item.name || item.title}}</td>
-      <td>{{item.email || item.content}}</td>
+      <td *ngFor="let field of item">
+        {{field}}
+      </td>
+      <td>
+
+      </td>
       <td class="row d-flex justify-content-around">
 <!--        <i class="fas fa-edit"></i>-->
         <i (click)="delete(item.id)" class="far fa-trash-alt pointer"></i>

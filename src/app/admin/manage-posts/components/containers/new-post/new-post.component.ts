@@ -21,7 +21,7 @@ export class NewPostComponent implements OnInit {
     this.managePostsService.addPost(post).then((response: ResponseMessage) => {
       if (response.message !== 'success') return 'add post failed';
 
-      this.router.navigate(['/manage-posts']);
+      this.router.navigate(['/posts']);
     });
   }
 }

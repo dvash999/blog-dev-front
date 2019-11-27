@@ -8,7 +8,7 @@ import {User} from '../models/User.model';
   providedIn: 'root'
 })
 export class ManageUsersService {
-  MANAGE_USERS_URL = `${ROOT_URL}/admin/manage-users`;
+  MANAGE_USERS_URL = `${ROOT_URL}/admin/users`;
 
   constructor(private http: HttpClient) { }
 

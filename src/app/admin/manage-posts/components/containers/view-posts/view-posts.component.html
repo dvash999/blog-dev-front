@@ -7,6 +7,11 @@
   [post]="chosenPost">
 </app-view-post>
 
-<app-table *ngIf="posts" (deleteUser)="deletePost($event)" [columnTitles]="columnTitles" [items]="posts"></app-table>
+<app-table *ngIf="posts"
+           (deleteUser)="deletePost($event)"
+           [columnTitles]="columnTitles"
+           [items]="posts"
+           [fields]="['id', 'title,', 'content', 'likes', 'comments']">
+</app-table>
 
 

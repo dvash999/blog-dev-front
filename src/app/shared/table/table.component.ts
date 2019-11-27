@@ -9,12 +9,20 @@ export class TableComponent implements OnInit {
 
   constructor() { }
 
-  @Input() public columnTitles;
-  @Input() public items;
+  @Input() columnTitles;
+  @Input() items;
+  @Input() fields;
+  // @Input()  set fields(val) {
+  //   this._fields = val;
+  // }
+  // get fields() {
+  //   return this._fields;
+  // }
   @Output() deleteUser = new EventEmitter<any>();
 
 // TODO - refactor the html ASAP
   ngOnInit() {
+  console.log(this.items)
   }
 
   delete(id) {

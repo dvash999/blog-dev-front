@@ -12,13 +12,13 @@ import { NotificationsService } from '../../../../../shared/notifications/notifi
 })
 export class ViewPostsComponent implements OnInit {
   // postList$: Observable<Post[]>;
-  posts: Post[];
+  posts;
 
   canShowPost = false;
   canShowPostList = true;
   chosenPost: Post;
 
-  columnTitles = ['ID', 'Subject', 'Title', 'Dates', 'Likes', 'Comments'];
+  columnTitles = ['ID', 'Subject', 'Title', 'Likes', 'Comments', 'Dates', 'Manage'];
 
   constructor(
     private router: Router,
@@ -33,7 +33,11 @@ export class ViewPostsComponent implements OnInit {
   getAllPosts() {
     this.managePostsService
       .getAllPosts()
-      .subscribe(posts => (this.posts = posts));
+      .subscribe(posts => {
+        this.posts = posts.map(({id, title, content, likes, comments }) => {
+          return [id, title, content, likes, comments];
+        });
+      });
   }
 
   deletePost(id) {
