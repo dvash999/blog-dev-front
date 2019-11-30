@@ -35,7 +35,7 @@ export class ViewUsersComponent implements OnInit {
 
       this.manageUsersService.deleteUser(id).then(res => {
         if (!res) return;
-
+      
         this.users = this.users.filter(user => user.id !== id);
       });
     });

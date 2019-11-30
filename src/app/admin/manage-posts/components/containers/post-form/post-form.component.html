@@ -1,18 +1,12 @@
 <form [formGroup]="post" #formPost='ngForm' (ngSubmit)="onSubmit()">
   <div class="form-group">
-   <mat-form-field>
-     <input matInput formControlName="title" placeholder="title">
-   </mat-form-field>
+     <input formControlName="title" placeholder="title" class="form-control"/>
   </div>
   <div class="form-group">
-    <mat-form-field>
-      <input matInput formControlName="author" placeholder="author"/>
-    </mat-form-field>
+      <input formControlName="author" placeholder="author" class="form-control"/>
   </div>
   <div class="form-group">
-    <mat-form-field>
-      <textarea matInput formControlName="content" placeholder="content"></textarea>
-    </mat-form-field>
+      <textarea formControlName="content" placeholder="content" class="form-control"></textarea>
   </div>
 <button type="submit">Submit</button>
 </form>

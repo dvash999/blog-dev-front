@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ManagePostsService } from '../../../api/manage-posts.service';
-import { Post } from '../../../models/Post.model';
 import { NotificationsService } from '../../../../../shared/notifications/notifications.service';
+import { Post } from '../../../models/Post.model';
 
 @Component({
   selector: 'app-view-posts',
@@ -11,7 +10,6 @@ import { NotificationsService } from '../../../../../shared/notifications/notifi
   styleUrls: ['./view-posts.component.css']
 })
 export class ViewPostsComponent implements OnInit {
-  // postList$: Observable<Post[]>;
   posts;
 
   canShowPost = false;
@@ -19,6 +17,10 @@ export class ViewPostsComponent implements OnInit {
   chosenPost: Post;
 
   columnTitles = ['ID', 'Subject', 'Title', 'Likes', 'Comments', 'Dates', 'Manage'];
+
+  static postObjToArrayPipe(posts) {
+    return posts.map(({id, title, content, likes, comments}) => [id, title, content, likes, comments]);
+  }
 
   constructor(
     private router: Router,
@@ -33,21 +35,30 @@ export class ViewPostsComponent implements OnInit {
   getAllPosts() {
     this.managePostsService
       .getAllPosts()
-      .subscribe(posts => {
-        this.posts = posts.map(({id, title, content, likes, comments }) => {
-          return [id, title, content, likes, comments];
+      .then(posts => {
+        this.posts = ViewPostsComponent.postObjToArrayPipe(posts);
         });
-      });
-  }
+      }
 
   deletePost(id) {
-    NotificationsService.warning().then(response => {
-      if (response.dismiss) return;
+    this.approveAction();
 
-      this.managePostService.deletePost(id).then(res => {
-        if (!res) return;
-        this.posts = this.posts.filter(post => post.id !== id);
-      });
+    console.log('asd')
+    // NotificationsService.warning().then(response => {
+    //   if (response.dismiss) return;
+    //
+    //   this.managePostService.deletePost(id).then(res => {
+    //     if (!res.message) return;
+    //
+    //     this.posts = ViewPostsComponent.postObjToArrayPipe(res.message);
+    //   });
+    // });
+  }
+
+  async approveAction() {
+    await NotificationsService.warning()
+      .then(response => {
+        if (response.dismiss) return;
     });
   }
 
@@ -64,3 +75,4 @@ export class ViewPostsComponent implements OnInit {
 
   editPost() {}
 }
+

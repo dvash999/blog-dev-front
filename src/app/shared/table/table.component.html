@@ -1,3 +1,4 @@
+<div class="container d-flex">
 <table class="table mt-5">
   <thead>
   <tr>
@@ -12,15 +13,11 @@
       <td *ngFor="let field of item">
         {{field}}
       </td>
-      <td>
-
-      </td>
       <td class="row d-flex justify-content-around">
-<!--        <i class="fas fa-edit"></i>-->
-        <i (click)="delete(item.id)" class="far fa-trash-alt pointer"></i>
+        <i (click)="delete(item[0])" class="far fa-trash-alt pointer"></i>
       </td>
-<!--     <app-row [columnTitles]= columnTitles [item]="item"></app-row>-->
     </tr>
   </ng-container>
   </tbody>
 </table>
+</div>

@@ -20,6 +20,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.manageUsers.getAllusers().subscribe(users => (this.users = users));
-    this.managePosts.getAllPosts().subscribe(posts => (this.posts = posts));
+    this.managePosts.getAllPosts().then(posts => (this.posts = posts));
   }
 }

@@ -20,9 +20,9 @@ export class PostFormComponent implements OnInit {
 
   ngOnInit() {
     this.post = this.fb.group({
-      title:    this.title || '',
-      author:   this.author || '',
-      content:  this. content || ''
+      title:    this.title,
+      author:   this.author,
+      content:  this. content
     });
   }
 

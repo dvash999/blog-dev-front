@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-  // submittedSuccess: boolean;
+
   constructor(
     private managePostsService: ManagePostsService,
     private router: Router

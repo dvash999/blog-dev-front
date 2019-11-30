@@ -1,17 +1,10 @@
+
 <button class="btn btn-primary" routerLink="new-post">New Post</button>
 
-<app-view-post
-  *ngIf="canShowPost"
-  (postDeleted)="deletePost($event)"
-  (toPostList)="showPostList()"
-  [post]="chosenPost">
-</app-view-post>
-
 <app-table *ngIf="posts"
-           (deleteUser)="deletePost($event)"
-           [columnTitles]="columnTitles"
-           [items]="posts"
-           [fields]="['id', 'title,', 'content', 'likes', 'comments']">
+         (deleteItem)="deletePost($event)"
+         [columnTitles]="columnTitles"
+         [items]="posts"
+         [fields]="['id', 'title,', 'content', 'likes', 'comments']">
 </app-table>
-
 
