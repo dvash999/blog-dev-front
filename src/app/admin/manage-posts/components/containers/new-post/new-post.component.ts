@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class NewPostComponent implements OnInit {
 
+  CharAmountInPost: number;
+
   constructor(
     private managePostsService: ManagePostsService,
     private router: Router
@@ -23,5 +25,9 @@ export class NewPostComponent implements OnInit {
 
       this.router.navigate(['/posts']);
     });
+  }
+
+  lineCounter(post) {
+    this.CharAmountInPost = post.length;
   }
 }

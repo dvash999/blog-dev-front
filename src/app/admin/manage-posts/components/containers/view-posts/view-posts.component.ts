@@ -16,10 +16,15 @@ export class ViewPostsComponent implements OnInit {
   canShowPostList = true;
   chosenPost: Post;
 
-  columnTitles = ['ID', 'Subject', 'Title', 'Likes', 'Comments', 'Dates', 'Manage'];
+  columnTitles = ['ID', 'Subject', 'Title', 'Likes', 'Comments', 'Date', 'Manage'];
 
-  static postObjToArrayPipe(posts) {
-    return posts.map(({id, title, content, likes, comments}) => [id, title, content, likes, comments]);
+  static ObjToArrayPipe(posts) {
+    return posts.map(({id, title, content, likes, comments, date}) => [id, title, content, likes, comments, date]);
+  }
+
+
+  static approveAction() {
+    return NotificationsService.warning().then(response => { if (response.dismiss) return; });
   }
 
   constructor(
@@ -36,31 +41,20 @@ export class ViewPostsComponent implements OnInit {
     this.managePostsService
       .getAllPosts()
       .then(posts => {
-        this.posts = ViewPostsComponent.postObjToArrayPipe(posts);
+        this.posts = ViewPostsComponent.ObjToArrayPipe(posts);
         });
       }
 
-  deletePost(id) {
-    this.approveAction();
+  async deletePost(id) {
+    await ViewPostsComponent.approveAction();
 
-    console.log('asd')
-    // NotificationsService.warning().then(response => {
-    //   if (response.dismiss) return;
-    //
-    //   this.managePostService.deletePost(id).then(res => {
-    //     if (!res.message) return;
-    //
-    //     this.posts = ViewPostsComponent.postObjToArrayPipe(res.message);
-    //   });
-    // });
-  }
+    this.managePostService.deletePost(id).then(res => {
+      if (!res.message) return;
 
-  async approveAction() {
-    await NotificationsService.warning()
-      .then(response => {
-        if (response.dismiss) return;
+      this.posts = ViewPostsComponent.ObjToArrayPipe(res.message);
     });
   }
+
 
   showPost(post): void {
     this.canShowPost = true;

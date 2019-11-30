@@ -17,6 +17,7 @@ export class PostFormComponent implements OnInit {
   @Input() content: string;
 
   @Output() submitForm = new EventEmitter<Post>();
+  @Output() lineCounter = new EventEmitter<Post>();
 
   ngOnInit() {
     this.post = this.fb.group({
@@ -32,6 +33,10 @@ export class PostFormComponent implements OnInit {
 
   resetForm() {
     this.post.reset();
+  }
+
+  countLines(e) {
+    this.lineCounter.emit(e.target.value);
   }
 
 }

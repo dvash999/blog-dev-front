@@ -1,4 +1,4 @@
-<form [formGroup]="post" #formPost='ngForm' (ngSubmit)="onSubmit()">
+<form [formGroup]="post" (ngSubmit)="onSubmit()">
   <div class="form-group">
      <input formControlName="title" placeholder="title" class="form-control"/>
   </div>
@@ -6,7 +6,7 @@
       <input formControlName="author" placeholder="author" class="form-control"/>
   </div>
   <div class="form-group">
-      <textarea formControlName="content" placeholder="content" class="form-control"></textarea>
+      <textarea rows="20" w formControlName="content" placeholder="content" class="form-control" (change)="countLines($event)"></textarea>
   </div>
 <button type="submit">Submit</button>
 </form>
