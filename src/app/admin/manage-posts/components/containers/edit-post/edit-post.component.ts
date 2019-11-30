@@ -1,12 +1,12 @@
 import {Component, InjectionToken, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
-import {Post} from '../../../models/post.model';
-import {ManagePostsApiService} from '../../../api/manage-posts-api.service';
+import {Post} from '../../../models/Post.model';
+import {ManagePostsService} from '../../../api/manage-posts.service';
 import {ResponseMessage} from '../../../../../api/http/modles/responseMessage';
 import {createInjectionToken} from '@angular/compiler/src/core';
 
-export const postServiceToken = new InjectionToken<ManagePostsApiService>('postServiceToken');
+export const postServiceToken = new InjectionToken<ManagePostsService>('postServiceToken');
 
 @Component({
   selector: 'app-edit-post',
@@ -22,7 +22,7 @@ export class EditPostComponent implements OnInit, OnDestroy {
 
   postToEdit: Subscription;
 
-  constructor(private route: ActivatedRoute, private managePostsService: ManagePostsApiService) { }
+  constructor(private route: ActivatedRoute, private managePostsService: ManagePostsService) { }
 
   ngOnInit() {
     this.postToEdit = this.route.params.subscribe(postToEdit => {

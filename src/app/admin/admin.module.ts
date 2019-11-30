@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from './admin.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { ManagePostsModule } from './manage-posts/modules/manage-posts.module';
 import { AdminSharedModule } from './admin-shared/admin-shared.module';
+import {ManageUsersModule} from './manage-users/module/manage-users.module';
+import {TableModule} from '../shared/table/table.module';
+
+import { AdminComponent } from './admin.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 const adminRoutes: Routes = [
   { path: '', component: AdminComponent, children: [
       { path: 'dashboard', component: DashboardComponent},
-      { path: 'manage-posts', loadChildren: () => ManagePostsModule }
+      { path: 'posts', loadChildren: () => ManagePostsModule },
+      { path: 'users', loadChildren: () => ManageUsersModule }
     ]},
 
 ];
@@ -20,7 +26,9 @@ const adminRoutes: Routes = [
     RouterModule.forChild(adminRoutes),
     AdminSharedModule,
     CommonModule,
+    TableModule
   ],
-  exports: [RouterModule, AdminComponent, DashboardComponent]
+  providers: [],
+  exports: [RouterModule, AdminComponent, DashboardComponent, AdminSharedModule, TableModule]
 })
 export class AdminModule {}

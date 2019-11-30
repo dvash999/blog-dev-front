@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { ManagePostsApiService } from '../../../api/manage-posts-api.service';
-import { Post } from '../../../models/post.model';
-import {map} from 'rxjs/operators';
-
+import { ManagePostsService } from '../../../api/manage-posts.service';
+import { NotificationsService } from '../../../../../shared/notifications/notifications.service';
+import { Post } from '../../../models/Post.model';
 
 @Component({
   selector: 'app-view-posts',
@@ -12,42 +10,63 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./view-posts.component.css']
 })
 export class ViewPostsComponent implements OnInit {
-  postList$: Observable<Post[]>;
+  posts;
+
   canShowPost = false;
   canShowPostList = true;
   chosenPost: Post;
 
-  constructor(private router: Router, private managePostsService: ManagePostsApiService, private managePostService: ManagePostsApiService) { }
+  columnTitles = ['ID', 'Subject', 'Title', 'Likes', 'Comments', 'Date', 'Manage'];
+
+  static ObjToArrayPipe(posts) {
+    return posts.map(({id, title, content, likes, comments, date}) => [id, title, content, likes, comments, date]);
+  }
+
+
+  static approveAction() {
+    return NotificationsService.warning().then(response => { if (response.dismiss) return; });
+  }
+
+  constructor(
+    private router: Router,
+    private managePostsService: ManagePostsService,
+    private managePostService: ManagePostsService
+  ) {}
 
   ngOnInit() {
-  this.postList$ = this.managePostsService.getAllPosts();
-  const vals$ = this.postList$
-    .pipe(
-      map(res => Object.values(res))
-    );
-
-  // vals$.subscribe(val => console.log(val.filter(
-  //   post => post.author === 'Dror')));
+    this.getAllPosts();
   }
 
-  deletePost(postID) {
-    this.managePostService.deletePost(postID).then(message => console.log(message));
+  getAllPosts() {
+    this.managePostsService
+      .getAllPosts()
+      .then(posts => {
+        this.posts = ViewPostsComponent.ObjToArrayPipe(posts);
+        });
+      }
+
+  async deletePost(id) {
+    await ViewPostsComponent.approveAction();
+
+    this.managePostService.deletePost(id).then(res => {
+      if (!res.message) return;
+
+      this.posts = ViewPostsComponent.ObjToArrayPipe(res.message);
+    });
   }
 
-  showPost(post) {
+
+  showPost(post): void {
     this.canShowPost = true;
     this.canShowPostList = false;
     this.chosenPost = post;
   }
 
-  showPostList() {
+  showPostList(): void {
     this.canShowPostList = true;
     this.canShowPost = false;
   }
 
-  editPost() {
-
-  }
-
-
+  editPost() {}
 }
+

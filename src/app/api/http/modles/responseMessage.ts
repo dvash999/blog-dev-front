@@ -1,4 +1,4 @@
 export interface ResponseMessage {
-  message: string;
+  message: any;
   status: number;
 }

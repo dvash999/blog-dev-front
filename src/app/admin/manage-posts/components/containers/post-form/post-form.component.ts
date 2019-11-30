@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Post } from '../../../models/post.model';
+import { Post } from '../../../models/Post.model';
 
 @Component({
   selector: 'app-post-form',
@@ -17,18 +17,26 @@ export class PostFormComponent implements OnInit {
   @Input() content: string;
 
   @Output() submitForm = new EventEmitter<Post>();
+  @Output() lineCounter = new EventEmitter<Post>();
 
   ngOnInit() {
     this.post = this.fb.group({
-      title:    this.title || '',
-      author:   this.author || '',
-      content:  this. content || ''
+      title:    this.title,
+      author:   this.author,
+      content:  this. content
     });
   }
 
   onSubmit() {
     this.submitForm.emit(this.post.value);
+  }
+
+  resetForm() {
     this.post.reset();
+  }
+
+  countLines(e) {
+    this.lineCounter.emit(e.target.value);
   }
 
 }

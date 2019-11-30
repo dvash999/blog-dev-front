@@ -1,18 +1,9 @@
-<div *ngIf="canShowPostList">
-  <button class="btn btn-primary" routerLink="new-post">Upload Post</button>
-  <div class="d-flex container flex-column mt-2">
-    <h4>Posts</h4>
-    <ul class="d-flex row mt-6" *ngIf="postList$ | async as postList">
-      <li *ngFor="let post of postList " class="list-unstyled col-3 h-auto p-4 m-3">
-        <app-post-card (click)="showPost(post)" [post]="post"></app-post-card>
-      </li>
-    </ul>
-  </div>
-</div>
+<button class="btn btn-primary float-right mt-4" routerLink="new-post">New Post</button>
 
-<app-view-post
-  *ngIf="canShowPost"
-  (postDeleted)="deletePost($event)"
-  (toPostList)="showPostList()"
-  [post]="chosenPost">
-</app-view-post>
+<app-table *ngIf="posts"
+         (deleteItem)="deletePost($event)"
+         [columnTitles]="columnTitles"
+         [items]="posts"
+         [fields]="['id', 'title,', 'content', 'likes', 'comments']">
+</app-table>
+

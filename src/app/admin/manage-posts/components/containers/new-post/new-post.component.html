@@ -1,1 +1,14 @@
-<app-post-form (submitForm)="uploadPost($event)"></app-post-form>
+<div class="container center-content">
+  <div class="mt-5 py-3">
+    <h1>Create New Blog Post</h1>
+  </div>
+  <div *ngIf="CharAmountInPost" class="text-right">
+    <span>{{CharAmountInPost}} Characters</span>
+  </div>
+  <div class="wrapper mt-3">
+    <div>
+    <app-post-form (lineCounter)='lineCounter($event)' (submitForm)="uploadNewPost($event)"></app-post-form>
+    </div>
+  </div>
+</div>
+

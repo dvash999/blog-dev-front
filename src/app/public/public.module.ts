@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BlogRoutingModule } from './blog-routing.module';
+import { PublicRoutingModule } from './public-routing.module';
 import {LayoutModule} from './layout/layout.module';
 
 import {HomeComponent} from './home/home.component';
+import {PostslistComponent} from './postslist/postslist.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, PostslistComponent],
   imports: [
     CommonModule,
-    BlogRoutingModule,
+    PublicRoutingModule,
     LayoutModule
   ]
 })
-export class BlogModule { }
+export class PublicModule { }

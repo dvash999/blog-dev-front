@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Post} from '../../../models/post.model';
+import {Post} from '../../../models/Post.model';
 
 @Component({
   selector: 'app-post-card',
