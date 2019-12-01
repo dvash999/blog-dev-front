@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
-import {PublicModule} from './public/public.module';
+import {PublicModule} from './blog/public/public.module';
 import {AppComponent} from './app.component';
 
 const appRoutes: Routes = [

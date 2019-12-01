@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManagePostsService } from '../../../api/manage-posts.service';
-import { NotificationsService } from '../../../../../shared/notifications/notifications.service';
+import { NotificationsService } from '../../../../../blog/features/notifications/notifications.service';
 import { Post } from '../../../models/Post.model';
 
 @Component({

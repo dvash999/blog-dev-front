@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
-import {PostModule} from './post/module/post.module';
-import {PostslistComponent} from './postslist.component';
-
 const blogRoutes: Routes = [
   // { path: '', component: PostslistComponent }
 ]
@@ -16,7 +13,6 @@ const blogRoutes: Routes = [
   imports: [
     RouterModule.forChild(blogRoutes),
     CommonModule,
-    PostModule
   ],
 })
-export class PostlistModule { }
+export class PostListModule { }

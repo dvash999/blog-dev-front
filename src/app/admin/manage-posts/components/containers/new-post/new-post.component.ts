@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagePostsService } from '../../../api/manage-posts.service';
-import { ResponseMessage } from '../../../../../api/http/modles/responseMessage';
+import { ResponseMessage } from '../../../../../blog/api/http/modles/responseMessage';
 import { Router } from '@angular/router';
 
 @Component({

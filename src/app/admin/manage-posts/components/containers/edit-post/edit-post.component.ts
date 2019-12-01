@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
 import {Post} from '../../../models/Post.model';
 import {ManagePostsService} from '../../../api/manage-posts.service';
-import {ResponseMessage} from '../../../../../api/http/modles/responseMessage';
+import {ResponseMessage} from '../../../../../blog/api/http/modles/responseMessage';
 import {createInjectionToken} from '@angular/compiler/src/core';
 
 export const postServiceToken = new InjectionToken<ManagePostsService>('postServiceToken');
@@ -25,12 +25,12 @@ export class EditPostComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private managePostsService: ManagePostsService) { }
 
   ngOnInit() {
-    this.postToEdit = this.route.params.subscribe(postToEdit => {
-      this.title = postToEdit.title;
-      this.author = postToEdit.author;
-      this.content = postToEdit.content;
-      this.postID = postToEdit.id;
-    });
+    // this.postToEdit = this.route.params.subscribe(postToEdit => {
+    //   this.title = postToEdit.title;
+    //   this.author = postToEdit.author;
+    //   this.content = postToEdit.content;
+    //   this.postID = postToEdit.id;
+    // });
   }
 
   uploadEditedPost(post: Post): void {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ManageUsersService } from '../../../api/manage-users.service';
 import { Observable } from 'rxjs';
 import { User } from '../../../models/User.model';
-import { NotificationsService } from '../../../../../shared/notifications/notifications.service';
+import { NotificationsService } from '../../../../../blog/features/notifications/notifications.service';
 
 @Component({
   selector: 'app-view-users',

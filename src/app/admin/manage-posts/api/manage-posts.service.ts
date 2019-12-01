@@ -4,10 +4,10 @@ import {
   HttpErrorResponse,
   HttpHeaders
 } from '@angular/common/http';
-import { ROOT_URL } from '../../../api/http/modles/api-helper';
+import { ROOT_URL } from '../../../blog/api/http/modles/api-helper';
 import { Observable } from 'rxjs';
 import { Post } from '../models/Post.model';
-import { ResponseMessage } from '../../../api/http/modles/responseMessage';
+import { ResponseMessage } from '../../../blog/api/http/modles/responseMessage';
 
 @Injectable({
   providedIn: 'root'
