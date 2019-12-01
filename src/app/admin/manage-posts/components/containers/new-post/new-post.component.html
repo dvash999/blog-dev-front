@@ -3,12 +3,14 @@
     <h1>Create New Blog Post</h1>
   </div>
   <div *ngIf="CharAmountInPost" class="text-right">
-    <span>{{CharAmountInPost}} Characters</span>
+    <span>{{ CharAmountInPost }} Characters</span>
   </div>
   <div class="wrapper mt-3">
     <div>
-    <app-post-form (lineCounter)='lineCounter($event)' (submitForm)="uploadNewPost($event)"></app-post-form>
+      <app-post-form
+        (lineCounter)="lineCounter($event)"
+        (submitForm)="uploadNewPost($event)"
+      ></app-post-form>
     </div>
   </div>
 </div>
-

@@ -13,6 +13,16 @@ export class ViewUsersComponent implements OnInit {
   users;
   columnTitles = ['ID', 'Name', 'Email', 'Manage'];
 
+  static ObjToArrayPipe(posts) {
+    return posts.map(({ id, name, email }) => [id, name, email]);
+  }
+
+  static approveAction() {
+    return NotificationsService.warning().then(response => {
+      if (response.dismiss) return;
+    });
+  }
+
   constructor(private manageUsersService: ManageUsersService) {}
 
   ngOnInit() {
@@ -22,22 +32,16 @@ export class ViewUsersComponent implements OnInit {
   getAllUsers() {
     this.manageUsersService
       .getAllusers()
-      .subscribe(users => {
-        this.users = users.map(({id, name, email}) => [id, name, email]);
-        console.log(this.users)
-      });
-
+      .then(users => (this.users = ViewUsersComponent.ObjToArrayPipe(users)));
   }
 
-  deleteUser(id) {
-    NotificationsService.warning().then(response => {
-      if (response.dismiss) return false;
+  async deleteUser(id) {
+    await ViewUsersComponent.approveAction();
 
-      this.manageUsersService.deleteUser(id).then(res => {
-        if (!res) return;
-      
-        this.users = this.users.filter(user => user.id !== id);
-      });
+    this.manageUsersService.deleteUser(id).then(res => {
+      if (!res.message) return;
+
+      this.users = ViewUsersComponent.ObjToArrayPipe(res.message);
     });
   }
 }

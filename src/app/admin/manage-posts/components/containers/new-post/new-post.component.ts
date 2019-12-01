@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-
   CharAmountInPost: number;
 
   constructor(
