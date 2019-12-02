@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Post} from '../../../models/Post.model';
 
 @Component({
@@ -9,8 +9,4 @@ import {Post} from '../../../models/Post.model';
 export class PostCardComponent {
 
   @Input() post: Post;
-
-  constructor() { }
-
-
 }

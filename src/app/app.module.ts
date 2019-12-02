@@ -1,22 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
+import { BlogModule } from './blog/blog.module';
+
 import { NotificationsService } from './blog/features/notifications/notifications.service';
+
+import { AppComponent } from './app.component';
 import { PostListComponent } from './blog/components/post-list/components/container/post-list/post-list.component';
 import { PostComponent } from './blog/components/post-list/components/presentational/post/post.component';
+import { Navbar } from './blog/shared/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, PostListComponent, PostComponent],
+  declarations: [AppComponent, PostListComponent, PostComponent, Navbar],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AdminModule
+    BlogModule,
+    AdminModule,
   ],
   providers: [NotificationsService],
   bootstrap: [AppComponent]
