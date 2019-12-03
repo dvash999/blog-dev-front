@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from '../components/container/home/home.component';
-import {Route, RouterModule} from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 
-const homeRoutes: Route[] = [
-  {path: '', component: HomeComponent}
-]
+import { PostPreviewComponent } from '../../posts/components/container/post-preview/post-preview.component';
+import { HomeComponent } from '../components/container/home/home.component';
+
+const homeRoutes: Route[] = [{ path: '', component: HomeComponent }];
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, PostPreviewComponent],
   imports: [RouterModule.forChild(homeRoutes), CommonModule]
 })
 export class HomeModule {}

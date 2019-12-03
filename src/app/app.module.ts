@@ -9,12 +9,10 @@ import { BlogModule } from './blog/blog.module';
 import { NotificationsService } from './blog/features/notifications/notifications.service';
 
 import { AppComponent } from './app.component';
-import { PostListComponent } from './blog/components/post-list/components/container/post-list/post-list.component';
-import { PostComponent } from './blog/components/post-list/components/presentational/post/post.component';
 import { Navbar } from './blog/shared/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, PostListComponent, PostComponent, Navbar],
+  declarations: [AppComponent, Navbar],
   imports: [
     BrowserModule,
     HttpClientModule,

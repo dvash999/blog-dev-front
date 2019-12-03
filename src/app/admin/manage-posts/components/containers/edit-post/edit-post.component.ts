@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
 import {Post} from '../../../models/Post.model';
 import {ManagePostsService} from '../../../api/manage-posts.service';
-import {ResponseMessage} from '../../../../../blog/api/http/modles/responseMessage';
+import {ResponseMessage} from '../../../../../blog/api/models/responseMessage';
 import {createInjectionToken} from '@angular/compiler/src/core';
 
 export const postServiceToken = new InjectionToken<ManagePostsService>('postServiceToken');
