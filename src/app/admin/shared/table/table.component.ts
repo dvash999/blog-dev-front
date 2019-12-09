@@ -16,7 +16,7 @@ export class TableComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.items)
+
   }
 
   delete(id) {

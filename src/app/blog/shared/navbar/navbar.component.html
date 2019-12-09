@@ -1,9 +1,11 @@
 <nav class="sticky-top bg-white text-dark border">
   <div class="border">
     <div class="navbar container">
-      <span class="navbar-brand align-self-center px-3">LOGO</span>
+      <span routerLink="/" class="navbar-brand align-self-center px-3 pointer"
+        >LOGO</span
+      >
       <div class="d-flex flex-row">
-        <div class="d-flex flex-row on-collpase">
+        <div class="d-flex flex-row on-collapse">
           <form class="form-inline">
             <input
               class="form-control mr-sm-2 form-control-sm"
@@ -42,7 +44,7 @@
     class="container collapse navbar-collapse nav-row collapsed"
   >
     <ul class="nav-row nav-menu py-2 px-3 navbar-nav nav-fill list-unstyled">
-      <li class="list-item">Home</li>
+      <li routerLink="/" class="list-item">Home</li>
       <li class="list-item">
         Tech News
       </li>
@@ -63,7 +65,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Architecture</a>
           <a class="dropdown-item" href="#">Design Patterns</a>
-          <li class="nav-item align-self-center">Frameworks</li>
+          <a class="nav-item align-self-center">Frameworks</a>
         </div>
       </li>
 

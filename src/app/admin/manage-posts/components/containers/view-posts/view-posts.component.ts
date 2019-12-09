@@ -18,8 +18,8 @@ export class ViewPostsComponent implements OnInit {
 
   columnTitles = [
     'ID',
-    'Subject',
     'Title',
+    'Content',
     'Likes',
     'Comments',
     'Date',

@@ -7,9 +7,9 @@ import { EditPostComponent } from '../components/containers/edit-post/edit-post.
 
 const postsRoutes: Routes = [
   { path: '', component: ViewPostsComponent },
-  { path: 'view-post/:id', component: ViewPostComponent},
-  { path: 'new-post', component: NewPostComponent },
-  { path: 'edit-post/:id', component: EditPostComponent }
+  { path: '/view-post/:id', component: ViewPostComponent},
+  { path: '/new-post', component: NewPostComponent },
+  { path: '/edit-post/:id', component: EditPostComponent }
 ];
 @NgModule({
   imports: [RouterModule.forChild(postsRoutes)],

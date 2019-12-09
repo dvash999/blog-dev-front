@@ -11,12 +11,4 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onToggle(toggle) {
-    // console.log(toggle)
-  }
-
-  headerToggle(message) {
-    // console.log(message);
-  }
 }

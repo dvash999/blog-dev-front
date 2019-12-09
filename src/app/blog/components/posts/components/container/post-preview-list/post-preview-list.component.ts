@@ -3,21 +3,21 @@ import { Post } from '../../../../../../admin/manage-posts/models/Post.model';
 import { Route, Router } from '@angular/router';
 import { PostService } from '../../../api/post.service';
 
-// TODO - change name to post-list
+// TODO - change name to post-preview-list
 @Component({
-  selector: 'app-post-preview',
-  templateUrl: './post-preview.component.html',
-  styleUrls: ['./post-preview.component.css']
+  selector: 'app-post-preview-list',
+  templateUrl: './post-preview-list.component.html',
+  styleUrls: ['./post-preview-list.component.css']
 })
-export class PostPreviewComponent implements OnInit {
+export class PostPreviewListComponent implements OnInit {
   posts: Post[];
   constructor(private route: Router, private postService: PostService) {}
 
   ngOnInit() {
-    this.postService.getAllPosts().then(posts => this.posts = posts);
+    this.postService.getAllPosts().then(posts => (this.posts = posts));
   }
 
   continueReading(post) {
-    this.route.navigate([`/posts/${post.id}`, {state: {post: 'post'}}]);
+    this.route.navigate([`/posts/${post.id}`, post ]);
   }
 }

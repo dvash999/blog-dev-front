@@ -2,17 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
 import { BlogModule } from './blog/blog.module';
-import { AppComponent } from './app.component';
+import { NotFoundComponent } from './blog/shared/not-found/not-found.component';
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    component: AppComponent,
-    children: [
-      { path: '', loadChildren: () => BlogModule },
-      { path: 'admin', loadChildren: () => AdminModule }
-    ]
-  }
+  { path: '', loadChildren: () => BlogModule },
+  { path: 'admin', loadChildren: () => AdminModule },
 ];
 
 @NgModule({
