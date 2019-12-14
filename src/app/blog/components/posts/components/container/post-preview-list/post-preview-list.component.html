@@ -1,6 +1,3 @@
 <div *ngFor="let post of posts; let i = index">
-  <app-post-preview
-    (continueToPost)="continueReading($event)"
-    [post]="post"
-  ></app-post-preview>
+  <app-post-preview [post]="post"></app-post-preview>
 </div>

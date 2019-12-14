@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Post} from '../../../../../../admin/manage-posts/models/Post.model';
 
 @Component({
@@ -11,12 +11,7 @@ export class PostPreviewComponent implements OnInit {
   constructor() { }
 
   @Input() post: Post;
-  @Output() continueToPost = new EventEmitter<Post>();
 
   ngOnInit() {
-  }
-
-  continueReading(post) {
-    this.continueToPost.emit(post);
   }
 }

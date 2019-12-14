@@ -12,12 +12,12 @@
     <p>{{ post.content }}</p>
 
     <button
-      (click)="continueReading(post)"
+      [routerLink]="['/posts/', post.id]"
       class="continue-reading-btn btn btn-outline-primary"
     >
       <span class="d-flex flex-row">Continue Reading</span>
     </button>
 
-<!--    <app-likes></app-likes>-->
+    <!--    <app-likes></app-likes>-->
   </div>
 </div>

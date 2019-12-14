@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../../../../admin/manage-posts/models/Post.model';
-import {ROOT_URL} from '../../../api/models/api-helper';
+import { ROOT_URL } from '../../../api/models/api-helper';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,13 @@ export class PostService {
       .catch(err => err);
   }
 
-  getSinglePost() {}
+  getSinglePost(id): Promise<any> {
+    return this.http
+      .get(`${this.API_URL}/${id}`)
+      .toPromise()
+      .then(res => res)
+      .catch(err => err);
+  }
 
   likePost() {}
 
