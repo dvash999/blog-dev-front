@@ -1,3 +1,8 @@
+:root {
+  --main-color: #764ABC;
+}
+
+
 .highlight {
   background-color: red;
 }
@@ -5,3 +10,5 @@
 ::ng-deep .pointer {
   cursor: pointer;
 }
+
+

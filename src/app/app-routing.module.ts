@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
 import { BlogModule } from './blog/blog.module';
-import { NotFoundComponent } from './blog/shared/not-found/not-found.component';
 
 const appRoutes: Routes = [
-  { path: '', loadChildren: () => BlogModule },
+  { path: '', loadChildren: () => BlogModule, pathMatch: 'full' },
   { path: 'admin', loadChildren: () => AdminModule },
 ];
 

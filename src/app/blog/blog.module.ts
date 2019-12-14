@@ -7,10 +7,9 @@ import { NotificationsService } from './features/notifications/notifications.ser
 
 import { BlogComponent } from './blog.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({
-  declarations: [BlogComponent, NavbarComponent, NotFoundComponent],
+  declarations: [BlogComponent, NavbarComponent],
   imports: [CommonModule, BlogRoutingModule, LikesModule],
   providers: [NotificationsService],
   exports: []

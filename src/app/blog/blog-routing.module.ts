@@ -9,10 +9,12 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
+    // pathMatch: 'full',
     component: BlogComponent,
     children: [
       {
         path: '',
+        pathMatch: 'full',
         loadChildren: () => HomeModule
       },
       {
@@ -33,6 +35,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
+  declarations: [NotFoundComponent],
   exports: [RouterModule]
 })
 export class BlogRoutingModule {}

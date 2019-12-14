@@ -6,13 +6,17 @@ import { NewPostComponent } from '../components/containers/new-post/new-post.com
 import { EditPostComponent } from '../components/containers/edit-post/edit-post.component';
 
 const postsRoutes: Routes = [
-  { path: '', component: ViewPostsComponent },
-  { path: '/view-post/:id', component: ViewPostComponent},
-  { path: '/new-post', component: NewPostComponent },
-  { path: '/edit-post/:id', component: EditPostComponent }
+  {
+    path: '',
+    component: ViewPostsComponent,
+    pathMatch: 'full'
+  },
+  { path: 'view-post/:id', component: ViewPostComponent },
+  { path: 'new-post', component: NewPostComponent },
+  { path: 'edit-post/:id', component: EditPostComponent }
 ];
 @NgModule({
   imports: [RouterModule.forChild(postsRoutes)],
   exports: [RouterModule]
 })
-export class ManagePostsRoutingModule { }
+export class ManagePostsRoutingModule {}
