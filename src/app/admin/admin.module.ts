@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ManagePostsModule } from './manage-posts/modules/manage-posts.module';
 import { AdminSharedModule } from './admin-shared/admin-shared.module';
 import {ManageUsersModule} from './manage-users/module/manage-users.module';
-import {TableModule} from '../shared/table/table.module';
+import {TableModule} from './shared/table/table.module';
 
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagePostsService } from '../../../api/manage-posts.service';
-import { ResponseMessage } from '../../../../../api/http/modles/responseMessage';
+import { ResponseMessage } from '../../../../../blog/api/models/responseMessage';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-
   CharAmountInPost: number;
 
   constructor(
@@ -23,7 +22,7 @@ export class NewPostComponent implements OnInit {
     this.managePostsService.addPost(post).then((response: ResponseMessage) => {
       if (response.message !== 'success') return 'add post failed';
 
-      this.router.navigate(['/posts']);
+      this.router.navigate(['/post-preview-list']);
     });
   }
 

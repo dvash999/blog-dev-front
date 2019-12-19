@@ -1,23 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
-import {PublicModule} from './public/public.module';
-import {AppComponent} from './app.component';
+import { BlogModule } from './blog/blog.module';
 
 const appRoutes: Routes = [
-  {path: '', component: AppComponent, children: [
-      {path: '', loadChildren: () => PublicModule },
-      {path: 'admin', loadChildren: () =>  AdminModule},
-    ]},
+  { path: '', loadChildren: () => BlogModule, pathMatch: 'prefix' },
+  { path: 'admin', loadChildren: () => AdminModule },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes),
-  ],
+  imports: [RouterModule.forRoot(appRoutes)],
 
   declarations: [],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManagePostsService } from '../../../api/manage-posts.service';
-import { NotificationsService } from '../../../../../shared/notifications/notifications.service';
+import { NotificationsService } from '../../../../../blog/features/notifications/notifications.service';
 import { Post } from '../../../models/Post.model';
 
 @Component({
@@ -16,15 +16,31 @@ export class ViewPostsComponent implements OnInit {
   canShowPostList = true;
   chosenPost: Post;
 
-  columnTitles = ['ID', 'Subject', 'Title', 'Likes', 'Comments', 'Date', 'Manage'];
+  columnTitles = [
+    'ID',
+    'Title',
+    'Content',
+    'Likes',
+    'Comments',
+    'Date',
+    'Manage'
+  ];
 
   static ObjToArrayPipe(posts) {
-    return posts.map(({id, title, content, likes, comments, date}) => [id, title, content, likes, comments, date]);
+    return posts.map(({ id, title, content, likes, comments, date }) => [
+      id,
+      title,
+      content,
+      likes,
+      comments,
+      date
+    ]);
   }
 
-
   static approveAction() {
-    return NotificationsService.warning().then(response => { if (response.dismiss) return; });
+    return NotificationsService.warning().then(response => {
+      if (response.dismiss) return;
+    });
   }
 
   constructor(
@@ -38,12 +54,10 @@ export class ViewPostsComponent implements OnInit {
   }
 
   getAllPosts() {
-    this.managePostsService
-      .getAllPosts()
-      .then(posts => {
-        this.posts = ViewPostsComponent.ObjToArrayPipe(posts);
-        });
-      }
+    this.managePostsService.getAllPosts().then(posts => {
+      this.posts = ViewPostsComponent.ObjToArrayPipe(posts);
+    });
+  }
 
   async deletePost(id) {
     await ViewPostsComponent.approveAction();
@@ -54,7 +68,6 @@ export class ViewPostsComponent implements OnInit {
       this.posts = ViewPostsComponent.ObjToArrayPipe(res.message);
     });
   }
-
 
   showPost(post): void {
     this.canShowPost = true;
@@ -69,4 +82,3 @@ export class ViewPostsComponent implements OnInit {
 
   editPost() {}
 }
-
