@@ -9,12 +9,10 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    // pathMatch: 'full',
     component: BlogComponent,
     children: [
       {
         path: '',
-        pathMatch: 'full',
         loadChildren: () => HomeModule
       },
       {
