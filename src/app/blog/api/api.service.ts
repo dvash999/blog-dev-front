@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  readonly PHP_API_SERVER = 'http://127.0.0.1:8001';
+  readonly API_URL = 'http://127.0.0.1:8000';
   constructor(private http: HttpClient) { }
 
   httpHeaders() {

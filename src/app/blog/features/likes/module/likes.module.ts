@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LikesComponent } from './likes.component';
+import { LikesComponent } from '../likes.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [LikesComponent],
   imports: [CommonModule],
-  exports: []
+  exports: [LikesComponent]
 })
 export class LikesModule {}
