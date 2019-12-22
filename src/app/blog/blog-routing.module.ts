@@ -4,7 +4,7 @@ import { HomeModule } from './components/home/modules/home.module';
 import { PostsModule } from './components/posts/modules/posts.module';
 import { BlogComponent } from './blog.component';
 import { ContactModule } from './components/contact/modules/contact.module';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   {

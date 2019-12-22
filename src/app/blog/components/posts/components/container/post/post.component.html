@@ -15,5 +15,8 @@
         <p class="mt-5">{{ post.content }}</p>
       </div>
     </div>
+    <div>
+      <app-likes [type]="'post'" [id]="post.id"></app-likes>
+    </div>
   </div>
 </div>

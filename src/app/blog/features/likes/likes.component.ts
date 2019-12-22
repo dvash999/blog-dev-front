@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PusherService } from '../../shared/pusher/pusher.service';
+import { LikeService } from './api/like.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-likes',
@@ -7,17 +9,19 @@ import { PusherService } from '../../shared/pusher/pusher.service';
   styleUrls: ['./likes.component.css']
 })
 export class LikesComponent implements OnInit {
-  likes: any;
-  constructor(private pusherService: PusherService) {}
+  @Input() type: string;
+  @Input() id: number;
+
+  likes: number;
+  constructor(private likeService: LikeService) {}
 
   ngOnInit() {
-    this.pusherService.channel.bind('new-likes', data => {
-      this.likes = data.likes;
-    });
+    this.likeService.getLikesByID(this.type, this.id).subscribe(likes => this.likes = likes);
   }
 
-  liked() {
-    this.likes = parseInt(this.likes, 10) + 1;
-    this.pusherService.like(this.likes);
+  like(type, id) {
+    this.likeService.like(type, id).then(response => {
+      if (response.message === 'success') this.likes++;
+    });
   }
 }
