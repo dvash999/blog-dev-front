@@ -19,6 +19,7 @@ export class LikesComponent implements OnInit {
     this.likeService.getLikesByID(this.type, this.id).subscribe(likes => this.likes = likes);
   }
 
+  // need to add if user liked the post -> disable like for the post
   like(type, id) {
     this.likeService.like(type, id).then(response => {
       if (response.message === 'success') this.likes++;

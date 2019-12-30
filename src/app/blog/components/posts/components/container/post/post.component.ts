@@ -13,6 +13,7 @@ export class PostComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
+    console.log('post components')
     this.post = this.activatedRoute.snapshot.data.post.message;
   }
 }

@@ -11,9 +11,9 @@ import { LikesModule } from '../../../features/likes/module/likes.module';
 
 const routes: Route[] = [
   {
-    path: ':id',
+    path: 'read/:id',
     component: PostComponent,
-    resolve: { post: PostResolverService }
+    resolve: { post: PostResolverService },
   }
 ];
 

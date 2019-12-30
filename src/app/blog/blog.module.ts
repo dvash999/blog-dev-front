@@ -12,6 +12,5 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
   declarations: [BlogComponent, NavbarComponent],
   imports: [CommonModule, BlogRoutingModule, LikesModule],
   providers: [NotificationsService],
-  exports: []
 })
 export class BlogModule {}
