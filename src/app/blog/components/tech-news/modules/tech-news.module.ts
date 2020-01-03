@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: TechNewsComponent},
-  // { path: 'posts', loadChildren: () => PostsModule }
+  { path: 'posts', loadChildren: () => PostsModule }
 
 ];
 

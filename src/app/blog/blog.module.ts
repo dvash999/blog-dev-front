@@ -11,6 +11,6 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 @NgModule({
   declarations: [BlogComponent, NavbarComponent],
   imports: [CommonModule, BlogRoutingModule, LikesModule],
-  providers: [NotificationsService],
+  providers: [NotificationsService]
 })
 export class BlogModule {}

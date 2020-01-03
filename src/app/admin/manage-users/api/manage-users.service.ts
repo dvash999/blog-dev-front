@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ROOT_URL } from '../../../blog/api/models/api-helper';
 import { Observable } from 'rxjs';
 import { User } from '../models/User.model';
-import { ResponseMessage } from '../../../blog/api/models/responseMessage';
+import { ResponseMessage } from '../../../shared/models/responseMessage';
 
 @Injectable({
   providedIn: 'root'

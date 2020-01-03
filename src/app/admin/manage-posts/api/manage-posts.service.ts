@@ -7,7 +7,7 @@ import {
 import { ROOT_URL } from '../../../blog/api/models/api-helper';
 import { Observable } from 'rxjs';
 import { Post } from '../models/Post.model';
-import { ResponseMessage } from '../../../blog/api/models/responseMessage';
+import { ResponseMessage } from '../../../shared/models/responseMessage';
 import { HttpHelperService } from '../../../shared/services/http-helper.service';
 
 @Injectable({

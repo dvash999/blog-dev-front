@@ -10,7 +10,6 @@ export class TechNewsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('tech-news')
   }
 
 }
