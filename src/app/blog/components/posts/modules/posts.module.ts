@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
+import {Route, RouterModule, Routes} from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { PostResolverService } from '../resolvers/post-resolver.service';
@@ -9,7 +9,7 @@ import { PostPreviewComponent } from '../components/presentational/post-preview/
 import { PostPreviewListComponent } from '../components/container/post-preview-list/post-preview-list.component';
 import { LikesModule } from '../../../features/likes/module/likes.module';
 
-const routes: Route[] = [
+const routes: Routes = [
   {
     path: 'read/:id',
     component: PostComponent,

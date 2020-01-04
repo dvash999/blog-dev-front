@@ -1,12 +1,25 @@
 <form [formGroup]="post" (ngSubmit)="onSubmit()">
   <div class="form-group">
-     <input formControlName="title" placeholder="title" class="form-control"/>
+    <input formControlName="title" placeholder="Title" class="form-control" />
   </div>
   <div class="form-group">
-      <input formControlName="author" placeholder="author" class="form-control"/>
+    <input formControlName="author" placeholder="Author" class="form-control" />
   </div>
   <div class="form-group">
-      <textarea rows="20" w formControlName="content" placeholder="content" class="form-control" (change)="countLines($event)"></textarea>
+    <mat-select formControlName="type" placeholder="Type" class="form-control" >
+      <mat-option value="news">News</mat-option>
+      <mat-option value="deep-dive">Deep Dive</mat-option>
+    </mat-select>
   </div>
-<button type="submit">Submit</button>
+  <div class="form-group">
+    <textarea
+      rows="20"
+      w
+      formControlName="content"
+      placeholder="Content"
+      class="form-control"
+      (change)="countLines($event)"
+    ></textarea>
+  </div>
+  <button type="submit">Submit</button>
 </form>

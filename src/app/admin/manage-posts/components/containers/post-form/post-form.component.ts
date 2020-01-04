@@ -14,6 +14,7 @@ export class PostFormComponent implements OnInit {
 
   @Input() title: string;
   @Input() author: string;
+  @Input() type: 'news' | 'deep-dive';
   @Input() content: string;
 
   @Output() submitForm = new EventEmitter<Post>();
@@ -23,6 +24,7 @@ export class PostFormComponent implements OnInit {
     this.post = this.fb.group({
       title:    this.title,
       author:   this.author,
+      type:     this.type,
       content:  this. content
     });
   }
