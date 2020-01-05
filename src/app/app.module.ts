@@ -22,9 +22,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NotifierModule.withConfig({
-      position: { horizontal: { position: 'right' } }
-    })
+    NotifierModule
   ],
 
   bootstrap: [AppComponent]

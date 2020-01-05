@@ -26,7 +26,7 @@ export class NewPostComponent implements OnInit {
     });
   }
 
-  lineCounter(post) {
-    this.CharAmountInPost = post.length;
+  lineCounter(charLength: number) {
+    this.CharAmountInPost = charLength;
   }
 }

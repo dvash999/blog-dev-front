@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BlogComponent } from './blog.component';
-import { ContactModule } from './components/contact/modules/contact.module';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
@@ -30,10 +29,13 @@ const routes: Routes = [
             './components/deep-dive/modules/deep-dive/deep-dive.module'
           ).then(m => m.DeepDiveModule)
       },
-      // {
-      //   path: 'contact',
-      //   loadChildren: () => ContactModule
-      // },
+      {
+        path: 'contact',
+        loadChildren: () =>
+          import('./components/contact/modules/contact.module').then(
+            m => m.ContactModule
+          )
+      },
       {
         path: '**',
         component: NotFoundComponent

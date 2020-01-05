@@ -2,8 +2,8 @@
   <div class="mt-5 py-3">
     <h1>Create New Blog Post</h1>
   </div>
-  <div *ngIf="CharAmountInPost" class="text-right">
-    <span>{{ CharAmountInPost }} Characters</span>
+  <div class="text-right">
+    <span>{{ CharAmountInPost || 0}} Characters</span>
   </div>
   <div class="wrapper mt-3">
     <div>
