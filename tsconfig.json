@@ -4,6 +4,7 @@
     "baseUrl": "./",
     "downlevelIteration": true,
     "outDir": "./dist/out-tsc",
+    "incremental": true,
     "sourceMap": true,
     "declaration": false,
     "module": "esnext",

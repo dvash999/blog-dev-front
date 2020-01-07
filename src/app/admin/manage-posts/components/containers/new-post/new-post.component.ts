@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagePostsService } from '../../../api/manage-posts.service';
-import { ResponseMessage } from '../../../../../blog/api/models/responseMessage';
+import { ResponseMessage } from '../../../../../shared/models/responseMessage';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,7 +26,7 @@ export class NewPostComponent implements OnInit {
     });
   }
 
-  lineCounter(post) {
-    this.CharAmountInPost = post.length;
+  lineCounter(charLength: number) {
+    this.CharAmountInPost = charLength;
   }
 }

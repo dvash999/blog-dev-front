@@ -1,1 +1,44 @@
-<p>contact works!</p>
+<div class="container">
+  <div class="contactForm text-center px-3">
+    <h2 class="mb-4">Contact Me!</h2>
+    <p class="alert-success" *ngIf="isEmailSent">Email has been sent!</p>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+      class="form-group text-left align-items-center"
+    >
+      <div class="mb-2">
+        <input
+          formControlName="name"
+          type="text"
+          placeholder="Name"
+          class="form-control"
+        />
+        <mat-error class="errorLabel">{{ errorCheck('name') }}</mat-error>
+      </div>
+
+      <div class="mb-2">
+        <input
+          formControlName="email"
+          type="email"
+          ngModel
+          email
+          placeholder="Email"
+          class="form-control"
+        />
+        <mat-error class="errorLabel">{{ errorCheck('email') }} </mat-error>
+      </div>
+
+      <div class="mb-2">
+        <textarea
+          rows="5"
+          formControlName="content"
+          placeholder="Content"
+          class="form-control"
+        ></textarea>
+        <mat-error class="errorLabel">{{ errorCheck('content') }}</mat-error>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 mt-2">Send</button>
+    </form>
+  </div>
+</div>

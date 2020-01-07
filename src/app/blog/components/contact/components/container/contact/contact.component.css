@@ -1,0 +1,11 @@
+.contactForm {
+  width: auto;
+  max-width: 550px;
+  margin: 100px auto;
+}
+
+.errorLabel {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}

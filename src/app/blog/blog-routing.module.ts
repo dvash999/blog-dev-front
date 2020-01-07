@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeModule } from './components/home/modules/home.module';
-import { PostsModule } from './components/posts/modules/posts.module';
 import { BlogComponent } from './blog.component';
-import { ContactModule } from './components/contact/modules/contact.module';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
@@ -13,15 +10,31 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => HomeModule
+        loadChildren: () =>
+          import('./components/home/modules/home.module').then(
+            m => m.HomeModule
+          )
       },
       {
-        path: 'posts',
-        loadChildren: () => PostsModule
+        path: 'tech-news',
+        loadChildren: () =>
+          import('./components/tech-news/modules/tech-news.module').then(
+            m => m.TechNewsModule
+          )
+      },
+      {
+        path: 'deep-dive',
+        loadChildren: () =>
+          import(
+            './components/deep-dive/modules/deep-dive/deep-dive.module'
+          ).then(m => m.DeepDiveModule)
       },
       {
         path: 'contact',
-        loadChildren: () => ContactModule
+        loadChildren: () =>
+          import('./components/contact/modules/contact.module').then(
+            m => m.ContactModule
+          )
       },
       {
         path: '**',

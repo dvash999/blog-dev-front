@@ -11,12 +11,10 @@ export class PostResolverService implements Resolve<Post> {
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Promise<Post> {
     const id: number = routeSnapshot.params.id;
-    console.log('log');
     return this.postService
       .getSinglePost(id)
       .then(res => {
-        console.log(res)
-        if (res.error) return this.router.navigate(['/']);
+        if (res.error) return this.router.navigateByUrl('/404');
         return res;
       })
       .catch(err => err);

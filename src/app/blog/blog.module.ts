@@ -7,11 +7,13 @@ import { NotificationsService } from './features/notifications/notifications.ser
 
 import { BlogComponent } from './blog.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { FreeCoursesComponent } from './components/free-courses/components/free-courses/free-courses.component';
+import { CourseComponent } from './components/free-courses/components/course/course.component';
+import { CourseListComponent } from './components/free-courses/components/course-list/course-list.component';
 
 @NgModule({
-  declarations: [BlogComponent, NavbarComponent],
+  declarations: [BlogComponent, NavbarComponent, FreeCoursesComponent, CourseComponent, CourseListComponent],
   imports: [CommonModule, BlogRoutingModule, LikesModule],
-  providers: [NotificationsService],
-  exports: []
+  providers: [NotificationsService]
 })
 export class BlogModule {}

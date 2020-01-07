@@ -7,8 +7,9 @@ import {
 import { ROOT_URL } from '../../../blog/api/models/api-helper';
 import { Observable } from 'rxjs';
 import { Post } from '../models/Post.model';
-import { ResponseMessage } from '../../../blog/api/models/responseMessage';
+import { ResponseMessage } from '../../../shared/models/responseMessage';
 import { HttpHelperService } from '../../../shared/services/http-helper.service';
+import {map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,18 @@ export class ManagePostsService {
 
   constructor(private http: HttpClient) {}
 
-  getAllPosts(): Promise<Post[]> {
+  // getAllPosts(): Promise<Post[]> {
+  //   //   return this.http
+  //   //     .get<Post[]>(this.MANAGE_POSTS_URL)
+  //   //     .toPromise()
+  //   //     .then(res => res as Post[])
+  //   //     .catch(err => err);
+  //   // }
+
+  getAllPosts(): Observable<Post[]> {
     return this.http
-      .get<Post[]>(this.MANAGE_POSTS_URL)
-      .toPromise()
-      .then(res => res as Post[])
-      .catch(err => err);
+      .get<ResponseMessage>(this.MANAGE_POSTS_URL)
+      .pipe(map(response => response.message));
   }
 
   addPost(post): Promise<ResponseMessage> {
@@ -43,7 +50,7 @@ export class ManagePostsService {
 
   deletePost(postID): Promise<ResponseMessage> {
     return this.http
-      .delete(`${this.MANAGE_POSTS_URL}/${postID}`, HttpHelperService.getHttpHeaders())
+      .delete(`${this.MANAGE_POSTS_URL}/${postID}`)
       .toPromise()
       .then(response => response)
       .catch(err => err);

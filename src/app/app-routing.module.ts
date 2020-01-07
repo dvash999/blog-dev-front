@@ -4,8 +4,8 @@ import { AdminModule } from './admin/admin.module';
 import { BlogModule } from './blog/blog.module';
 
 const appRoutes: Routes = [
-  { path: '', loadChildren: () => BlogModule, pathMatch: 'prefix' },
   { path: 'admin', loadChildren: () => AdminModule },
+  { path: '', loadChildren: () => BlogModule, pathMatch: 'prefix' },
 ];
 
 @NgModule({

@@ -14,15 +14,17 @@ export class PostFormComponent implements OnInit {
 
   @Input() title: string;
   @Input() author: string;
+  @Input() type: 'news' | 'deep-dive';
   @Input() content: string;
 
   @Output() submitForm = new EventEmitter<Post>();
-  @Output() lineCounter = new EventEmitter<Post>();
+  @Output() lineCounter = new EventEmitter<number>();
 
   ngOnInit() {
     this.post = this.fb.group({
       title:    this.title,
       author:   this.author,
+      type:     this.type,
       content:  this. content
     });
   }
@@ -31,12 +33,14 @@ export class PostFormComponent implements OnInit {
     this.submitForm.emit(this.post.value);
   }
 
-  resetForm() {
+  resetForm(e) {
+    e.preventDefault();
     this.post.reset();
+    this.lineCounter.emit(0);
   }
 
   countLines(e) {
-    this.lineCounter.emit(e.target.value);
+    this.lineCounter.emit(e.target.value.length);
   }
 
 }

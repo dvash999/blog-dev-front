@@ -3,14 +3,16 @@ import { Router } from '@angular/router';
 import { ManagePostsService } from '../../../api/manage-posts.service';
 import { NotificationsService } from '../../../../../blog/features/notifications/notifications.service';
 import { Post } from '../../../models/Post.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-view-posts',
   templateUrl: './view-posts.component.html',
   styleUrls: ['./view-posts.component.css']
 })
-export class ViewPostsComponent implements OnInit {
-  posts;
+export class ViewPostsComponent implements OnInit, OnDestroy {
+  posts: Post[] = [];
+  sub: Subscription;
 
   canShowPost = false;
   canShowPostList = true;
@@ -54,7 +56,7 @@ export class ViewPostsComponent implements OnInit {
   }
 
   getAllPosts() {
-    this.managePostsService.getAllPosts().then(posts => {
+    this.sub = this.managePostsService.getAllPosts().subscribe(posts => {
       this.posts = ViewPostsComponent.ObjToArrayPipe(posts);
     });
   }
@@ -81,4 +83,8 @@ export class ViewPostsComponent implements OnInit {
   }
 
   editPost() {}
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 }

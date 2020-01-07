@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Post } from '../../../../admin/manage-posts/models/Post.model';
 import { ROOT_URL } from '../../../api/models/api-helper';
+import {ResponseMessage} from '../../../../shared/models/responseMessage';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,19 @@ export class PostService {
 
   constructor(private http: HttpClient) {}
 
-  getAllPosts(): Promise<Post[]> {
+  getAllPosts(filter: string): Promise<ResponseMessage> {
+    let params = null;
+    if (filter) params = this.setParams(filter);
+
     return this.http
-      .get<Post[]>(this.API_URL)
+      .get<Post[]>(this.API_URL, { params })
       .toPromise()
-      .then(res => res as Post[])
+      .then(res => res)
       .catch(err => err);
+  }
+
+  setParams(filter: string) {
+    return new HttpParams().set('filter', filter);
   }
 
   getSinglePost(id): Promise<any> {
