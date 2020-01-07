@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="contactForm text-center">
+  <div class="contactForm text-center px-3">
     <h2 class="mb-4">Contact Me!</h2>
+    <p class="alert-success" *ngIf="isEmailSent">Email has been sent!</p>
     <form
       [formGroup]="form"
-      #f
-      (ngSubmit)="submit(f.valid)"
+      (ngSubmit)="submit()"
       class="form-group text-left align-items-center"
     >
       <div class="mb-2">
@@ -26,7 +26,7 @@
           placeholder="Email"
           class="form-control"
         />
-        <mat-error *ngIf="form.get('email').invalid" class="errorLabel">{{ errorCheck('email') }}</mat-error>
+        <mat-error class="errorLabel">{{ errorCheck('email') }} </mat-error>
       </div>
 
       <div class="mb-2">

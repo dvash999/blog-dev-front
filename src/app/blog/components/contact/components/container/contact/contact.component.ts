@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  EmailValidator,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
-import {EmailService} from '../../../../../shared/services/email/email.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailService } from '../../../../../shared/services/email/email.service';
 
 @Component({
   selector: 'app-contact',
@@ -19,10 +13,12 @@ export class ContactComponent implements OnInit {
   email: string;
   content: string;
 
+  isEmailSent: boolean;
+
   constructor(private fb: FormBuilder, private emailService: EmailService) {
     this.form = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern('/[a-z]/gi')]],
-      email: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
+      email: ['', [Validators.required]],
       content: ['', [Validators.required, Validators.maxLength(500)]]
     });
   }
@@ -30,16 +26,16 @@ export class ContactComponent implements OnInit {
   ngOnInit() {}
 
   errorCheck(field) {
-    if (field === 'email' && this.form.get(field).hasError('email')) {
-      return 'invalid email';
-    }
-    if (this.form.get(field).hasError('required')) {
-      return `${field} is required`;
-    }
+    if (this.form.get(field).dirty && this.form.get(field).errors) return `Insert valid ${field}`;
   }
 
-  submit(isValid): void {
-    if (!isValid) return;
-    this.emailService.sendEmail(this.form.value);
+  submit(): void {
+    if (this.form.invalid) return alert('Please check all fields');
+    this.emailService.sendEmail(this.form.value).then(response => {
+      if (response.message === 'success') {
+        this.form.reset();
+        this.isEmailSent = true;
+      }
+    });
   }
 }

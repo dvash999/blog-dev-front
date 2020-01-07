@@ -19,7 +19,9 @@
             </button>
           </form>
 
-          <span routerLink="/contact" class="mx-3 align-self-center list-item">Contact</span>
+          <span routerLink="/contact" class="mx-3 align-self-center list-item"
+            >Contact</span
+          >
         </div>
         <div class="pr-3">
           <button
@@ -40,22 +42,15 @@
     </div>
   </div>
   <div
-    [ngClass]="{ 'hide-nav': !showMenu }"
+  [ngClass]="{ 'hide-nav': !showMenu }"
+
     class="container collapse navbar-collapse nav-row collapsed"
   >
     <ul class="nav-row nav-menu py-2 px-3 navbar-nav nav-fill list-unstyled">
       <li routerLink="/" class="list-item">Home</li>
-      <li routerLink="/tech-news" class="list-item">
-        Tech News
-      </li>
-
-      <li routerLink="/deep-dive" class="list-item">
-        Deep Dive
-      </li>
-
-<!--      <li routerLink="/free-courses" class="list-item nav-item text-left">-->
-<!--        Free Courses-->
-<!--      </li>-->
+      <li routerLink="/tech-news" class="list-item">Tech News</li>
+      <li routerLink="/deep-dive" class="list-item">Deep Dive</li>
+      <li *ngIf="showContact" routerLink="/contact" class="list-item">Contact</li>
     </ul>
   </div>
 </nav>
