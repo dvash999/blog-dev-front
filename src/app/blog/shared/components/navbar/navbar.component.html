@@ -6,12 +6,13 @@
       >
       <div class="d-flex flex-row">
         <div class="d-flex flex-row on-collapse">
-          <form class="form-inline">
+          <form class="form-inline" (submit)="sendSearch(search.value, $event)">
             <input
               class="form-control mr-sm-2 form-control-sm"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              #search
             />
 
             <button class="btn btn-sm btn-outline-primary" type="submit">
@@ -42,15 +43,16 @@
     </div>
   </div>
   <div
-  [ngClass]="{ 'hide-nav': !showMenu }"
-
+    [ngClass]="{ 'hide-nav': !showMenu }"
     class="container collapse navbar-collapse nav-row collapsed"
   >
     <ul class="nav-row nav-menu py-2 px-3 navbar-nav nav-fill list-unstyled">
       <li routerLink="/" class="list-item">Home</li>
       <li routerLink="/tech-news" class="list-item">Tech News</li>
       <li routerLink="/deep-dive" class="list-item">Deep Dive</li>
-      <li *ngIf="showContact" routerLink="/contact" class="list-item">Contact</li>
+      <li *ngIf="showContact" routerLink="/contact" class="list-item">
+        Contact
+      </li>
     </ul>
   </div>
 </nav>

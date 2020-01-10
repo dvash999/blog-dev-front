@@ -31,6 +31,7 @@ export class ContactComponent implements OnInit {
 
   submit(): void {
     if (this.form.invalid) return alert('Please check all fields');
+
     this.emailService.sendEmail(this.form.value).then(response => {
       if (response.message === 'success') {
         this.form.reset();
