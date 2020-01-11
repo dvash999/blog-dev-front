@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { Post } from '../../../../admin/manage-posts/models/Post.model';
-import { isEmpty } from 'lodash';
-import { Observable, Subscription } from 'rxjs';
-import { filter, map, tap } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-results',
@@ -28,10 +26,12 @@ export class SearchResultsComponent implements OnInit {
     this.router.events
       .pipe(filter(e => e instanceof NavigationStart))
       .subscribe((e: NavigationStart) => {
-        const {query, posts} = this.router.getCurrentNavigation().extras.state;
+        const {
+          query,
+          posts
+        } = this.router.getCurrentNavigation().extras.state;
         this.posts = posts;
         this.query = query;
       });
-
   }
 }

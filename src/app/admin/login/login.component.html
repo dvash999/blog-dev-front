@@ -1,0 +1,24 @@
+<div class="container text-center">
+  <div class="wrapper center-div border-dark w-50 mt-5">
+    <h2 class="mb-3 mt-5">Login to app</h2>
+    <form class="center-div mt-2" #f (submit)="submit($event, f.value)">
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter email..."
+        class="form-control mb-1"
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="email"
+      />
+      <input
+        type="password"
+        placeholder="Enter password..."
+        class="form-control"
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="password"
+
+      />
+      <button class="btn btn-primary w-100 mt-2" type="submit">Enter</button>
+    </form>
+  </div>
+</div>
