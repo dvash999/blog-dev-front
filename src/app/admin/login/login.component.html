@@ -1,20 +1,19 @@
 <div class="container text-center">
   <div class="wrapper center-div border-dark w-50 mt-5">
     <h2 class="mb-3 mt-5">Login to app</h2>
-    <form class="center-div mt-2" #f (submit)="submit($event, f.value)">
+    <form [formGroup]="form" class="center-div mt-2" #f (submit)="submit($event, f.valid)">
       <input
         type="email"
-        name="email"
+        formControlName="email"
         placeholder="Enter email..."
         class="form-control mb-1"
-        [ngModelOptions]="{standalone: true}"
         [(ngModel)]="email"
       />
       <input
         type="password"
+        formControlName="password"
         placeholder="Enter password..."
         class="form-control"
-        [ngModelOptions]="{standalone: true}"
         [(ngModel)]="password"
 
       />

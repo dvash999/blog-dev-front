@@ -7,11 +7,11 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  readonly API_URL = 'http://127.0.0.1:8000/admin';
+  readonly API_URL = 'http://127.0.0.1:8000/api/admin';
   constructor(private http: HttpClient) { }
 
-  login(credentials) {
-    return this.http.post(`${this.API_URL}/login`, {credentials})
+  login(email, password) {
+    return this.http.post(`${this.API_URL}/login`, {email, password})
       .toPromise()
       .then(res => console.log(res))
       .catch(err => err);
