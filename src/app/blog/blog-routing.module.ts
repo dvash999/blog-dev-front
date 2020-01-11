@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BlogComponent } from './blog.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
-import { SearchComponent } from './shared/components/search/search.component';
+import { SearchResultsComponent } from './shared/components/search-results/search-results.component';
 
 const routes: Routes = [
   {
@@ -38,8 +38,8 @@ const routes: Routes = [
           )
       },
       {
-        path: 'search/:query',
-        component: SearchComponent
+        path: 'search-results/:query',
+        component: SearchResultsComponent
       },
       {
         path: '**',

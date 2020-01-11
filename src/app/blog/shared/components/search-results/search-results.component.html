@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 *ngIf="posts.length > 0" class="my-3">
+    Search results for "{{ query }}"...
+  </h2>
+  <p *ngIf="posts.length === 0" class="my-3">
+    No results found for "{{ query }}"...
+  </p>
+  <div *ngFor="let post of posts; let i = index">
+    <app-post-preview [post]="post"></app-post-preview>
+  </div>
+</div>

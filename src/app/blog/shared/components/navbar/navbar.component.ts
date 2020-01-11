@@ -11,6 +11,7 @@ import { Route, Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   showMenu: boolean;
   showContact: boolean;
+  searchQuery: string;
 
   constructor(private searchService: SearchService, private router: Router) {}
 
@@ -34,10 +35,13 @@ export class NavbarComponent implements OnInit {
     this.showMenu = !this.showMenu;
   }
 
-  sendSearch(query, e) {
+  sendSearch(e) {
     e.preventDefault();
-    this.searchService
-      .searchPosts(query)
-      .then(res => this.router.navigate(['/search/' + query, res]));
+    this.searchService.searchPosts(this.searchQuery).then(posts => {
+      this.router.navigate(['/search-results/', this.searchQuery], {
+        state: { posts, query: this.searchQuery }
+      });
+      this.searchQuery = '';
+    });
   }
 }

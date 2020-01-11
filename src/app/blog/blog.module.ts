@@ -11,11 +11,13 @@ import { FreeCoursesComponent } from './components/free-courses/components/free-
 import { CourseComponent } from './components/free-courses/components/course/course.component';
 import { CourseListComponent } from './components/free-courses/components/course-list/course-list.component';
 import {SearchService} from '../shared/services/search/search.service';
-import { SearchComponent } from './shared/components/search/search.component';
+import { SearchResultsComponent } from './shared/components/search-results/search-results.component';
+import {PostsModule} from './components/posts/modules/posts.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [BlogComponent, NavbarComponent, FreeCoursesComponent, CourseComponent, CourseListComponent, SearchComponent],
-  imports: [CommonModule, BlogRoutingModule, LikesModule],
+  declarations: [BlogComponent, NavbarComponent, FreeCoursesComponent, CourseComponent, CourseListComponent, SearchResultsComponent],
+  imports: [CommonModule, BlogRoutingModule, LikesModule, PostsModule, FormsModule],
   providers: [NotificationsService, SearchService]
 })
 export class BlogModule {}
