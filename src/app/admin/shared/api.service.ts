@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-// import { Observable, Promise } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +11,13 @@ export class ApiService {
 
   login(email, password) {
     return this.http.post(`${this.API_URL}/login`, {email, password})
+      .toPromise()
+      .then(res => res)
+      .catch(err => err);
+  }
+
+  createAdmin(email, password) {
+    return this.http.post(`${this.API_URL}/createAdmin`, {email, password})
       .toPromise()
       .then(res => console.log(res))
       .catch(err => err);

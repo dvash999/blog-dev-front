@@ -10,6 +10,7 @@ import { TableModule } from './shared/table/table.module';
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginModule } from './login/login.module';
+import { AuthGuardService } from '../guards/auth-guard.service';
 
 const adminRoutes: Routes = [
   {
@@ -19,8 +20,8 @@ const adminRoutes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'posts', loadChildren: () => ManagePostsModule },
-      { path: 'users', loadChildren: () => ManageUsersModule }
-    ]
+      { path: 'users', loadChildren: () => ManageUsersModule },
+    ],
   },
   { path: 'login', loadChildren: () => LoginModule }
 ];

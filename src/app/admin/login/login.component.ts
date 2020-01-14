@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../blog/api/api.service';
+import { ApiService } from '../shared/api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,22 +13,37 @@ export class LoginComponent implements OnInit {
   password: string;
   form: FormGroup;
 
-  constructor(private apiService: ApiService, private fb: FormBuilder) {
-  }
+  constructor(
+    private apiService: ApiService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.form = this.fb.group({
-      email:    ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
   }
 
-  submit(e) {
+  submit(e): void {
     e.preventDefault();
     if (this.form.invalid) return;
 
-    this.apiService
-      .login(this.email, this.password)
-      .then(res => console.log(res));
+    this.apiService.login(this.email, this.password).then(response => {
+      console.log(response)
+      if (response.status === 200) {
+        sessionStorage.setItem('token', response.message);
+        this.router.navigate(['admin/dashboard']);
+      } else {
+        alert('wrong credentials');
+        this.form.reset();
+      }
+    });
+  }
+
+  // TEMP!
+  createAdmin(): void {
+    this.apiService.createAdmin(this.email, this.password).then(token => {});
   }
 }
