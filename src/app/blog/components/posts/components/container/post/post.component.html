@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="flex-column d-flex p-3 phone-column-layout">
+      <h1 class="my-3">{{ post.title }}</h1>
+      <p class="mb-5">
+        by <b>{{ post.author }}</b> at {{ post.date }}
+      </p>
+      <img
+        src="https://miro.medium.com/max/3000/1*FqAJ8wB9qqRHKy8ui0vflA.png"
+        alt=""
+        height="300"
+        width="100%"
+      />
+      <div class="post-content">
+        <p class="mt-5">{{ post.content }}</p>
+      </div>
+    </div>
+    <div>
+      <app-likes [type]="'post'" [id]="post.id"></app-likes>
+    </div>
+  </div>
+</div>

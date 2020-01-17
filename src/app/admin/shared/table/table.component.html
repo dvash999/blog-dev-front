@@ -1,0 +1,23 @@
+<div class="container d-flex full-width">
+<table class="table mt-5">
+  <thead>
+  <tr class="full-width border">
+    <th *ngFor="let column of columnTitles">
+      {{column}}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container>
+    <tr *ngFor="let item of items" class="full-width border">
+      <td *ngFor="let field of item">
+        {{field}}
+      </td>
+      <td class="row d-flex justify-content-around">
+        <i (click)="delete(item[0])" class="far fa-trash-alt pointer"></i>
+      </td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,23 @@
+<div class="phone-column-layout">
+  <img
+    src="https://149351115.v2.pressablecdn.com/wp-content/uploads/2019/11/iStock-962721460-1-1200x630.jpg"
+    alt=""
+    class="img-size"
+  />
+  <div class="d-flex flex-column">
+    <h4 class="post-headline">{{ post.title }}</h4>
+    <span class="py-1"
+      >By <b>{{ post.author }}</b> at <span>{{ post.date }}</span></span
+    >
+    <p>{{ post.content }}</p>
+
+    <button
+      [routerLink]="['posts/read', post.id]"
+      class="continue-reading-btn btn btn-outline-primary"
+    >
+      <span class="d-flex flex-row">Continue Reading</span>
+    </button>
+
+    <!--    <app-likes></app-likes>-->
+  </div>
+</div>

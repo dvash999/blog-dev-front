@@ -1,0 +1,60 @@
+<nav class="sticky-top bg-white text-dark border">
+  <div class="border --main-color">
+    <div class="navbar container">
+      <span routerLink="/" class="navbar-brand align-self-center px-3 pointer"
+        >LOGO</span
+      >
+      <div class="d-flex flex-row collapsed-search collapsed-search-input">
+        <div class="d-flex flex-row collapsed-search">
+          <form class="form-inline" (submit)="sendSearch($event)">
+            <input
+              class="form-control mr-sm-2 form-control-sm collapsed-search-input"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              [(ngModel)]="searchQuery"
+              [ngModelOptions]="{standalone: true}"
+              #search
+            />
+
+            <button class="btn btn-sm btn-outline-primary" type="submit">
+              Search
+            </button>
+          </form>
+
+          <span routerLink="/contact" class="mx-3 align-self-center list-item on-collapse"
+            >Contact</span
+          >
+        </div>
+        <div class="pr-3">
+          <button
+            (click)="toggleNav()"
+            class="navbar-toggler bg-dark burger ml-3"
+            type="button"
+            data-toggle="collapse"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler ml-auto"
+              ><i class="fas fa-bars"></i
+            ></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    [ngClass]="{ 'hide-nav': !showMenu }"
+    class="container collapse navbar-collapse nav-row collapsed"
+  >
+    <ul class="nav-row nav-menu py-2 px-3 navbar-nav nav-fill list-unstyled">
+      <li routerLink="/" class="list-item">Home</li>
+      <li routerLink="/tech-news" class="list-item">Tech News</li>
+      <li routerLink="/deep-dive" class="list-item">Deep Dive</li>
+      <li *ngIf="showContact" routerLink="/contact" class="list-item">
+        Contact
+      </li>
+    </ul>
+  </div>
+</nav>

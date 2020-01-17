@@ -1,0 +1,8 @@
+<app-table
+  *ngIf="users"
+  (deleteItem)="deleteUser($event)"
+  [columnTitles]="columnTitles"
+  [items]="users"
+  [fields]="['id', 'name', 'email']"
+>
+</app-table>

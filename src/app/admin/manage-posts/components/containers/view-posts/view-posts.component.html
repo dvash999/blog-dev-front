@@ -1,0 +1,12 @@
+<button class="btn btn-primary float-right mt-4" routerLink="new-post">
+  New Post
+</button>
+
+<app-table
+  *ngIf="posts"
+  (deleteItem)="deletePost($event)"
+  [columnTitles]="columnTitles"
+  [items]="posts"
+  [fields]="['id', 'title,', 'content', 'likes', 'comments']"
+>
+</app-table>
