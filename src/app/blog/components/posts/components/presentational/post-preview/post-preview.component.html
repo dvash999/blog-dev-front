@@ -1,21 +1,23 @@
-<div class="phone-column-layout">
-  <img
-    src="https://149351115.v2.pressablecdn.com/wp-content/uploads/2019/11/iStock-962721460-1-1200x630.jpg"
-    alt=""
-    class="img-size"
-  />
+<div class="phone-column-layout" [routerLink]="['/posts/read', post.id]">
   <div class="d-flex flex-column">
     <h4 class="post-headline">{{ post.title }}</h4>
-    <span class="py-1"
-      >By <b>{{ post.author }}</b> at <span>{{ post.date }}</span></span
-    >
-    <p>{{ post.content | threeDots }} </p>
-
-    <button
-      [routerLink]="['/posts/read', post.id]"
-      class="continue-reading-btn btn btn-outline-primary"
-    >
-      <span class="d-flex flex-row">Continue Reading</span>
-    </button>
+    <img
+      src="https://149351115.v2.pressablecdn.com/wp-content/uploads/2019/11/iStock-962721460-1-1200x630.jpg"
+      alt=""
+      class="img-size"
+    />
+    <div class="d-flex flex-row mt-2">
+      <img
+        alt="author"
+        class="border-round mr-2"
+        src="https://miro.medium.com/fit/c/96/96/1*Ap0cL-mIXt1wVV-Iti6Bdg.jpeg"
+        width="48"
+        height="48"
+      />
+      <span class="py-1 align-self-center"
+        >By <b>{{ post.author }}</b> at <span>{{ post.date }}</span></span
+      >
+      <!--    <p>{{ post.content | threeDots }} </p>-->
+    </div>
   </div>
 </div>

@@ -1,26 +1,34 @@
 .post-headline {
   margin: 0 !important;
+  height: 65px;
+  /*word-wrap: break-spaces;*/
 }
 
 .img-size {
   width: 300px;
-  height: 100%;
+  height: 120px;
   margin-right: 20px;
+  border-radius: 5px;
 }
 
 .phone-column-layout {
   display: flex;
-  height: 220px;
-  width: 100%;
+  flex-direction: column;
+  height: 270px;
+  width: 350px;;
   padding: 20px;
-  margin-bottom: 15px;
-
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .continue-reading-btn {
   width: 15vw;
   display: flex;
-  align-self: flex-end;
+  align-self: flex-start;
+}
+
+.border-round {
+  border-radius: 50px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -28,7 +36,7 @@
     display: flex;
     flex-direction: column !important;
     height: 457px;
-    align-items: stretch;
+    /*align-items: stretch;*/
   }
 
   .img-size {
