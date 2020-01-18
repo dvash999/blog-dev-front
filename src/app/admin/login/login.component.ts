@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../shared/api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ResponseHandlerService } from '../../shared/services/response-handler.service';
+import { NotificationsService } from '../../blog/features/notifications/notifications.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private notify: NotificationsService
   ) {}
 
   ngOnInit() {
@@ -31,19 +34,16 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) return;
 
     this.apiService.login(this.email, this.password).then(response => {
-      console.log(response)
-      if (response.status === 200) {
-        sessionStorage.setItem('token', response.message);
+      if (response.message === 'success') {
+        sessionStorage.setItem('token', response.payload);
         this.router.navigate(['admin/dashboard']);
-      } else {
-        alert('wrong credentials');
-        this.form.reset();
       }
+      this.form.reset();
     });
   }
 
   // TEMP!
-  createAdmin(): void {
-    this.apiService.createAdmin(this.email, this.password).then(token => {});
-  }
+  // createAdmin(): void {
+  //   this.apiService.createAdmin(this.email, this.password).then(token => {});
+  // }
 }

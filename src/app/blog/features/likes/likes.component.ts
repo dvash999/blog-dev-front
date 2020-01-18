@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PusherService } from '../../shared/pusher/pusher.service';
 import { LikeService } from './api/like.service';
 import {Observable} from 'rxjs';
@@ -9,20 +9,18 @@ import {Observable} from 'rxjs';
   styleUrls: ['./likes.component.css']
 })
 export class LikesComponent implements OnInit {
-  @Input() type: string;
-  @Input() id: number;
+  @Output() addLike = new EventEmitter();
+  @Input() likeAmount: number;
+  @Input() postId: number;
 
   likes: number;
-  constructor(private likeService: LikeService) {}
+  constructor() {}
 
   ngOnInit() {
-    this.likeService.getLikesByID(this.type, this.id).subscribe(likes => this.likes = likes);
   }
 
-  // need to add if user liked the post -> disable like for the post
-  like(type, id) {
-    this.likeService.like(type, id).then(response => {
-      if (response.message === 'success') this.likes++;
-    });
+
+  like() {
+    this.addLike.emit();
   }
 }

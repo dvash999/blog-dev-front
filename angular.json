@@ -81,7 +81,11 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css",
-              "node_modules/angular-notifier/styles.css"
+              "./node_modules/angular-notifier/style.css",
+              "./node_modules/angular-notifier/themes/theme-material.css",
+              "./node_modules/angular-notifier/styles/types/type-error.scss",
+              "./node_modules/angular-notifier/styles/types/type-success.scss"
+
             ],
             "scripts": [],
             "assets": ["src/favicon.ico", "src/assets"]

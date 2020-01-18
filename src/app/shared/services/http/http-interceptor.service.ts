@@ -38,19 +38,22 @@ export class HttpInterceptorService implements HttpInterceptor {
 
     return next.handle(clone).pipe(
       tap(event => {
-        if (event instanceof HttpResponse && event.body) this.notificationsService.success();
+        if (event instanceof HttpResponse) {
+          this.handleFailed(event);
+        }
       }),
       catchError(this.handleError)
     );
   }
 
-  // handleResponse(event) {
-  //   console.log('eve', event)
-  //   if (event.body) this.notificationsService.success();
-  // }
+  handleFailed(event) {
+    if (event.body && event.body.status >= 400) {
+      this.notificationsService.notify(event.body);
+    }
+  }
 
   handleError(error: HttpErrorResponse) {
-    this.notificationsService.error();
+    this.notificationsService.failed('server error');
     return throwError(error);
   }
 }

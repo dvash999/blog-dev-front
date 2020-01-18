@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
 import { NotifierService } from 'angular-notifier';
+import { ResponseMessage } from '../../../shared/models/responseMessage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationsService {
-  constructor(private notifierService: NotifierService) {}
+  readonly notifier: NotifierService;
+
+  constructor(private notifierService: NotifierService) {
+    this.notifier = notifierService;
+  }
 
   static warning() {
     return Swal.fire({
@@ -20,17 +25,25 @@ export class NotificationsService {
     });
   }
 
-  success(message = 'success', type = 'success') {
-    console.log('success')
-    this.notifierService.notify(type, message);
+  success(message = 'success'): void {
+    this.notifier.notify('success', message);
   }
 
-  error(message = 'error', type = 'error', ) {
-    console.log('error')
-    this.notifierService.notify(type, message);
+  failed(message = 'failed'): void {
+    this.notifier.notify('error', message);
   }
 
-  info(message = 'info', type = 'info') {
-    this.notifierService.notify(type, message);
+  serverError(message = 'server error, please try again later'): void {
+    this.notifier.notify('error', message);
+  }
+
+  info(message = 'info'): void {
+    this.notifier.notify('info', message);
+  }
+
+  notify({ status, message }: ResponseMessage) {
+    if (100 < status && status < 300) this.success(message);
+    if (400 < status && status < 500) this.failed(message);
+    if (500 < status && status < 600) this.serverError(message);
   }
 }

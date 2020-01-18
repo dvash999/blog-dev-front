@@ -14,7 +14,9 @@ export class PostResolverService implements Resolve<Post> {
     return this.postService
       .getSinglePost(id)
       .then(res => {
-        if (res.error) return this.router.navigateByUrl('/404');
+        if (res.error) {
+          return this.router.navigateByUrl('/404');
+        }
         return res;
       })
       .catch(err => err);

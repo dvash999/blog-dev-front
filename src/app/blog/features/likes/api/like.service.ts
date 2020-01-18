@@ -15,9 +15,9 @@ export class LikeService {
     return this.http.get<number>(`${this.API_URL}/likes/${type}/${typeID}`);
   }
 
-  like(type: string, typeID: number) {
+  like(id: number, type: string) {
     return this.http
-      .post<Like>(`${this.API_URL}/likes`, {type, typeID}, HttpHelperService.getHttpHeaders())
+      .post<Like>(`${this.API_URL}/likes`, {type, id}, HttpHelperService.getHttpHeaders())
       .toPromise()
       .then(response => response)
       .catch(err => err);

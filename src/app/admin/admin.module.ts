@@ -11,36 +11,41 @@ import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginModule } from './login/login.module';
 import { AuthGuardService } from '../guards/auth-guard.service';
+import { LogoutComponent } from './admin-shared/logout/logout.component';
+import { SideMenuModule } from './admin-shared/side-menu/side-menu.module';
 
 const adminRoutes: Routes = [
   {
     path: '',
     component: AdminComponent,
+
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'posts', loadChildren: () => ManagePostsModule },
-      { path: 'users', loadChildren: () => ManageUsersModule },
-    ],
+      { path: '', redirectTo: 'dashboard' },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
+      {
+        path: 'posts',
+        loadChildren: () => ManagePostsModule,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'users',
+        loadChildren: () => ManageUsersModule,
+        canActivate: [AuthGuardService]
+      }
+    ]
   },
-  { path: 'login', loadChildren: () => LoginModule }
+  { path: 'login', loadChildren: () => LoginModule },
+  { path: '**', redirectTo: 'dashboard' }
 ];
 
 @NgModule({
   declarations: [AdminComponent, DashboardComponent],
+  providers: [AuthGuardService],
   imports: [
     RouterModule.forChild(adminRoutes),
-    AdminSharedModule,
+    SideMenuModule,
     CommonModule,
     TableModule
   ],
-  providers: [],
-  exports: [
-    RouterModule,
-    AdminComponent,
-    DashboardComponent,
-    AdminSharedModule,
-    TableModule
-  ]
 })
 export class AdminModule {}

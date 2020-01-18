@@ -10,7 +10,6 @@ export class SideMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // console.log('side-menu')
   }
 
 }

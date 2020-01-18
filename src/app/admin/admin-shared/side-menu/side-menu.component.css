@@ -7,10 +7,6 @@ a:hover {
   color: cornflowerblue;
 }
 
-a:active {
-  text-decoration: underline;
-}
-
 .side-menu {
   height: 100vh;
   width: 225px;
@@ -32,4 +28,13 @@ a:active {
   padding: 20px 0;
   letter-spacing: 2px;
   font-size: 20px;
+}
+
+.activeURL {
+  font-weight: 700;
+}
+
+.icon-div {
+  width: 20px;
+  text-align: center;
 }

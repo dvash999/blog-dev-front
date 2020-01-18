@@ -16,7 +16,7 @@
       </div>
     </div>
     <div>
-      <app-likes [type]="'post'" [id]="post.id"></app-likes>
+      <app-likes (addLike)="likePost()" [postId] ='post.id' [likeAmount]="post.likes"></app-likes>
     </div>
   </div>
 </div>

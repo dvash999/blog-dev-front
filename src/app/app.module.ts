@@ -7,6 +7,9 @@ import { NotifierModule } from 'angular-notifier';
 
 import { HttpInterceptorService } from './shared/services/http/http-interceptor.service';
 import { AppComponent } from './app.component';
+import {customNotifierOptions} from './shared/notificationStyle';
+import { MatProgressSpinnerModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +25,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NotifierModule
+    NotifierModule.withConfig(customNotifierOptions),
+    // MatProgressSpinnerModule
   ],
 
   bootstrap: [AppComponent]

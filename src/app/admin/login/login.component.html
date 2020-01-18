@@ -1,19 +1,19 @@
 <div class="container text-center layout">
   <div class="wrapper center-div border-dark w-50 mt-5">
-    <button (click)="createAdmin()">Create Admin</button>
+<!--    <button (click)="createAdmin()">Create Admin</button>-->
     <h3 class="mb-3 mt-5">Login</h3>
     <form [formGroup]="form" class="center-div mt-2" #f (submit)="submit($event)">
       <input
         type="email"
         formControlName="email"
-        placeholder="Enter email..."
+        placeholder="Email..."
         class="form-control mb-1"
         [(ngModel)]="email"
       />
       <input
         type="password"
         formControlName="password"
-        placeholder="Enter password..."
+        placeholder="Password..."
         class="form-control"
         [(ngModel)]="password"
 
