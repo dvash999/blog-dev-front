@@ -28,8 +28,6 @@
 }
 
 .list-item:hover {
-  color: darkblue;
-  font-weight: 400;
   text-decoration: underline;
 }
 

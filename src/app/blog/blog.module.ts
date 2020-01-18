@@ -23,7 +23,7 @@ import { SearchResultsComponent } from './shared/components/search-results/searc
     FreeCoursesComponent,
     CourseComponent,
     CourseListComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
   ],
   imports: [
     CommonModule,

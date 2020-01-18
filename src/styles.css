@@ -12,3 +12,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .center-div {
   margin: 0 auto;
 }
+
+.activeURL {
+  /*text-decoration: underline !important;*/
+  font-weight: 700;
+  color: darkmagenta;
+}

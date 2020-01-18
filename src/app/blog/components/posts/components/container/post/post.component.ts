@@ -26,4 +26,5 @@ export class PostComponent implements OnInit {
       if (response.message === 'success') this.post.likes++;
     });
   }
+
 }

@@ -1,0 +1,29 @@
+.layout {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.wrapper {
+}
+
+.title {
+    font-weight: 400;
+}
+
+.content {
+    margin: 0 auto;
+    width: 700px;
+    min-width: 55%;
+    max-width: 100%;
+}
+
+.date {
+    font-size: 12px;
+}
+
+.border-round {
+border-radius: 50px;
+}
+
+
+

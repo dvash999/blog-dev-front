@@ -9,7 +9,7 @@
     <span class="py-1"
       >By <b>{{ post.author }}</b> at <span>{{ post.date }}</span></span
     >
-    <p>{{ post.content }}</p>
+    <p>{{ post.content | threeDots }} </p>
 
     <button
       [routerLink]="['/posts/read', post.id]"
@@ -17,7 +17,5 @@
     >
       <span class="d-flex flex-row">Continue Reading</span>
     </button>
-
-    <!--    <app-likes></app-likes>-->
   </div>
 </div>
