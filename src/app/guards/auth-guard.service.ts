@@ -3,12 +3,9 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  Router,
-  Route
+  Router
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
-import { NotificationsService } from '../blog/features/notifications/notifications.service';
 
 @Injectable({
   providedIn: 'root'
