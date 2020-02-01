@@ -1,20 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "~angular-notifier/styles";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~angular-notifier/styles';
 
 .highlighted {
   border: 100px solid blue;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+p  {
+  font-weight: lighter ;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: lighter !important;
+}
+
+*:focus {
+  outline: 0 !important;
+}
 
 .center-div {
   margin: 0 auto;
 }
 
+.highlight {
+  background-color: red;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
 .activeURL {
-  /*text-decoration: underline !important;*/
-  font-weight: 700;
-  color: darkmagenta;
+  font-weight: 500;
+  color: var(--main-color);
 }

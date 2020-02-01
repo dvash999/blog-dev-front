@@ -1,12 +1,10 @@
-:root {
-  --main-color: #764ABC;
+::ng-deep :root {
+  --main-color: #3348AD;
+  --background-color: #F3F3F3;
 }
 
-
-.highlight {
-  background-color: red;
-}
-
-::ng-deep .pointer {
-  cursor: pointer;
+:host {
+  background-color: var(--background-color);
+  min-height: 100%;
+  overflow: auto;
 }

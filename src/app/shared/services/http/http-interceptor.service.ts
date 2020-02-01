@@ -71,8 +71,12 @@ export class HttpInterceptorService implements HttpInterceptor {
   }
 
   handleError(error: HttpErrorResponse) {
-    // this.removeRequest(req);
-    this.notificationsService.failed('server error');
-    return throwError(error);
+    try {
+      this.notificationsService.failed('Please try again later');
+      return throwError(error);
+    } catch (e) {
+      console.log('Please try again later');
+    }
+
   }
 }

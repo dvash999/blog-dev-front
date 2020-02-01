@@ -32,32 +32,32 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .phone-column-layout {
-    display: flex;
-    flex-direction: column !important;
-    height: 457px;
-    /*align-items: stretch;*/
-  }
+  /*.phone-column-layout {*/
+  /*  display: flex;*/
+  /*  flex-direction: column !important;*/
+  /*  height: 457px;*/
+  /*  !*align-items: stretch;*!*/
+  /*}*/
 
-  .img-size {
-    width: auto;
-    height: 200px;
-    margin: 0 0 20px 0 !important;
-  }
+  /*.img-size {*/
+  /*  width: auto;*/
+  /*  height: 200px;*/
+  /*  margin: 0 0 20px 0 !important;*/
+  /*}*/
 
-  .post-headline {
-    padding: 0;
-    margin: 15px 0 0 0;
-  }
+  /*.post-headline {*/
+  /*  padding: 0;*/
+  /*  margin: 15px 0 0 0;*/
+  /*}*/
 
-  .continue-reading-btn {
-    width: 35%;
-  }
+  /*.continue-reading-btn {*/
+  /*  width: 35%;*/
+  /*}*/
 }
 
 @media only screen and (max-width: 770px) {
-  .continue-reading-btn {
-    display: block !important;
-    width: 100% !important;
-  }
+  /*.continue-reading-btn {*/
+  /*  display: block !important;*/
+  /*  width: 100% !important;*/
+  /*}*/
 }

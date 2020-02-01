@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad6661ef-cdaf-4d4e-a9f2-36673e561984" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/user.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/post-form/post-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/post-form/post-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/components/posts/components/presentational/post-preview/post-preview.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/posts/components/presentational/post-preview/post-preview.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/components/posts/components/presentational/post-preview/post-preview.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/posts/components/presentational/post-preview/post-preview.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/components/posts/components/presentational/post-preview/post-preview.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/posts/components/presentational/post-preview/post-preview.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/guards/auth-guard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/guards/auth-guard.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/services/http/http-interceptor.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/services/http/http-interceptor.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,13 +28,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1WWR4MGFn9qj62rgvhMNjycc75B" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -97,12 +111,18 @@
       <updated>1579263171185</updated>
       <workItem from="1579263172735" duration="5731000" />
       <workItem from="1579292626696" duration="29756000" />
-      <workItem from="1579461231544" duration="3727000" />
+      <workItem from="1579461231544" duration="4379000" />
+      <workItem from="1579623201862" duration="1293000" />
+      <workItem from="1580325217805" duration="849000" />
+      <workItem from="1580485680310" duration="10701000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="628" y="247" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579348655711">
@@ -129,13 +149,13 @@
       <screen x="49" y="23" width="1391" height="877" />
     </state>
     <state x="126" y="223" width="1191" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog/49.23.1391.877@49.23.1391.877" timestamp="1579344760124" />
-    <state x="393" y="202" width="723" height="518" key="find.popup" timestamp="1579468794288">
+    <state x="393" y="202" width="747" height="518" key="find.popup" timestamp="1580548120440">
       <screen x="49" y="23" width="1391" height="877" />
     </state>
-    <state x="393" y="202" width="723" height="518" key="find.popup/49.23.1391.877@49.23.1391.877" timestamp="1579468794288" />
-    <state x="483" y="224" width="670" height="676" key="search.everywhere.popup" timestamp="1579466978743">
+    <state x="393" y="202" width="747" height="518" key="find.popup/49.23.1391.877@49.23.1391.877" timestamp="1580548120440" />
+    <state x="483" y="224" width="670" height="676" key="search.everywhere.popup" timestamp="1580494961799">
       <screen x="49" y="23" width="1391" height="877" />
     </state>
-    <state x="483" y="224" width="670" height="676" key="search.everywhere.popup/49.23.1391.877@49.23.1391.877" timestamp="1579466978743" />
+    <state x="483" y="224" width="670" height="676" key="search.everywhere.popup/49.23.1391.877@49.23.1391.877" timestamp="1580494961799" />
   </component>
 </project>

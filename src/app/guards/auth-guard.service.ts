@@ -17,12 +17,19 @@ export class AuthGuardService implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<any> | boolean {
-    return this.authService.isAuthenticated().then(isAuth => {
-      if (!isAuth) {
-        return this.router.navigate(['admin/login']);
-      } else if (isAuth) {
-        return true;
-      }
-    });
+    try {
+      return this.authService.isAuthenticated().then(isAuth => {
+        console.log('hi', isAuth)
+          if (!isAuth) {
+            this.router.navigate(['admin/login']);
+            return false;
+          } else if (isAuth) {
+            return true;
+          }
+      });
+    } catch (err) {
+      throw err;
+    }
+
   }
 }
