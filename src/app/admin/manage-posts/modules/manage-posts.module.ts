@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ManagePostsRoutingModule } from './manage-posts-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -16,6 +16,8 @@ import { NewPostComponent } from '../components/containers/new-post/new-post.com
 import { EditPostComponent } from '../components/containers/edit-post/edit-post.component';
 import { PostCardComponent } from '../components/presentational/post-card/post-card.component';
 import { PostFormComponent } from '../components/containers/post-form/post-form.component';
+import { AdminModule } from '../../admin.module';
+import { UploadImageComponent } from '../../shared/upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { PostFormComponent } from '../components/containers/post-form/post-form.
     ViewPostComponent,
     NewPostComponent,
     EditPostComponent,
-    PostFormComponent
+    PostFormComponent,
+    UploadImageComponent
   ],
   imports: [
     ManagePostsRoutingModule,
@@ -36,7 +39,8 @@ import { PostFormComponent } from '../components/containers/post-form/post-form.
     MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
-    TableModule
+    TableModule,
+    FormsModule
   ],
   providers: []
 })

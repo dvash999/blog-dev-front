@@ -19,10 +19,8 @@ export class AuthGuardService implements CanActivate {
   ): Promise<any> | boolean {
     try {
       return this.authService.isAuthenticated().then(isAuth => {
-        console.log('hi', isAuth)
           if (!isAuth) {
             this.router.navigate(['admin/login']);
-            return false;
           } else if (isAuth) {
             return true;
           }

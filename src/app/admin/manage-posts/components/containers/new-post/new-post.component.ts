@@ -20,7 +20,9 @@ export class NewPostComponent implements OnInit {
 
   uploadNewPost(post) {
     this.managePostsService.addPost(post).then((response: ResponseMessage) => {
-      if (response.message !== 'success') return 'add post failed';
+      if (response.message !== 'success') {
+        return 'add post failed';
+      }
 
       this.router.navigate(['/post-preview-list']);
     });

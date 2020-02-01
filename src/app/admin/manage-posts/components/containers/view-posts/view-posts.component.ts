@@ -52,6 +52,7 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    console.log('posts VIEW')
     this.getAllPosts();
   }
 

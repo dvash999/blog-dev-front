@@ -25,7 +25,8 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   static getHttpHeaders(): any {
     return new HttpHeaders({
-      'Content-Type': 'application/json',
+      // content type cant be set when sending DATAFORM
+      // 'Content-Type': 'application/json, application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers':
         'Content-Type, X-Auth-Token, Authorization, Origin',
@@ -48,9 +49,8 @@ export class HttpInterceptorService implements HttpInterceptor {
     const clone = req.clone({
       headers: HttpInterceptorService.getHttpHeaders()
     });
-
+    console.log(clone)
     this.requests.push(req);
-    // console.log('Number of requests ---> ' + this.requests.length);
     this.loaderService.isLoading.next(true);
 
     return next.handle(clone).pipe(
@@ -58,6 +58,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         if (event instanceof HttpResponse) {
           this.removeRequest(req);
           this.handleFailed(event);
+          this.loaderService.isLoading.next(false);
         }
       }),
     catchError(this.handleError)
@@ -66,15 +67,20 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   handleFailed(event) {
     if (event.body && event.body.status >= 400) {
+      this.loaderService.isLoading.next(false);
       this.notificationsService.notify(event.body);
     }
   }
 
   handleError(error: HttpErrorResponse) {
+    this.loaderService.isLoading.next(false);
+
     try {
       this.notificationsService.failed('Please try again later');
+
       return throwError(error);
     } catch (e) {
+      this.loaderService.isLoading.next(false);
       console.log('Please try again later');
     }
 

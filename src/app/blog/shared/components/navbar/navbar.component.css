@@ -1,13 +1,25 @@
+input::placeholder {
+  color: white;
+  font-weight: lighter;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
 .custom-navbar {
   display: flex;
   background-color: var(--main-color);
   color: white;
-  height: 65px;
+  height: 60px;
   align-content: center;
 }
 
 .navbar-brand {
-  font-size: 25px;
+  font-size: 20px;
   padding: 0;
   margin: 0;
 }
@@ -17,15 +29,7 @@
   width: 600px;
   padding: 0;
   font-weight: lighter;
-  height: 45px;
-  align-items: center;
-}
-
-button {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background: transparent;
+  height: 40px;
 }
 
 .show-nav {
@@ -42,13 +46,16 @@ button {
 
 .nav-row {
   display: flex;
-  flex-direction: row !important;
+  flex-direction: row ;
 }
 
 .list-item {
+  display: flex;
+  align-self: center;
   text-align: left;
-  margin-right: 30px;
   cursor: pointer;
+  margin-right: 30px;
+
 }
 
 .list-item:hover {
@@ -61,9 +68,13 @@ button {
   border-bottom: 1px solid white;
 }
 
-input::placeholder {
+.whiteActiveUrl {
   color: white;
-  font-weight: lighter;
+  font-weight: normal;
+}
+
+.env-style {
+  margin: 9px 0 9px 4px
 }
 
 @media only screen and (max-width: 880px) {
@@ -77,16 +88,40 @@ input::placeholder {
 
   .burger {
     display: block;
+    height: 100%;
+    width: 45px;
   }
 
   .nav-row {
     display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     position: absolute;
-    text-align: left !important;
+    text-align: left;
     background-color: #1c2022;
     color: white;
     width: 150px;
     left: calc(100% - 150px);
+    margin: 0;
+  }
+
+  .nav-menu {
+    height: auto;
+  }
+
+  .list-item {
+    margin: 0;
+    display: flex;
+    align-self: start;
+  }
+
+  .nav-collapse {
+    width: 110px;
+    margin-left: 40px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .collapsed-search {
+    display: none;
   }
 }

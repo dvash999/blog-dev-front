@@ -1,12 +1,12 @@
-<nav class="sticky-top bg-white text-dark">
-  <div class="custom-navbar">
+<nav class="bg-white text-dark border-bottom">
+  <div class="custom-navbar border-bottom">
     <div class="navbar container">
       <p routerLink="/" class="navbar-brand align-self-center px-3 pointer">
         Bits&&Bytes
       </p>
-      <div class="d-flex flex-row collapsed-search collapsed-search-input">
-        <div class="d-flex flex-row collapsed-search">
-          <form class="form-inline" (submit)="sendSearch($event)">
+      <div class="d-flex flex-row collapsed-search-input">
+        <div class="d-flex flex-row">
+          <form class="form-inline collapsed-search" (submit)="sendSearch($event)">
             <input
               class="mr-sm-2 form-input text-white collapsed-search-input"
               type="search"
@@ -16,24 +16,25 @@
               [ngModelOptions]="{ standalone: true }"
               #search
             />
-            <button ><i class="fas fa-search text-white pointer mr-1"></i></button>
-
+            <button>
+              <i class="fas fa-search text-white pointer mr-1"></i>
+            </button>
           </form>
-          <div class="d-flex flex-row mt-1">
-          <p
-            routerLink="/contact"
-            routerLinkActive="activeURL"
-            class="ml-3 mr-0 my-1 pr-0 list-item on-collapse"
-          >
-            Contact
-          </p>
-          <i class="fa fa-envelope ml-1 my-2"></i>
+          <div class="d-flex flex-row mt-1 on-collapse">
+            <p
+              routerLink="/contact"
+              routerLinkActive="whiteActiveUrl"
+              class="ml-3 mr-0 my-1 pr-0 list-item "
+            >
+              Contact
+            </p>
+            <i class="fa fa-envelope env-style"></i>
+          </div>
         </div>
-        </div>
-        <div class="pr-3">
+        <div class="">
           <button
             (click)="toggleNav()"
-            class="navbar-toggler bg-dark burger ml-3"
+            class="navbar-toggler bg-light burger ml-3"
             type="button"
             data-toggle="collapse"
             aria-controls="navbarSupportedContent"
@@ -52,7 +53,7 @@
     [ngClass]="{ 'hide-nav': !showMenu }"
     class="container collapse navbar-collapse nav-row collapsed"
   >
-    <ul class="nav-row nav-menu py-2 px-3 navbar-nav nav-fill list-unstyled">
+    <ul class="nav-row nav-menu px-3 m-0 p-0 nav-fill list-unstyled nav-collapse">
       <li
         routerLink="/"
         class="list-item"

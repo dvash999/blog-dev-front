@@ -13,6 +13,7 @@ import { LoginModule } from './login/login.module';
 import { AuthGuardService } from '../guards/auth-guard.service';
 import { LogoutComponent } from './admin-shared/logout/logout.component';
 import { SideMenuModule } from './admin-shared/side-menu/side-menu.module';
+import { UploadImageComponent } from './shared/upload-image/upload-image.component';
 
 const adminRoutes: Routes = [
   {
@@ -46,6 +47,6 @@ const adminRoutes: Routes = [
     SideMenuModule,
     CommonModule,
     TableModule
-  ],
+  ]
 })
 export class AdminModule {}

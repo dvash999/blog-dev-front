@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { Post } from '../models/Post.model';
 import { ResponseMessage } from '../../../shared/models/responseMessage';
 import { HttpHelperService } from '../../../shared/services/http-helper.service';
-import {map, tap} from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +35,7 @@ export class ManagePostsService {
 
   addPost(post): Promise<ResponseMessage> {
     return this.http
-      .post<ResponseMessage>(`${this.MANAGE_POSTS_URL}`, post)
+      .post(`${this.MANAGE_POSTS_URL}`, post)
       .toPromise()
       .then(response => response)
       .catch(err => err);
