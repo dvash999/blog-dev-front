@@ -23,13 +23,11 @@ export class HttpInterceptorService implements HttpInterceptor {
     private loaderService: LoaderService
   ) {}
 
-  static getHttpHeaders(): any {
+  static getHttpHeaders(): HttpHeaders {
     return new HttpHeaders({
-      // content type cant be set when sending DATAFORM
-      // 'Content-Type': 'application/json, application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers':
-        'Content-Type, X-Auth-Token, Authorization, Origin',
+      'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Authorization, Origin',
       'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE'
     });
   }
@@ -47,9 +45,12 @@ export class HttpInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const clone = req.clone({
-      headers: HttpInterceptorService.getHttpHeaders()
+      headers:
+        req.body instanceof FormData
+          ? HttpInterceptorService.getHttpHeaders().delete('Content-Type')
+          : HttpInterceptorService.getHttpHeaders()
     });
-    console.log(clone)
+
     this.requests.push(req);
     this.loaderService.isLoading.next(true);
 
@@ -61,7 +62,7 @@ export class HttpInterceptorService implements HttpInterceptor {
           this.loaderService.isLoading.next(false);
         }
       }),
-    catchError(this.handleError)
+      catchError(this.handleError)
     );
   }
 
@@ -83,6 +84,5 @@ export class HttpInterceptorService implements HttpInterceptor {
       this.loaderService.isLoading.next(false);
       console.log('Please try again later');
     }
-
   }
 }

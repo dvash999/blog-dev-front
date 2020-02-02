@@ -34,6 +34,7 @@ export class ManagePostsService {
   }
 
   addPost(post): Promise<ResponseMessage> {
+    console.log(post)
     return this.http
       .post(`${this.MANAGE_POSTS_URL}`, post)
       .toPromise()
