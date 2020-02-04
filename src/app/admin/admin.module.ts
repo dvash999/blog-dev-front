@@ -19,7 +19,6 @@ const adminRoutes: Routes = [
   {
     path: '',
     component: AdminComponent,
-
     children: [
       { path: '', redirectTo: 'dashboard' },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
@@ -36,6 +35,7 @@ const adminRoutes: Routes = [
     ]
   },
   { path: 'login', loadChildren: () => LoginModule },
+
   { path: '**', redirectTo: 'dashboard' }
 ];
 

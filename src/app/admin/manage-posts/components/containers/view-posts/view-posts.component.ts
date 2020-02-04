@@ -25,17 +25,17 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
     'Likes',
     'Comments',
     'Date',
-    'Manage'
   ];
 
   static ObjToArrayPipe(posts) {
-    return posts.map(({ id, title, content, likes, comments, date }) => [
+    return posts.map(({ id, title, content, likes, comments, date, img }) => [
       id,
       title,
       content,
       likes,
       comments,
-      date
+      date,
+      img
     ]);
   }
 
@@ -52,13 +52,15 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    console.log('posts VIEW')
     this.getAllPosts();
   }
 
   getAllPosts() {
     this.sub = this.managePostsService.getAllPosts().subscribe(posts => {
-      this.posts = ViewPostsComponent.ObjToArrayPipe(posts);
+      this.posts = posts;
+      console.log(this.posts);
+      // this.posts = ViewPostsComponent.ObjToArrayPipe(posts);
+      // console.log('this.post', this.posts)
     });
   }
 
@@ -76,6 +78,9 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
     this.canShowPost = true;
     this.canShowPostList = false;
     this.chosenPost = post;
+    // console.log('post', post)
+    this.router.navigate(['/admin/view-post/' + post.id]);
+    // go to form with the fetched post
   }
 
   showPostList(): void {

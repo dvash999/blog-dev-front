@@ -24,7 +24,7 @@ export class NewPostComponent implements OnInit {
         return 'add post failed';
       }
 
-      this.router.navigate(['/post-preview-list']);
+      this.router.navigate(['admin/posts']);
     });
   }
 

@@ -22,6 +22,6 @@ const routes: Routes = [
   declarations: [PostComponent, PostPreviewComponent, PostPreviewListComponent, Truncate3Dots],
   imports: [RouterModule.forChild(routes), CommonModule, LikesModule],
   providers: [PostResolverService],
-  exports: [PostComponent, PostPreviewComponent, PostPreviewListComponent]
+  exports: [PostComponent, PostPreviewComponent, PostPreviewListComponent, Truncate3Dots]
 })
 export class PostsModule {}

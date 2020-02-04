@@ -25,18 +25,18 @@ export class EditPostComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private managePostsService: ManagePostsService) { }
 
   ngOnInit() {
-    // this.postToEdit = this.route.params.subscribe(postToEdit => {
-    //   this.title = postToEdit.title;
-    //   this.author = postToEdit.author;
-    //   this.content = postToEdit.content;
-    //   this.postID = postToEdit.id;
-    // });
+    this.postToEdit = this.route.params.subscribe(postToEdit => {
+      this.title = postToEdit.title;
+      this.author = postToEdit.author;
+      this.content = postToEdit.content;
+      this.postID = postToEdit.id;
+    });
   }
 
   uploadEditedPost(post: Post): void {
     post.id = this.postID;
     const response = this.managePostsService.updatePost(post).subscribe(answer => console.log(answer));
-    console.log(response)
+    // console.log(response)
   }
 
   ngOnDestroy(): void {

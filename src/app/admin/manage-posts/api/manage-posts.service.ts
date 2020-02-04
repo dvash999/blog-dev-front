@@ -10,6 +10,7 @@ import { Post } from '../models/Post.model';
 import { ResponseMessage } from '../../../shared/models/responseMessage';
 import { HttpHelperService } from '../../../shared/services/http-helper.service';
 import { map, tap } from 'rxjs/operators';
+import { Form } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -34,12 +35,19 @@ export class ManagePostsService {
   }
 
   addPost(post): Promise<ResponseMessage> {
-    console.log(post)
     return this.http
-      .post(`${this.MANAGE_POSTS_URL}`, post)
+      .post(`${this.MANAGE_POSTS_URL}`, this.createFormData(post))
       .toPromise()
       .then(response => response)
       .catch(err => err);
+  }
+
+  createFormData(post): FormData {
+    const formData = new FormData();
+    formData.append('img', post.img);
+    delete post.img;
+    formData.append('data', JSON.stringify(post));
+    return formData;
   }
 
   updatePost(post): Observable<ResponseMessage> {

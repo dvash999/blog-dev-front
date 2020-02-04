@@ -12,14 +12,22 @@
       <change afterPath="$PROJECT_DIR$/src/assets/img/mountain2.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/assets/img/space.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/assets/img/yellow.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/user.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/admin.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/admin.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/api/manage-posts.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/api/manage-posts.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/edit-post/edit-post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/edit-post/edit-post.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/new-post/new-post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/new-post/new-post.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/post-form/post-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/post-form/post-form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/post-form/post-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/post-form/post-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/view-posts/view-posts.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/view-posts/view-posts.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/view-posts/view-posts.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/view-posts/view-posts.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/presentational/view-post/view-post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/presentational/view-post/view-post.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/presentational/view-post/view-post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/presentational/view-post/view-post.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/modules/manage-posts.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/modules/manage-posts.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/shared/table/table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/shared/table/table.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/shared/table/table.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/shared/table/table.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/shared/table/table.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/shared/table/table.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/blog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/blog.component.html" afterDir="false" />
@@ -29,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/src/app/blog/components/contact/components/presentational/contact-form/contact-form.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/components/home/components/container/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/home/components/container/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/components/posts/components/presentational/post-preview/post-preview.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/posts/components/presentational/post-preview/post-preview.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/components/posts/modules/posts.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/posts/modules/posts.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/guards/auth-guard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/guards/auth-guard.service.ts" afterDir="false" />
@@ -131,7 +140,7 @@
       <workItem from="1579461231544" duration="4379000" />
       <workItem from="1579623201862" duration="1293000" />
       <workItem from="1580325217805" duration="849000" />
-      <workItem from="1580485680310" duration="36738000" />
+      <workItem from="1580485680310" duration="46709000" />
     </task>
     <servers />
   </component>
@@ -162,14 +171,14 @@
       <screen x="49" y="23" width="1391" height="877" />
     </state>
     <state width="1370" height="212" key="GridCell.Tab.0.right/49.23.1391.877@49.23.1391.877" timestamp="1579299335736" />
-    <state x="126" y="223" width="1191" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579344760124">
+    <state x="159" y="137" width="1191" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1580845593243">
       <screen x="49" y="23" width="1391" height="877" />
     </state>
-    <state x="126" y="223" width="1191" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog/49.23.1391.877@49.23.1391.877" timestamp="1579344760124" />
-    <state x="340" y="202" width="747" height="518" key="find.popup" timestamp="1580586282639">
+    <state x="159" y="137" width="1191" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog/49.23.1391.877@49.23.1391.877" timestamp="1580845593243" />
+    <state x="340" y="202" width="747" height="518" key="find.popup" timestamp="1580846133592">
       <screen x="49" y="23" width="1391" height="877" />
     </state>
-    <state x="340" y="202" width="747" height="518" key="find.popup/49.23.1391.877@49.23.1391.877" timestamp="1580586282639" />
+    <state x="340" y="202" width="747" height="518" key="find.popup/49.23.1391.877@49.23.1391.877" timestamp="1580846133592" />
     <state x="483" y="224" width="670" height="676" key="search.everywhere.popup" timestamp="1580573721685">
       <screen x="49" y="23" width="1391" height="877" />
     </state>

@@ -29,7 +29,7 @@ export class PostFormComponent implements OnInit {
       author: [this.author, Validators.required],
       type: [this.type, Validators.required],
       content: [this.content, Validators.required],
-      img: this.img
+      // img: [this.img, Validators.required]
     });
   }
 
@@ -47,12 +47,8 @@ export class PostFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const formData = new FormData();
-
-    // formData.append('img', this.img);
-    formData.append('post', this.post.value);
-
-    this.submitForm.emit(formData);
+    this.post.value.img = this.img;
+    this.submitForm.emit(this.post.value);
   }
 
   resetForm(e) {

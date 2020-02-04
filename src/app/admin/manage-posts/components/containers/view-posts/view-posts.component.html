@@ -5,8 +5,9 @@
 <app-table
   *ngIf="posts"
   (deleteItem)="deletePost($event)"
+  (showItem)="showPost($event)"
   [columnTitles]="columnTitles"
   [items]="posts"
-  [fields]="['id', 'title,', 'content', 'likes', 'comments']"
+  [fields]="['id', 'title,', 'content', 'likes', 'comments', 'date']"
 >
 </app-table>
