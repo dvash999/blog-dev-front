@@ -8,7 +8,7 @@ import { PostComponent } from '../components/container/post/post.component';
 import { PostPreviewComponent } from '../components/presentational/post-preview/post-preview.component';
 import { PostPreviewListComponent } from '../components/container/post-preview-list/post-preview-list.component';
 import { LikesModule } from '../../../features/likes/module/likes.module';
-import { Truncate3Dots } from '../pipes/Truncate3Dots.pipe';
+import { SharedModule } from '../../../../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -19,9 +19,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PostComponent, PostPreviewComponent, PostPreviewListComponent, Truncate3Dots],
-  imports: [RouterModule.forChild(routes), CommonModule, LikesModule],
+  declarations: [PostComponent, PostPreviewComponent, PostPreviewListComponent, ],
+  imports: [RouterModule.forChild(routes), CommonModule, LikesModule, SharedModule],
   providers: [PostResolverService],
-  exports: [PostComponent, PostPreviewComponent, PostPreviewListComponent, Truncate3Dots]
+  exports: [PostComponent, PostPreviewComponent, PostPreviewListComponent]
 })
 export class PostsModule {}

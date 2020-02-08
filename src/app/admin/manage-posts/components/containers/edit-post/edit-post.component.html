@@ -1,6 +1,18 @@
-<app-post-form
-  (submitForm)="uploadEditedPost($event)"
-  [title]="title"
-  [author]="author"
-  [content]="content"
-></app-post-form>
+<div class="container form-design">
+  <div class="mt-5 py-3">
+    <h1>Edit Blog Post</h1>
+  </div>
+
+  <div class="wrapper mt-3">
+    <div>
+      <app-post-form
+        [title]="post.title"
+        [author]="post.author"
+        [content]="post.content"
+        [type]="post.type"
+        [img]="post.img"
+        (submitForm)="uploadEditedPost($event)"
+      ></app-post-form>
+    </div>
+  </div>
+</div>

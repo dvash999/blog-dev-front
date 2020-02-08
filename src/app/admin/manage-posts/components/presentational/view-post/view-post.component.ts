@@ -1,22 +1,33 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnDestroy
+} from '@angular/core';
 import { Post } from '../../../models/Post.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-post',
   templateUrl: './view-post.component.html',
   styleUrls: ['./view-post.component.css']
 })
-export class ViewPostComponent {
-  @Output() postDeleted = new EventEmitter<number>();
+export class ViewPostComponent implements OnInit, OnDestroy {
   @Output() toPostList = new EventEmitter<boolean>();
-  // @Input() post: Post;
+  post: Post;
 
-  // TODO - delete shouldnt be here, only on the parent of the view post
-  deletePost() {
-    // this.postDeleted.emit(this.post.id);
+  constructor(private activatedRoute: ActivatedRoute, private route: Router) {}
+
+  ngOnInit() {
+    this.post = this.activatedRoute.snapshot.data.post;
   }
 
-  backToPostList() {
-    this.toPostList.emit();
+  editPost(post) {
+    this.route.navigateByUrl('admin/posts/edit-post/' + post.id, {
+      state: { post }
+    });
   }
+
+  ngOnDestroy() {}
 }

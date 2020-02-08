@@ -4,6 +4,7 @@ import { ViewPostsComponent } from '../components/containers/view-posts/view-pos
 import { ViewPostComponent } from '../components/presentational/view-post/view-post.component';
 import { NewPostComponent } from '../components/containers/new-post/new-post.component';
 import { EditPostComponent } from '../components/containers/edit-post/edit-post.component';
+import { PostResolverService } from '../../../blog/components/posts/resolvers/post-resolver.service';
 
 const postsRoutes: Routes = [
   {
@@ -11,9 +12,19 @@ const postsRoutes: Routes = [
     component: ViewPostsComponent,
     pathMatch: 'full'
   },
-  { path: 'view-post/:id', component: ViewPostComponent },
+  {
+    path: 'view-post/:id',
+    component: ViewPostComponent,
+    resolve: { post: PostResolverService },
+    runGuardsAndResolvers: 'always'
+  },
   { path: 'new-post', component: NewPostComponent },
-  { path: 'edit-post/:id', component: EditPostComponent }
+  {
+    path: 'edit-post/:id',
+    component: EditPostComponent,
+    resolve: { post: PostResolverService },
+    runGuardsAndResolvers: 'always'
+  }
 ];
 @NgModule({
   imports: [RouterModule.forChild(postsRoutes)],

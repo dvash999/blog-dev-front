@@ -6,4 +6,6 @@ export interface Post {
   content: string;
   likes: number;
   comments: number;
+  type: 'deep-dive' | 'news';
+  img: any;
 }

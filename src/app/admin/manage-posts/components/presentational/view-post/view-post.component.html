@@ -1,18 +1,14 @@
 <div class="p-4 post">
-<!--  <div>-->
-<!--    <button class="btn btn-danger float-right" (click)="deletePost()">-->
-<!--      DELETE-->
-<!--    </button>-->
-<!--  </div>-->
-  <button class="btn btn-primary" [routerLink]="['edit-post/', post.id, post]">
+  <button class="btn btn-primary" (click)="editPost(post)">
     Edit Post
   </button>
   <div>
-    <button class="btn btn-primary float-left" (click)="backToPostList()">
+    <button class="btn btn-primary float-left" routerLink='/admin/posts'>
       Back
     </button>
   </div>
   <div class="mt-5 p-5">
+    <img [src]="post.img | transformImg" alt="img" width="400" height="200"/>
     <h1>{{ post.title }}</h1>
     <p>{{ post.author }}</p>
     <p>{{ post.content }}</p>

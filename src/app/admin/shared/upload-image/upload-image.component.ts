@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  Input,
   OnInit,
   Output,
   ViewChild
@@ -13,8 +14,14 @@ import {
   styleUrls: ['./upload-image.component.css']
 })
 export class UploadImageComponent implements OnInit {
-  @Output() approveImg = new EventEmitter<File | boolean>();
   @ViewChild('file', { static: false }) fileRef: ElementRef;
+  @Input('cleanInput') set cleanInput(value: boolean) {
+    if (!value) {
+      return;
+    }
+    this.removeFile();
+  }
+  @Output() approveImg = new EventEmitter<File | boolean>();
   file: File;
 
   constructor() {}
@@ -22,15 +29,20 @@ export class UploadImageComponent implements OnInit {
   ngOnInit() {}
 
   onFileSelect(file) {
+    if (!file) return;
     this.file = file.target.files[0];
 
     if (this.verifyFileSize() && this.verifyFileType()) {
       this.approveImg.emit(this.file);
     } else {
-      this.file = null;
-      this.fileRef.nativeElement.value = '';
+      this.removeFile();
       this.approveImg.emit(false);
     }
+  }
+
+  removeFile() {
+    this.file = null;
+    this.fileRef.nativeElement.value = '';
   }
 
   verifyFileSize() {

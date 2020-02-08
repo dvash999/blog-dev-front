@@ -1,46 +1,43 @@
-import {Component, InjectionToken, OnDestroy, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {Observable, Subscription} from 'rxjs';
-import {Post} from '../../../models/Post.model';
-import {ManagePostsService} from '../../../api/manage-posts.service';
-import {ResponseMessage} from '../../../../../shared/models/responseMessage';
-import {createInjectionToken} from '@angular/compiler/src/core';
+import { Component, InjectionToken, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { Post } from '../../../models/Post.model';
+import { ManagePostsService } from '../../../api/manage-posts.service';
+import { ResponseMessage } from '../../../../../shared/models/responseMessage';
+import { createInjectionToken } from '@angular/compiler/src/core';
+import { map, tap } from 'rxjs/operators';
 
-export const postServiceToken = new InjectionToken<ManagePostsService>('postServiceToken');
+export const postServiceToken = new InjectionToken<ManagePostsService>(
+  'postServiceToken'
+);
 
 @Component({
   selector: 'app-edit-post',
   templateUrl: './edit-post.component.html',
-  styleUrls: ['./edit-post.component.css'],
+  styleUrls: ['./edit-post.component.css']
 })
 export class EditPostComponent implements OnInit, OnDestroy {
+  post: Post;
 
-  title: string;
-  author: string;
-  content: string;
-  postID: number;
-
-  postToEdit: Subscription;
-
-  constructor(private route: ActivatedRoute, private managePostsService: ManagePostsService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private managePostsService: ManagePostsService,
+    private route: Router
+  ) {}
 
   ngOnInit() {
-    this.postToEdit = this.route.params.subscribe(postToEdit => {
-      this.title = postToEdit.title;
-      this.author = postToEdit.author;
-      this.content = postToEdit.content;
-      this.postID = postToEdit.id;
+    this.post = this.activatedRoute.snapshot.data.post;
+  }
+
+  uploadEditedPost(post): void {
+    post.id = this.post.id;
+    this.managePostsService.updatePost(post).then(res => {
+      if (res.message === 'success') {
+        this.route.navigateByUrl('admin/posts');
+        // add notification success
+      }
     });
   }
 
-  uploadEditedPost(post: Post): void {
-    post.id = this.postID;
-    const response = this.managePostsService.updatePost(post).subscribe(answer => console.log(answer));
-    // console.log(response)
-  }
-
-  ngOnDestroy(): void {
-    this.postToEdit.unsubscribe();
-  }
-
+  ngOnDestroy(): void {}
 }

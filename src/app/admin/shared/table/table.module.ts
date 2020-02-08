@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableComponent} from './table.component';
 import { RowComponent} from './row/row.component';
-import { Truncate3Dots } from '../../../blog/components/posts/pipes/Truncate3Dots.pipe';
 import { PostsModule } from '../../../blog/components/posts/modules/posts.module';
+import { SharedModule } from '../../../shared/shared.module';
 
 
 @NgModule({
@@ -14,8 +14,9 @@ import { PostsModule } from '../../../blog/components/posts/modules/posts.module
   ],
   imports: [
     CommonModule,
-    PostsModule
+    PostsModule,
+    SharedModule
   ],
-  providers: [Truncate3Dots]
+  providers: []
 })
 export class TableModule { }

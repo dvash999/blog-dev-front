@@ -18,7 +18,8 @@ export class PostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.post = this.activatedRoute.snapshot.data.post.payload;
+    this.post = this.activatedRoute.snapshot.data.post;
+    console.log(this.post)
   }
 
   likePost() {

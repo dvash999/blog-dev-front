@@ -24,11 +24,7 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit() {
     this.router.events
-      .pipe(
-        filter(
-          e => e instanceof NavigationStart && this.verifyURL(e.url)
-        )
-      )
+      .pipe(filter(e => e instanceof NavigationStart && this.verifyURL(e.url)))
       .subscribe((e: NavigationStart) => {
         const {
           query,
@@ -40,6 +36,6 @@ export class SearchResultsComponent implements OnInit {
   }
 
   verifyURL(url) {
-    return (url.includes('/search-results/') && !!this.query);
+    return url.includes('/search-results/') && !!this.query;
   }
 }

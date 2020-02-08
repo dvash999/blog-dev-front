@@ -16,28 +16,8 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
 
   canShowPost = false;
   canShowPostList = true;
-  chosenPost: Post;
 
-  columnTitles = [
-    'ID',
-    'Title',
-    'Content',
-    'Likes',
-    'Comments',
-    'Date',
-  ];
-
-  static ObjToArrayPipe(posts) {
-    return posts.map(({ id, title, content, likes, comments, date, img }) => [
-      id,
-      title,
-      content,
-      likes,
-      comments,
-      date,
-      img
-    ]);
-  }
+  columnTitles = ['ID', 'Title', 'Content', 'Likes', 'Comments', 'Date'];
 
   static approveAction() {
     return NotificationsService.warning().then(response => {
@@ -56,31 +36,28 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
   }
 
   getAllPosts() {
-    this.sub = this.managePostsService.getAllPosts().subscribe(posts => {
-      this.posts = posts;
-      console.log(this.posts);
-      // this.posts = ViewPostsComponent.ObjToArrayPipe(posts);
-      // console.log('this.post', this.posts)
-    });
+    this.sub = this.managePostsService
+      .getAllPosts()
+      .subscribe(posts => (this.posts = posts));
   }
 
   async deletePost(id) {
     await ViewPostsComponent.approveAction();
 
     this.managePostService.deletePost(id).then(res => {
-      if (!res.message) return;
-
-      this.posts = ViewPostsComponent.ObjToArrayPipe(res.message);
+      console.log(res)
+      if (res.message === 'success') {
+        this.posts = res.payload;
+      }
     });
   }
 
-  showPost(post): void {
+  showPost(post: Post): void {
     this.canShowPost = true;
     this.canShowPostList = false;
-    this.chosenPost = post;
-    // console.log('post', post)
-    this.router.navigate(['/admin/view-post/' + post.id]);
-    // go to form with the fetched post
+    this.router.navigate(['admin/posts/view-post/' + post.id], {
+      state: { post }
+    });
   }
 
   showPostList(): void {
@@ -88,7 +65,9 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
     this.canShowPost = false;
   }
 
-  editPost() {}
+  editPost(id) {
+    this.router.navigateByUrl('/admin/posts/edit-post/' + id);
+  }
 
   ngOnDestroy() {
     this.sub.unsubscribe();

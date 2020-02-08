@@ -1,8 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Post } from '../../../models/Post.model';
 import { NotificationsService } from '../../../../../blog/features/notifications/notifications.service';
-import { PostAndImg } from '../../../models/PostAndImg.model';
 
 @Component({
   selector: 'app-post-form',
@@ -17,11 +22,13 @@ export class PostFormComponent implements OnInit {
   @Input() title: string;
   @Input() author: string;
   @Input() type: 'news' | 'deep-dive';
-  @Input() content: string;
+  @Input() content = '';
   @Input() img: File;
 
   @Output() submitForm = new EventEmitter<any>();
-  @Output() lineCounter = new EventEmitter<number>();
+
+  imgPath: any;
+  isCleaned = false;
 
   ngOnInit() {
     this.post = this.fb.group({
@@ -29,21 +36,26 @@ export class PostFormComponent implements OnInit {
       author: [this.author, Validators.required],
       type: [this.type, Validators.required],
       content: [this.content, Validators.required],
-      // img: [this.img, Validators.required]
+      img: [this.img, Validators.required]
     });
   }
 
-  countLines(e) {
-    this.lineCounter.emit(e.target.value.length);
+  get characterAmount() {
+    return this.post.get('content').value
+      ? this.post.get('content').value.length
+      : 0;
   }
 
-  addImgToForm(img) {
-    if (!img) {
-      this.notify.failed(
-        'Images must be a PNG or JPG type, and less than 5MB in size'
-      );
-    }
+  previewImage(img) {
+    const reader = new FileReader();
+    this.imgPath = img;
+    reader.readAsDataURL(img);
+    reader.onload = event => {
+      this.imgPath = reader.result;
+    };
+
     this.img = img;
+    this.isCleaned = false;
   }
 
   onSubmit() {
@@ -51,9 +63,21 @@ export class PostFormComponent implements OnInit {
     this.submitForm.emit(this.post.value);
   }
 
+  deleteImg() {
+    this.img = null;
+    this.imgPath = '';
+    this.isCleaned = true;
+  }
+
+  imgError() {
+    this.notify.failed(
+      'Images must be a PNG or JPG type, and less than 5MB in size'
+    );
+  }
+
   resetForm(e) {
     e.preventDefault();
     this.post.reset();
-    this.lineCounter.emit(0);
+    this.isCleaned = true;
   }
 }

@@ -2,8 +2,8 @@
   <div class="d-flex flex-column">
     <h4 class="post-headline">{{ post.title }}</h4>
     <img
-      src="https://149351115.v2.pressablecdn.com/wp-content/uploads/2019/11/iStock-962721460-1-1200x630.jpg"
-      alt=""
+      [src]="post.img | transformImg"
+      [alt]="post['img_title']"
       class="img-size"
     />
     <div class="d-flex flex-row mt-2">

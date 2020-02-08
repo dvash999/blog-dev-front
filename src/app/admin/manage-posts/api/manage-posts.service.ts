@@ -34,6 +34,14 @@ export class ManagePostsService {
       .pipe(map(response => response.message));
   }
 
+  getPost(id): Promise<ResponseMessage> {
+    return this.http
+      .get(`${this.MANAGE_POSTS_URL}/${id}`)
+      .toPromise()
+      .then(res => res)
+      .catch(err => err);
+  }
+
   addPost(post): Promise<ResponseMessage> {
     return this.http
       .post(`${this.MANAGE_POSTS_URL}`, this.createFormData(post))
@@ -50,11 +58,15 @@ export class ManagePostsService {
     return formData;
   }
 
-  updatePost(post): Observable<ResponseMessage> {
-    return this.http.put<ResponseMessage>(
-      `${this.MANAGE_POSTS_URL}/${post.id}`,
-      post
-    );
+  updatePost(post): Promise<ResponseMessage> {
+    return this.http
+      .post<ResponseMessage>(
+        `${this.MANAGE_POSTS_URL}/${post.id}/updatePost`,
+        this.createFormData(post)
+      )
+      .toPromise()
+      .then(res => res)
+      .catch(err => err);
   }
 
   deletePost(postID): Promise<ResponseMessage> {

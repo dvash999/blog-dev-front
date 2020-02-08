@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ManageUsersService } from '../../../api/manage-users.service';
-import { Observable } from 'rxjs';
-import { User } from '../../../models/User.model';
 import { NotificationsService } from '../../../../../blog/features/notifications/notifications.service';
 
 @Component({
@@ -12,10 +10,6 @@ import { NotificationsService } from '../../../../../blog/features/notifications
 export class ViewUsersComponent implements OnInit {
   users;
   columnTitles = ['ID', 'Name', 'Email', 'Manage'];
-
-  static ObjToArrayPipe(posts) {
-    return posts.map(({ id, name, email }) => [id, name, email]);
-  }
 
   static approveAction() {
     return NotificationsService.warning().then(response => {
@@ -32,7 +26,7 @@ export class ViewUsersComponent implements OnInit {
   getAllUsers() {
     this.manageUsersService
       .getAllusers()
-      .then(users => (this.users = ViewUsersComponent.ObjToArrayPipe(users)));
+      .then(users => this.users = users);
   }
 
   async deleteUser(id) {
@@ -41,7 +35,7 @@ export class ViewUsersComponent implements OnInit {
     this.manageUsersService.deleteUser(id).then(res => {
       if (!res.message) return;
 
-      this.users = ViewUsersComponent.ObjToArrayPipe(res.message);
+      this.users = res.message;
     });
   }
 }

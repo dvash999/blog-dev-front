@@ -8,3 +8,13 @@
   height: 100vh;
   overflow: auto;
 }
+
+
+::ng-deep .form-design {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+  width: 70vw;
+  position: absolute;
+}

@@ -14,6 +14,8 @@ export class TableComponent implements OnInit {
   @Input() fields;
   @Output() deleteItem = new EventEmitter<any>();
   @Output() showItem = new EventEmitter<any>();
+  @Output() editItem = new EventEmitter<any>();
+
 
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class TableComponent implements OnInit {
   }
 
   edit(id) {
-
+    this.editItem.emit(id);
   }
 
 }

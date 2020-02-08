@@ -20,7 +20,7 @@ import { LoaderService } from './shared/services/loader.service';
       useClass: HttpInterceptorService,
       multi: true
     },
-    LoaderService
+    LoaderService,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +29,8 @@ import { LoaderService } from './shared/services/loader.service';
     BrowserAnimationsModule,
     NotifierModule.withConfig(customNotifierOptions),
     MatProgressBarModule
+  ],
+  exports: [
   ],
 
   bootstrap: [AppComponent]

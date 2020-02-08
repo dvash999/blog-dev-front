@@ -16,8 +16,9 @@ import { NewPostComponent } from '../components/containers/new-post/new-post.com
 import { EditPostComponent } from '../components/containers/edit-post/edit-post.component';
 import { PostCardComponent } from '../components/presentational/post-card/post-card.component';
 import { PostFormComponent } from '../components/containers/post-form/post-form.component';
-import { AdminModule } from '../../admin.module';
 import { UploadImageComponent } from '../../shared/upload-image/upload-image.component';
+import { PostResolverService } from '../../../blog/components/posts/resolvers/post-resolver.service';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { UploadImageComponent } from '../../shared/upload-image/upload-image.com
     NewPostComponent,
     EditPostComponent,
     PostFormComponent,
-    UploadImageComponent
+    UploadImageComponent,
   ],
   imports: [
     ManagePostsRoutingModule,
@@ -40,8 +41,9 @@ import { UploadImageComponent } from '../../shared/upload-image/upload-image.com
     MatCheckboxModule,
     MatChipsModule,
     TableModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
-  providers: []
+  providers: [PostResolverService],
 })
 export class ManagePostsModule {}
