@@ -1,23 +1,10 @@
-<img
-  [src]="post.img | transformImg"
-  alt=""
-  height="600"
-  width="100%"
-/>
+<img [src]="post.img | transformImg" alt="" height="500" width="100%" class="post-img"/>
 
 <div class="container content">
   <div class="layout flex-column p-3">
     <h1 class="my-3 title">{{ post.title }}</h1>
     <div class="d-flex flex-row justify-content-between">
       <div class="d-flex flex-row">
-
-<!--        <img-->
-<!--          alt="author"-->
-<!--          class="border-round mr-2"-->
-<!--          src="https://miro.medium.com/fit/c/96/96/1*Ap0cL-mIXt1wVV-Iti6Bdg.jpeg"-->
-<!--          width="48"-->
-<!--          height="48"-->
-<!--        />-->
         <div class="d-flex flex-column">
           <span>
             by <b>{{ post.author }}</b>

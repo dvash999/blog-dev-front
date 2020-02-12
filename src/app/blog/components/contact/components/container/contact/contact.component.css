@@ -1,11 +1,43 @@
+.headline {
+  align-content: center;
+  margin: 0 auto;
+  align-self: center;
+}
+
 .contactForm {
-  width: auto;
-  max-width: 550px;
-  margin: 100px auto;
+  width: 400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 9px 8px 6px 0 #cfcfcf;
 }
 
 .errorLabel {
   font-size: 12px;
   padding: 0;
   margin: 0;
+}
+
+.form-input {
+  width: 94%;
+  border: 0;
+  border-bottom: 1px solid lightgray;
+  font-weight: 200;
+  margin-top: 25px;
+}
+
+.message {
+  border-bottom: 0 !important;
+}
+
+.send-btn {
+  font-weight: 200;
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  letter-spacing: 0.1px;
+  align-self: center;
+  color: white;
+  background-image: linear-gradient(#5fc8ff, #084ac6);
 }

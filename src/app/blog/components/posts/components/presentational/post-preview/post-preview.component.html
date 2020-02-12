@@ -1,23 +1,16 @@
 <div class="phone-column-layout" [routerLink]="['/posts/read', post.id]">
   <div class="d-flex flex-column">
-    <h4 class="post-headline">{{ post.title }}</h4>
+    <h4 class="post-headline">{{ post.title | threeDots: 20 }}</h4>
     <img
       [src]="post.img | transformImg"
       [alt]="post['img_title']"
       class="img-size"
     />
-    <div class="d-flex flex-row mt-2">
-      <img
-        alt="author"
-        class="border-round mr-2"
-        src="https://miro.medium.com/fit/c/96/96/1*Ap0cL-mIXt1wVV-Iti6Bdg.jpeg"
-        width="48"
-        height="48"
-      />
-      <span class="py-1 align-self-center text-wrap"
-        >By <b>{{ post.author }}</b> at <span>{{ post.date }}</span></span
+    <div class="mt-3">
+      <span class="align-self-center font-weight-lighter text-wrap">
+        {{ post.date }} {{ post.author }}</span
       >
-          <p>{{ post.content | threeDots }} </p>
+      <p>{{ post.content | threeDots }}</p>
     </div>
   </div>
 </div>
