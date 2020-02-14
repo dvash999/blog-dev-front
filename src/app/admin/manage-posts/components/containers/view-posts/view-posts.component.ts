@@ -17,7 +17,7 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
   canShowPost = false;
   canShowPostList = true;
 
-  columnTitles = ['ID', 'Title', 'Content', 'Likes', 'Comments', 'Date'];
+  columnTitles = ['ID', 'Title', 'Content', 'Likes', 'Date'];
 
   static approveAction() {
     return NotificationsService.warning().then(response => {

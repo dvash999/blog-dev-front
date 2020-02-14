@@ -1,0 +1,12 @@
+.icon-div {
+    width: 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 12px;
+}
+
+p:hover {
+    color: cornflowerblue;
+}

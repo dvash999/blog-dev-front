@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ManagePostsModule } from './manage-posts/modules/manage-posts.module';
-import { AdminSharedModule } from './admin-shared/admin-shared.module';
 import { ManageUsersModule } from './manage-users/module/manage-users.module';
 import { TableModule } from './shared/table/table.module';
 
@@ -11,9 +10,11 @@ import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginModule } from './login/login.module';
 import { AuthGuardService } from '../guards/auth-guard.service';
-import { LogoutComponent } from './admin-shared/logout/logout.component';
-import { SideMenuModule } from './admin-shared/side-menu/side-menu.module';
+import { LogoutComponent } from './shared/logout/logout.component';
+import { SideMenuModule } from './shared/side-menu/side-menu.module';
 import { UploadImageComponent } from './shared/upload-image/upload-image.component';
+import { TopIndicatorComponent } from './shared/top-indicator/top-indicator.component';
+import { AdminSharedModule } from './shared/admin-shared.module';
 
 const adminRoutes: Routes = [
   {
@@ -46,7 +47,8 @@ const adminRoutes: Routes = [
     RouterModule.forChild(adminRoutes),
     SideMenuModule,
     CommonModule,
-    TableModule
+    TableModule,
+    AdminSharedModule
   ]
 })
 export class AdminModule {}

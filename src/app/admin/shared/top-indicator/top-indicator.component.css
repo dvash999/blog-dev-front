@@ -1,0 +1,17 @@
+.reminder {
+    background-color: rgba(124, 139, 211, 0.53);
+    opacity: .7;
+    border-radius: 10px;
+    height: 65px;
+    margin-top: 50px;
+    color: rgba(108, 0, 255, 0.88);
+    box-shadow: 9px 8px 6px 0 #cfcfcf;
+    border: 0;
+}
+
+.reminder-headline {
+    margin-left: 25px;
+    padding-top: 17px;
+    font-size: 20px;
+    font-weight: 500;
+}

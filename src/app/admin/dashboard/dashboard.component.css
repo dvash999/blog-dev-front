@@ -1,0 +1,64 @@
+.upper-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-card {
+  height: 160px;
+  width: 48%;
+  min-width: 300px;
+  border-radius: 10px;
+  box-shadow: 9px 8px 6px 0 #cfcfcf;
+  background-color: white;
+  padding: 25px;
+}
+
+.bottom-card {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  height: 300px;
+  width: 100%;
+  min-width: 400px;
+  justify-content: space-between;
+  padding: 25px;
+  box-shadow: 9px 8px 6px 0 #cfcfcf;
+  margin-top: 30px;
+}
+
+.upcoming-tasks {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid lightgray;
+  width: 48%;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 870px) {
+  .d-card,
+  .upcoming-tasks,
+  .calender {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .bottom-card {
+    all: unset;
+  }
+
+  .upcoming-tasks,
+  .calender {
+    min-width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 9px 8px 6px 0 #cfcfcf;
+    background-color: white;
+    padding: 25px;
+  }
+
+  .calender {
+    margin-bottom: 20px;
+  }
+}

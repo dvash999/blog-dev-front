@@ -1,0 +1,15 @@
+::ng-deep .admin-container {
+    width: 900px;
+    margin: 33px 30px 0 20px;
+    align-content: center;
+}
+
+::ng-deep .page-title {
+    font-size: 25px;
+}
+
+.background {
+    height: 100% !important;
+}
+
+

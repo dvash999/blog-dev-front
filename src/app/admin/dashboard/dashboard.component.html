@@ -1,3 +1,25 @@
-Number Of Posts: {{posts.length}}
-<br>
-Number Of Users: {{users.length}}
+<div class="mb-4">
+  <app-top-indicator [page]="'dashboard'"></app-top-indicator>
+</div>
+<div class="upper-cards mt-5 d-flex flex-wrap">
+  <div class="d-card">
+      <h3>POSTS</h3>
+      <p>Published</p>
+      <p>Last Post</p>
+  </div>
+  <div class="d-card">
+      <h3>USERS</h3>
+      <p>Registered</p>
+      <p>This week</p>
+  </div>
+</div>
+
+<div class="bottom-card">
+    <div class="upcoming-tasks">
+        <h3>Upcoming Tasks</h3>
+    </div>
+
+    <div class="calender">
+        <h3>Sunday, August 24, 2020</h3>
+    </div>
+</div>

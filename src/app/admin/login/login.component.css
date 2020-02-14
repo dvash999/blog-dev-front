@@ -1,3 +1,64 @@
 .layout {
-  max-width: 500px;
+  max-width: 200px;
+  margin-left: 80px;
+}
+
+.login-img {
+  background-image: url('../../../assets/img/login-cloud.png');
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: 0 !important;
+}
+
+h1,
+h2 {
+  color: white;
+}
+
+h1 {
+  font-size: 60px;
+  margin-top: 10px;
+  letter-spacing: 4px;
+}
+
+h2 {
+  color: white;
+  margin-top: 70px;
+  padding-bottom: 15px;
+}
+
+.form-input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  border-bottom: 1px solid white;
+  font-weight: 200;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.form-input::placeholder, input {
+  color: white;
+}
+
+.login-btn {
+  color: white;
+  width: 100%;
+  font-weight: 300;
+  border-radius: 15px;
+  height: 35px;
+  letter-spacing: 2px;
+  padding: 0;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.82) !important;  cursor: pointer;
+  color: rgba(152, 63, 210, 0.83);
+}
+
+.login-btn:hover {
+  background-color: rgb(255, 255, 255) !important;
+  color: rgba(152, 63, 210, 0.83);
+  border: 0;
+  font-weight: 400;
 }

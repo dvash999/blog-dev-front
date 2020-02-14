@@ -7,7 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
-import { AdminSharedModule } from '../../admin-shared/admin-shared.module';
 import { TableModule } from '../../shared/table/table.module';
 
 import { ViewPostsComponent } from '../components/containers/view-posts/view-posts.component';
@@ -18,7 +17,7 @@ import { PostCardComponent } from '../components/presentational/post-card/post-c
 import { PostFormComponent } from '../components/containers/post-form/post-form.component';
 import { UploadImageComponent } from '../../shared/upload-image/upload-image.component';
 import { PostResolverService } from '../../../blog/components/posts/resolvers/post-resolver.service';
-import { SharedModule } from '../../../shared/shared.module';
+import { AdminSharedModule } from '../../shared/admin-shared.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { SharedModule } from '../../../shared/shared.module';
   imports: [
     ManagePostsRoutingModule,
     CommonModule,
-    AdminSharedModule,
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
@@ -42,7 +40,7 @@ import { SharedModule } from '../../../shared/shared.module';
     MatChipsModule,
     TableModule,
     FormsModule,
-    SharedModule
+    AdminSharedModule
   ],
   providers: [PostResolverService],
 })
