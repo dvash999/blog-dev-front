@@ -29,7 +29,11 @@
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/view-posts/view-posts.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/view-posts/view-posts.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/view-posts/view-posts.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/components/containers/view-posts/view-posts.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/modules/manage-posts.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/modules/manage-posts.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/components/deep-dive/components/deep-dive/deep-dive.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/deep-dive/components/deep-dive/deep-dive.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/components/home/components/container/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/home/components/container/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/components/posts/components/container/post-preview-list/post-preview-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/posts/components/container/post-preview-list/post-preview-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/components/tech-news/components/tech-news/tech-news.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/tech-news/components/tech-news/tech-news.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/shared/components/navbar/navbar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/shared/components/not-found/not-found.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/shared/components/not-found/not-found.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/shared/components/not-found/not-found.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/shared/components/not-found/not-found.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/img/404.jpg" beforeDir="false" />
@@ -138,7 +142,7 @@
       <workItem from="1580485680310" duration="50195000" />
       <workItem from="1581077465327" duration="25698000" />
       <workItem from="1581674035352" duration="8160000" />
-      <workItem from="1581692048352" duration="12910000" />
+      <workItem from="1581692048352" duration="19957000" />
     </task>
     <servers />
   </component>
@@ -178,12 +182,12 @@
       <screen x="49" y="23" width="1391" height="877" />
     </state>
     <state x="146" y="123" width="1191" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog/49.23.1391.877@49.23.1391.877" timestamp="1581179739979" />
-    <state x="183" y="184" width="747" height="518" key="find.popup" timestamp="1581718202405">
+    <state x="81" y="382" width="747" height="518" key="find.popup" timestamp="1581772298867">
       <screen x="49" y="23" width="1391" height="877" />
     </state>
     <state x="337" y="202" width="750" height="518" key="find.popup/46.23.1394.877@46.23.1394.877" timestamp="1581713582503" />
     <state x="338" y="202" width="749" height="518" key="find.popup/47.23.1393.877@47.23.1393.877" timestamp="1581714515147" />
-    <state x="183" y="184" width="747" height="518" key="find.popup/49.23.1391.877@49.23.1391.877" timestamp="1581718202405" />
+    <state x="81" y="382" width="747" height="518" key="find.popup/49.23.1391.877@49.23.1391.877" timestamp="1581772298867" />
     <state x="481" y="224" width="672" height="676" key="search.everywhere.popup" timestamp="1581704161492">
       <screen x="46" y="23" width="1394" height="877" />
     </state>
