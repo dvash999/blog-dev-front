@@ -2,17 +2,18 @@
   <app-top-indicator [page]="'posts'"></app-top-indicator>
 </div>
 
-<button class="btn btn-primary float-right mt-4" routerLink="new-post">
+<button class="btn btn-primary float-right mt-4 mb-2" routerLink="new-post">
   New Post
 </button>
-
-<app-table
-  *ngIf="posts"
-  (deleteItem)="deletePost($event)"
-  (showItem)="showPost($event)"
-  (editItem)="editPost($event)"
-  [columnTitles]="columnTitles"
-  [items]="posts"
-  [fields]="['id', 'title,', 'content', 'likes', 'date']"
->
-</app-table>
+<div class="mb-2">
+  <app-table
+    *ngIf="posts"
+    (deleteItem)="deletePost($event)"
+    (showItem)="showPost($event)"
+    (editItem)="editPost($event)"
+    [columnTitles]="columnTitles"
+    [items]="posts"
+    [fields]="['id', 'title,', 'content', 'likes', 'date']"
+  >
+  </app-table>
+</div>

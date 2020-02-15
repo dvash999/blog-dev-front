@@ -25,7 +25,9 @@ export class ManageUsersService {
     };
   }
 
-  getAllusers(): Promise<User[]> {
+
+
+  getAllUsers(): Promise<User[]> {
     return this.http
       .get<User[]>(this.MANAGE_USERS_URL)
       .toPromise()

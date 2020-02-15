@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ManageUsersService } from '../manage-users/api/manage-users.service';
-import { ManagePostsService } from '../manage-posts/api/manage-posts.service';
 import { Post } from '../manage-posts/models/Post.model';
 import { User } from '../manage-users/models/User.model';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -12,21 +10,16 @@ import { Subscription } from 'rxjs';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   users: User[] = [];
+  verifiedUsers = 0;
+
   posts: Post[] = [];
 
-  private sub: Subscription;
-
-  constructor(
-    private manageUsers: ManageUsersService,
-    private managePosts: ManagePostsService
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.manageUsers.getAllusers().then(users => (this.users = users));
-    this.sub = this.managePosts.getAllPosts().subscribe(posts => (this.posts = posts));
+    this.posts = this.route.snapshot.data.posts;
+    this.users = this.route.snapshot.data.users;
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
+  ngOnDestroy(): void {}
 }

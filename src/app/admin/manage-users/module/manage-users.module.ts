@@ -4,6 +4,7 @@ import {ViewUsersComponent} from '../components/container/view-users/view-users.
 import {RouterModule} from '@angular/router';
 import {MatTableModule} from '@angular/material';
 import {TableModule} from '../../shared/table/table.module';
+import { AdminSharedModule } from '../../shared/admin-shared.module';
 
 const userRoutes = [
   {path: '', component: ViewUsersComponent}
@@ -15,7 +16,8 @@ const userRoutes = [
     RouterModule.forChild(userRoutes),
     CommonModule,
     MatTableModule,
-    TableModule
+    TableModule,
+    AdminSharedModule
   ]
 })
 export class ManageUsersModule { }

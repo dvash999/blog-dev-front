@@ -45,7 +45,6 @@ export class ViewPostsComponent implements OnInit, OnDestroy {
     await ViewPostsComponent.approveAction();
 
     this.managePostService.deletePost(id).then(res => {
-      console.log(res)
       if (res.message === 'success') {
         this.posts = res.payload;
       }

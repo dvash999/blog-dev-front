@@ -30,8 +30,7 @@ import { LoaderService } from './shared/services/loader.service';
     NotifierModule.withConfig(customNotifierOptions),
     MatProgressBarModule
   ],
-  exports: [
-  ],
+  exports: [],
 
   bootstrap: [AppComponent]
 })

@@ -10,11 +10,13 @@ import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginModule } from './login/login.module';
 import { AuthGuardService } from '../guards/auth-guard.service';
-import { LogoutComponent } from './shared/logout/logout.component';
 import { SideMenuModule } from './shared/side-menu/side-menu.module';
-import { UploadImageComponent } from './shared/upload-image/upload-image.component';
-import { TopIndicatorComponent } from './shared/top-indicator/top-indicator.component';
 import { AdminSharedModule } from './shared/admin-shared.module';
+import { PostsResolverService } from '../shared/services/postsResolver.service';
+import { ManageUsersService } from './manage-users/api/manage-users.service';
+import { ManagePostsService } from './manage-posts/api/manage-posts.service';
+import { AbstractResolver } from 'codelyzer/angular/urlResolvers/abstractResolver';
+import { UsersResolverService } from '../shared/services/usersResolver.service';
 
 const adminRoutes: Routes = [
   {
@@ -22,7 +24,12 @@ const adminRoutes: Routes = [
     component: AdminComponent,
     children: [
       { path: '', redirectTo: 'dashboard' },
-      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AuthGuardService],
+        resolve: { posts: PostsResolverService,  users: UsersResolverService},
+      },
       {
         path: 'posts',
         loadChildren: () => ManagePostsModule,
@@ -42,7 +49,12 @@ const adminRoutes: Routes = [
 
 @NgModule({
   declarations: [AdminComponent, DashboardComponent],
-  providers: [AuthGuardService],
+  providers: [
+    // AuthGuardService,
+    // PostsResolverService,
+    // ManageUsersService,
+    // ManagePostsService,
+  ],
   imports: [
     RouterModule.forChild(adminRoutes),
     SideMenuModule,

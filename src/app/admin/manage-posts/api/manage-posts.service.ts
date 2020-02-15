@@ -20,14 +20,6 @@ export class ManagePostsService {
 
   constructor(private http: HttpClient) {}
 
-  // getAllPosts(): Promise<Post[]> {
-  //   //   return this.http
-  //   //     .get<Post[]>(this.MANAGE_POSTS_URL)
-  //   //     .toPromise()
-  //   //     .then(res => res as Post[])
-  //   //     .catch(err => err);
-  //   // }
-
   getAllPosts(): Observable<Post[]> {
     return this.http
       .get<ResponseMessage>(this.MANAGE_POSTS_URL)

@@ -25,7 +25,7 @@ export class ViewUsersComponent implements OnInit {
 
   getAllUsers() {
     this.manageUsersService
-      .getAllusers()
+      .getAllUsers()
       .then(users => this.users = users);
   }
 
