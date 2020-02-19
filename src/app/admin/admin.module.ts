@@ -17,6 +17,8 @@ import { ManageUsersService } from './manage-users/api/manage-users.service';
 import { ManagePostsService } from './manage-posts/api/manage-posts.service';
 import { AbstractResolver } from 'codelyzer/angular/urlResolvers/abstractResolver';
 import { UsersResolverService } from '../shared/services/usersResolver.service';
+import { TasksComponent } from './tasks/tasks.component';
+import { TasksModule } from './tasks/tasks.module';
 
 const adminRoutes: Routes = [
   {
@@ -39,6 +41,10 @@ const adminRoutes: Routes = [
         path: 'users',
         loadChildren: () => ManageUsersModule,
         canActivate: [AuthGuardService]
+      },
+      { path: 'tasks',
+      loadChildren: () => TasksModule,
+      canActivate: [AuthGuardService]
       }
     ]
   },
@@ -50,10 +56,6 @@ const adminRoutes: Routes = [
 @NgModule({
   declarations: [AdminComponent, DashboardComponent],
   providers: [
-    // AuthGuardService,
-    // PostsResolverService,
-    // ManageUsersService,
-    // ManagePostsService,
   ],
   imports: [
     RouterModule.forChild(adminRoutes),

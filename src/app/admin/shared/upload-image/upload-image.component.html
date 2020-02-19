@@ -1,2 +1,16 @@
-<input  #file type="file" name="pic" (change)="onFileSelect($event)" />
-
+<div [ngClass]="{'hide-input': isFile}">
+  <label
+    for="upload-input"
+    [ngClass]="isFile ? 'btn-outline-danger' : 'btn-outline-primary'"
+    class="btn"
+    >{{ !isFile ? 'Upload Image' : 'Remove Image' }}</label
+  >
+  <input
+    id="upload-input"
+    #file
+    type="file"
+    name="pic"
+    (change)="onFileSelect($event)"
+  />
+</div>
+<button class="btn-outline-danger btn" *ngIf="isFile" (click)="removeFile()">Remove File</button>

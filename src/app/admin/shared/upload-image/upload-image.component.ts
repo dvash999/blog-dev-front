@@ -22,7 +22,10 @@ export class UploadImageComponent implements OnInit {
     this.removeFile();
   }
   @Output() approveImg = new EventEmitter<File | boolean>();
-  file: File;
+  @Output() removeImg = new EventEmitter<boolean>();
+
+  file: File = null;
+  isFile: boolean;
 
   constructor() {}
 
@@ -31,7 +34,7 @@ export class UploadImageComponent implements OnInit {
   onFileSelect(file) {
     if (!file) return;
     this.file = file.target.files[0];
-
+    this.isFile = true;
     if (this.verifyFileSize() && this.verifyFileType()) {
       this.approveImg.emit(this.file);
     } else {
@@ -43,7 +46,11 @@ export class UploadImageComponent implements OnInit {
   removeFile() {
     this.file = null;
     this.fileRef.nativeElement.value = '';
+    this.isFile = false;
+    this.removeImg.emit();
   }
+
+
 
   verifyFileSize() {
     const fSize = Math.round(this.file.size / 1024 / 1024);

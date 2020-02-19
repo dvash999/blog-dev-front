@@ -16,8 +16,8 @@ hr {
 }
 
 .side-menu {
-  min-height: 100vh;
-  height: 100%;
+  min-height: 100vh !important;
+  height: 100% !important;
   width: 190px;
   background: linear-gradient(#3348AD, #293A8F, #293A8F, #273789, #18245F) ;
   color: #fff;

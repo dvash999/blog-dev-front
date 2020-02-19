@@ -1,0 +1,38 @@
+#upload-input {
+  display: none;
+}
+
+#upload-input[type='file'] + label {
+  display: inline-block;
+  margin: 20px;
+  padding: 4px 32px;
+  background-color: #ffffff;
+  border: solid 1px #666f77;
+  border-radius: 6px;
+  color: #666f77;
+}
+
+#upload-input[type='file'] + label {
+    display: inline-block;
+    margin: 20px;
+    padding: 4px 32px;
+    background-color: #ffffff;
+    border: solid 1px #666f77;
+    border-radius: 6px;
+    color: #666f77;
+}
+
+#upload-input input[type=file]:active + label {
+    background-image: none;
+    background-color:#2D6C7A;
+    color:#FFFFFF;
+}
+
+#remove-btn {
+    color: red;
+    border-color: red;
+}
+
+.hide-input {
+    display: none;
+}

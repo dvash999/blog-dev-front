@@ -1,0 +1,34 @@
+<app-top-indicator [page]="'TASKS'"></app-top-indicator>
+<div class="admin-container d-flex flex-column w-100">
+  <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-between w-100" *ngIf="isToggled">
+      <input
+        [(ngModel)]="taskInput"
+        type="text"
+        class="input-task"
+        (change)="getInput($event)"
+      />
+      <button class="btn-outline-primary btn ml-2" (click)="confirmTask()">
+        Confirm
+      </button>
+    </div>
+    <button
+      class="btn-primary btn"
+      *ngIf="!isToggled"
+      (click)="isToggled = !isToggled"
+    >
+      Add Task
+    </button>
+  </div>
+  <div class="tasks-wrapper">
+    <div>
+      <h5 class="pl-4 pt-3">Upcoming Tasks</h5>
+    </div>
+    <ul
+      class="d-flex flex-column ml-4 list-unstyled"
+      *ngFor="let todo of tasks; let i = index"
+    >
+      <li class="text-break font-weight-light">{{ i + 1 }}. {{ todo['task'] }}</li>
+    </ul>
+  </div>
+</div>

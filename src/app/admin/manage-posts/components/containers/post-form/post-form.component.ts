@@ -46,7 +46,7 @@ export class PostFormComponent implements OnInit {
       : 0;
   }
 
-  previewImage(img) {
+  watchImage(img) {
     const reader = new FileReader();
     this.imgPath = img;
     reader.readAsDataURL(img);

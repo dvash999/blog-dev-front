@@ -1,15 +1,15 @@
+<div class="from-group d-flex flex-column">
+  <app-upload-image  [cleanInput]="isCleaned" (removeImg)="deleteImg()" (approveImg)=" $event ? watchImage($event) : imgError()"></app-upload-image>
+  <div class="mb-2 d-flex flex-column" *ngIf="imgPath || img">
+    <img [src]="imgPath || (img | transformImg)" [alt]="img.name || 'img-cover'" width="100%" height="320">
+  </div>
+</div>
+
 <div class="text-right">
   <span>{{ characterAmount || 0 }} Characters</span>
 </div>
 
 <form [formGroup]="post" (ngSubmit)="onSubmit()" #f>
-  <div class="from-group d-flex flex-row">
-    <app-upload-image [cleanInput]="isCleaned" (approveImg)=" $event ? previewImage($event) : imgError()"></app-upload-image>
-    <div class="mb-2" *ngIf="imgPath || img">
-      <button (click)="deleteImg()" class="btn btn-danger">X</button>
-      <img [src]="imgPath || (img | transformImg)" [alt]="img.name || 'img-cover'" width="200" height="120">
-    </div>
-  </div>
   <div class="form-group">
     <input formControlName="title" placeholder="Title" class="form-control" />
   </div>
