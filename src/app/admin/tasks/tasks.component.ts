@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TaskService } from './services/Task.service';
+import { NotificationsService } from '../../blog/features/notifications/notifications.service';
 
 @Component({
   selector: 'app-tasks',
@@ -9,12 +10,20 @@ import { TaskService } from './services/Task.service';
 })
 export class TasksComponent implements OnInit {
   isToggled = false;
+  isToggleEditTask: number;
   taskInput: string;
   tasks: string[];
-  constructor(private taskService: TaskService) { }
+  constructor(
+    private taskService: TaskService,
+    private notificationService: NotificationsService
+  ) {}
 
   ngOnInit() {
     this.getTasks();
+  }
+
+  getInput(e) {
+    this.taskInput = e.target.value;
   }
 
   getTasks() {
@@ -25,16 +34,30 @@ export class TasksComponent implements OnInit {
 
   confirmTask() {
     this.taskService.sendTask(this.taskInput).then(res => {
-      console.log(res)
       if (res.message === 'success') {
-        this.tasks.push(this.taskInput);
+        this.tasks.push(res.payload);
         this.taskInput = '';
+        this.notificationService.success();
       }
     });
   }
 
-  getInput(e) {
-    this.taskInput = e.target.value;
+  editTask(taskId, task) {
+    this.taskService.editTask(taskId, task).then(res => {
+      if (res.message === 'success') {
+        this.isToggleEditTask = null;
+        this.notificationService.success();
+      }
+    });
   }
 
+  deleteTask(taskId, index) {
+    this.taskService.deleteTask(taskId).then(res => {
+      if (res.message === 'success') {
+        this.tasks.splice(index, 1);
+        this.isToggleEditTask = null;
+        this.notificationService.success();
+      }
+    });
+  }
 }

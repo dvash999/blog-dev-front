@@ -7,6 +7,7 @@
         type="text"
         class="input-task"
         (change)="getInput($event)"
+        placeholder="Enter Task..."
       />
       <button class="btn-outline-primary btn ml-2" (click)="confirmTask()">
         Confirm
@@ -28,7 +29,47 @@
       class="d-flex flex-column ml-4 list-unstyled"
       *ngFor="let todo of tasks; let i = index"
     >
-      <li class="text-break font-weight-light">{{ i + 1 }}. {{ todo['task'] }}</li>
+      <li [ngClass]="isToggleEditTask === i ? 'selected-task' : ''">
+        <div
+          [ngClass]="
+            isToggleEditTask === i ? 'remove-task-hover' : ''
+          "
+          class="text-break font-weight-light pointer task"
+          (click)="
+            isToggleEditTask != i
+              ? (isToggleEditTask = i)
+              : (isToggleEditTask = null)
+          "
+        >
+          {{ i + 1 }}. {{ todo['content'] }}
+        </div>
+        <div
+          *ngIf="isToggleEditTask === i"
+          class="d-flex flex-row justify-content-between px-3"
+        >
+          <input
+            [(ngModel)]="todo['content']"
+            type="text"
+            class="input-task"
+            #editedTask
+          />
+          <span class="d-flex justify-content-between align-content-end">
+            <span
+              class="pr-2 pointer"
+              (click)="editTask(todo['id'], editedTask.value)"
+            >
+              &#10003;
+            </span>
+            <span
+              (click)="deleteTask(todo['id'], i)"
+              *ngIf="isToggleEditTask === i"
+              class="text-danger border-0 pr-2 d-flex align-content-start pointer"
+            >
+              <i class="fa fa-trash"></i>
+            </span>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
 </div>

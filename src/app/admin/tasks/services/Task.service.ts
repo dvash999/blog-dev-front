@@ -26,5 +26,18 @@ export class TaskService {
       .catch(err => err);
   }
 
-  deleteTask(taskId) {}
+  editTask(taskId, content) {
+    return this.http
+      .put(`${this.API_URL}/edit/${taskId}`, { content })
+      .toPromise()
+      .then(res => res)
+      .catch(err => err);
+  }
+
+  deleteTask(taskId) {
+    return this.http.delete(`${this.API_URL}/delete/${taskId}`)
+      .toPromise()
+      .then(res => res)
+      .catch(err => err);
+  }
 }

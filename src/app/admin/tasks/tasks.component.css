@@ -13,3 +13,17 @@
     padding-left: 5px;
     margin-right: 10px;
 }
+
+.selected-task {
+    border: 1px solid #3348ad;
+    padding: 5px 0;
+}
+
+.task:hover {
+    background-color: rgba(97, 200, 255, 0.53);
+}
+
+.remove-task-hover:hover {
+    background-color: transparent !important;
+}
+
