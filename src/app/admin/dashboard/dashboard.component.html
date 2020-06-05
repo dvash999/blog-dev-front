@@ -3,13 +3,19 @@
 </div>
 <div class="upper-cards mt-5 d-flex flex-wrap">
   <div class="d-card">
-    <h3>POSTS <span class="ml-3">{{ posts.length }}</span></h3>
+    <h3>
+      POSTS <span class="ml-3">{{ posts.length }}</span>
+    </h3>
     <p>Published</p>
     <p>Last Post</p>
   </div>
   <div class="d-card">
-    <h3>USERS <span class="ml-3">{{ users.length }}</span></h3>
-    <p>Registered <span class="ml-3">{{ verifiedUsers }}</span></p>
+    <h3>
+      USERS <span class="ml-3">{{ users.length }}</span>
+    </h3>
+    <p>
+      Registered <span class="ml-3">{{ verifiedUsers }}</span>
+    </p>
     <p>This week</p>
   </div>
 </div>
@@ -17,6 +23,9 @@
 <div class="bottom-card">
   <div class="upcoming-tasks">
     <h3>Upcoming Tasks</h3>
+    <ul class="d-flex list-unstyled flex-column" *ngFor="let task of tasks; let i = index">
+      <li *ngIf="i < 5">{{ task.content }}</li>
+    </ul>
   </div>
 
   <div class="calender">

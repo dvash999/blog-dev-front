@@ -19,6 +19,7 @@ import { AbstractResolver } from 'codelyzer/angular/urlResolvers/abstractResolve
 import { UsersResolverService } from '../shared/services/usersResolver.service';
 import { TasksComponent } from './tasks/tasks.component';
 import { TasksModule } from './tasks/tasks.module';
+import { TasksResolver } from './services/tasks/tasksResolver.service';
 
 const adminRoutes: Routes = [
   {
@@ -30,7 +31,8 @@ const adminRoutes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         canActivate: [AuthGuardService],
-        resolve: { posts: PostsResolverService,  users: UsersResolverService},
+        resolve: { posts: PostsResolverService,  users: UsersResolverService ,
+        tasks: TasksResolver},
       },
       {
         path: 'posts',

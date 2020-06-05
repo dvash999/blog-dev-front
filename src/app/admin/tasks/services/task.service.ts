@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Post } from '../../manage-posts/models/Post.model';
+import { ResponseMessage } from '../../../shared/models/responseMessage';
+import { map } from 'rxjs/operators';
+import { Task } from '../../models/task.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
   readonly API_URL = 'http://127.0.0.1:8000/api/admin/tasks';
+
   constructor(private http: HttpClient) {}
 
-  getAllTasks() {
+  getAllTasks(): Observable<Task[]> {
     return this.http
       .get(`${this.API_URL}/getTasks`)
-      .toPromise()
-      .then(res => res)
-      .catch(err => err);
+      .pipe(map(response => response['payload']));
   }
 
   getTask() {}
@@ -35,7 +39,8 @@ export class TaskService {
   }
 
   deleteTask(taskId) {
-    return this.http.delete(`${this.API_URL}/delete/${taskId}`)
+    return this.http
+      .delete(`${this.API_URL}/delete/${taskId}`)
       .toPromise()
       .then(res => res)
       .catch(err => err);

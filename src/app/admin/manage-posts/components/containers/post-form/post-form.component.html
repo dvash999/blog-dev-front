@@ -1,7 +1,16 @@
 <div class="from-group d-flex flex-column">
-  <app-upload-image  [cleanInput]="isCleaned" (removeImg)="deleteImg()" (approveImg)=" $event ? watchImage($event) : imgError()"></app-upload-image>
+  <app-upload-image
+    [cleanInput]="isCleaned"
+    (removeImg)="deleteImg()"
+    (approveImg)="$event ? watchImage($event) : imgError()"
+  ></app-upload-image>
   <div class="mb-2 d-flex flex-column" *ngIf="imgPath || img">
-    <img [src]="imgPath || (img | transformImg)" [alt]="img.name || 'img-cover'" width="100%" height="320">
+    <img
+      [src]="imgPath || (img | transformImg)"
+      [alt]="img.name || 'img-cover'"
+      width="100%"
+      height="320"
+    />
   </div>
 </div>
 

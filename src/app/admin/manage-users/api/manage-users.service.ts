@@ -42,4 +42,8 @@ export class ManageUsersService {
       .then(users => users)
       .catch(err => err);
   }
+
+  editUsers(id) {
+    
+  }
 }

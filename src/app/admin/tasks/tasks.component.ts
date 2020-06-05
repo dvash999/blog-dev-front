@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TaskService } from './services/Task.service';
+import { TaskService } from './services/task.service';
 import { NotificationsService } from '../../blog/features/notifications/notifications.service';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -15,21 +16,16 @@ export class TasksComponent implements OnInit {
   tasks: string[];
   constructor(
     private taskService: TaskService,
-    private notificationService: NotificationsService
+    private notificationService: NotificationsService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.getTasks();
+    this.tasks = this.route.snapshot.data.tasks;
   }
 
   getInput(e) {
     this.taskInput = e.target.value;
-  }
-
-  getTasks() {
-    this.taskService.getAllTasks().then(res => {
-      this.tasks = res.payload;
-    });
   }
 
   confirmTask() {

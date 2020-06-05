@@ -4,10 +4,11 @@ import { Route, RouterModule } from '@angular/router';
 import { TasksComponent } from './tasks.component';
 import { AdminSharedModule } from '../shared/admin-shared.module';
 import { FormsModule } from '@angular/forms';
-import { TaskService } from './services/Task.service';
+import { TaskService } from './services/task.service';
+import { TasksResolver } from '../services/tasks/tasksResolver.service';
 
 const routes: Route[] = [
-  {path: '', component: TasksComponent}
+  {path: '', component: TasksComponent, resolve: {tasks: TasksResolver}}
 ];
 
 @NgModule({

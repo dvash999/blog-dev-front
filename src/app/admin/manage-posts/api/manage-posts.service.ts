@@ -16,7 +16,7 @@ import { Form } from '@angular/forms';
   providedIn: 'root'
 })
 export class ManagePostsService {
-  MANAGE_POSTS_URL = `${ROOT_URL}/admin/posts`;
+  readonly MANAGE_POSTS_URL = `${ROOT_URL}/admin/posts`;
 
   constructor(private http: HttpClient) {}
 

@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad6661ef-cdaf-4d4e-a9f2-36673e561984" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/admin/models/task.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/admin/services/tasks/tasksResolver.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/tasks/services/Task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/tasks/services/Task.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/tasks/tasks.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/tasks/tasks.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/tasks/tasks.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/tasks/tasks.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/admin.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/admin.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/dashboard/dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/manage-posts/api/manage-posts.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/manage-posts/api/manage-posts.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/tasks/services/Task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/tasks/services/task.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/tasks/tasks.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/tasks/tasks.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/tasks/tasks.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/tasks/tasks.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,15 +46,15 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/admin/tasks/services" />
       <recent name="$PROJECT_DIR$/src/app/admin" />
+      <recent name="$PROJECT_DIR$/src/app/admin/tasks/services" />
       <recent name="$PROJECT_DIR$/src/app/shared/services" />
       <recent name="$PROJECT_DIR$/src/app/shared" />
       <recent name="$PROJECT_DIR$/src/app/admin/shared" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/admin" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -116,7 +121,13 @@
       <workItem from="1581674035352" duration="8160000" />
       <workItem from="1581692048352" duration="34277000" />
       <workItem from="1582054117661" duration="14623000" />
-      <workItem from="1582397593062" duration="7029000" />
+      <workItem from="1582397593062" duration="7147000" />
+      <workItem from="1582476816245" duration="2000" />
+      <workItem from="1582476851039" duration="1216000" />
+      <workItem from="1582478139073" duration="619000" />
+      <workItem from="1584975245018" duration="644000" />
+      <workItem from="1585174182182" duration="9000" />
+      <workItem from="1585396881789" duration="598000" />
     </task>
     <servers />
   </component>
@@ -156,12 +167,18 @@
       <screen x="49" y="23" width="1391" height="877" />
     </state>
     <state x="146" y="123" width="1191" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog/49.23.1391.877@49.23.1391.877" timestamp="1581179739979" />
-    <state x="564" y="235" width="747" height="518" key="find.popup" timestamp="1582141688420">
+    <state x="564" y="235" width="748" height="518" key="find.popup" timestamp="1585396897696">
       <screen x="49" y="23" width="1391" height="877" />
     </state>
+    <state x="564" y="235" width="748" height="518" key="find.popup/1440.23.1920.1057/49.23.1391.877@49.23.1391.877" timestamp="1585396897696" />
     <state x="337" y="202" width="750" height="518" key="find.popup/46.23.1394.877@46.23.1394.877" timestamp="1581713582503" />
     <state x="338" y="202" width="749" height="518" key="find.popup/47.23.1393.877@47.23.1393.877" timestamp="1581714515147" />
-    <state x="564" y="235" width="747" height="518" key="find.popup/49.23.1391.877@49.23.1391.877" timestamp="1582141688420" />
+    <state x="564" y="235" width="747" height="518" key="find.popup/49.23.1391.877@49.23.1391.877" timestamp="1582477408460" />
+    <state x="566" y="235" width="746" height="518" key="find.popup/52.23.1388.877@52.23.1388.877" timestamp="1584975501360" />
+    <state x="428" y="211" key="run.anything.popup" timestamp="1582478095928">
+      <screen x="49" y="23" width="1391" height="877" />
+    </state>
+    <state x="428" y="211" key="run.anything.popup/49.23.1391.877@49.23.1391.877" timestamp="1582478095928" />
     <state x="483" y="224" width="670" height="676" key="search.everywhere.popup" timestamp="1582400873765">
       <screen x="49" y="23" width="1391" height="877" />
     </state>

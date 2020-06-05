@@ -17,7 +17,7 @@
       </td>
       <td class="d-flex flex-row justify-content-around">
         <i (click)="delete(item.id)" class="far fa-trash-alt pointer"></i>
-        <i (click)="edit(item.id)" class="fas fa-pencil-alt pointer"></i>
+        <i *ngIf="columnTitles.includes('Content')" (click)="edit(item.id)" class="fas fa-pencil-alt pointer"></i>
       </td>
     </tr>
   </ng-container>

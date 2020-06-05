@@ -50,14 +50,14 @@ export class UploadImageComponent implements OnInit {
     this.removeImg.emit();
   }
 
-
-
-  verifyFileSize() {
+  verifyFileSize(): boolean {
     const fSize = Math.round(this.file.size / 1024 / 1024);
     return fSize < 3;
   }
 
-  verifyFileType() {
-    return this.file.type === 'image/jpeg';
+  verifyFileType(): boolean {
+    const types = ['jpeg', 'png', 'jpg'];
+    const type = this.file.type.split('/');
+    return types.includes(type[1]);
   }
 }

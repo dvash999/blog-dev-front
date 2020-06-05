@@ -9,7 +9,7 @@ import { NotificationsService } from '../../../../../blog/features/notifications
 })
 export class ViewUsersComponent implements OnInit {
   users;
-  columnTitles = ['ID', 'Name', 'Email', 'Manage'];
+  columnTitles = ['ID', 'Name', 'Email'];
 
   static approveAction() {
     return NotificationsService.warning().then(response => {
@@ -24,9 +24,7 @@ export class ViewUsersComponent implements OnInit {
   }
 
   getAllUsers() {
-    this.manageUsersService
-      .getAllUsers()
-      .then(users => this.users = users);
+    this.manageUsersService.getAllUsers().then(users => (this.users = users));
   }
 
   async deleteUser(id) {
